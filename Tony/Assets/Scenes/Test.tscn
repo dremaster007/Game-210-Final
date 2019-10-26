@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Player.tscn" type="PackedScene" id=1]
-[ext_resource path="res://OneWayPlatform.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Assets/Scenes/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Assets/Scenes/OneWayPlatform.tscn" type="PackedScene" id=2]
 
 [sub_resource type="CubeMesh" id=1]
 size = Vector3( 32, 0.5, 8 )
