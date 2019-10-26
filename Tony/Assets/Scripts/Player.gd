@@ -14,7 +14,7 @@ var on_ground = true
 var can_jump = true
 var max_jumps = 3
 var current_jumps = 0
-var slow_fall = false
+var fast_fall = false
 var platform_fall = false
 
 var current_platform = null
@@ -37,7 +37,7 @@ func _physics_process(delta):
 	if dodging:
 		velocity = dodge_velocity
 	if not dodging:
-		if slow_fall:
+		if fast_fall:
 			velocity.y -= gravity * 1.25
 			velocity.y = max(velocity.y, -75)
 		else:
@@ -61,19 +61,17 @@ func get_input():
 		if current_jumps < max_jumps:
 			velocity.y = jump_speed
 			current_jumps += 1
-		else:
-			can_jump = false
 	
 	if Input.is_action_pressed("down_1"):
-		if not slow_fall:
+		if not fast_fall:
 			velocity.y = -20
-		slow_fall = true
+			fast_fall = true
 		if current_platform != null:
 			current_platform.get_node("StaticBody/CollisionShape").disabled = true
 	
 	if Input.is_action_just_released("down_1"):
 		platform_fall = false
-		slow_fall = false
+		fast_fall = false
 	
 	if Input.is_action_just_pressed("dodge_1"):
 		if Input.is_action_pressed("left_1") and on_ground:
