@@ -14,11 +14,10 @@ extents = Vector3( 8, 0.25, 4 )
 [node name="OneWayPlatform" type="Area" groups=[
 "one_way_platform",
 ]]
-collision_layer = 2
+collision_layer = 4
 script = ExtResource( 1 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0274069, 0 )
 shape = SubResource( 1 )
 
 [node name="MeshInstance" type="MeshInstance" parent="."]
@@ -26,10 +25,9 @@ mesh = SubResource( 2 )
 material/0 = null
 
 [node name="StaticBody" type="StaticBody" parent="."]
-collision_layer = 2
+collision_layer = 4
 
 [node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
 shape = SubResource( 3 )
 
 [connection signal="area_entered" from="." to="." method="_on_OneWayPlatform_area_entered"]
-[connection signal="body_entered" from="." to="." method="_on_OneWayPlatform_body_entered"]

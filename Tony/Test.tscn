@@ -29,11 +29,12 @@ jump_speed = 75
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.38419e-005, 10.8273, 18.8645 )
 projection = 1
 current = true
+fov = 90.0
 size = 35.774
 
 [node name="OneWayPlatform" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 8, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 8.59021, 0 )
 
 [node name="OneWayPlatform2" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 8, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 8.59021, 0 )
 
