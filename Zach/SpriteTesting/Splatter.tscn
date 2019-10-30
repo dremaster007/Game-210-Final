@@ -7,7 +7,7 @@
 [ext_resource path="res://SpriteTesting/SpriteAssets/splatter_4.png" type="Texture" id=5]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 30.654
+radius = 16.4422
 
 [node name="Splatter" type="Node2D"]
 script = ExtResource( 1 )
@@ -49,18 +49,18 @@ __meta__ = {
 [node name="Check" type="Area2D" parent="."]
 
 [node name="Col1" type="CollisionShape2D" parent="Check"]
-position = Vector2( -45.9295, -41.4773 )
+position = Vector2( -28.7316, -25.8572 )
 shape = SubResource( 1 )
 
 [node name="Col2" type="CollisionShape2D" parent="Check"]
-position = Vector2( 44.2957, -37.4968 )
+position = Vector2( 25.5842, -26.5545 )
 shape = SubResource( 1 )
 
 [node name="Col3" type="CollisionShape2D" parent="Check"]
-position = Vector2( -43.9393, 40.1234 )
+position = Vector2( -26.1102, 26.3966 )
 shape = SubResource( 1 )
 
 [node name="Col4" type="CollisionShape2D" parent="Check"]
-position = Vector2( 40.3152, 40.1234 )
+position = Vector2( 25.6417, 26.5544 )
 shape = SubResource( 1 )
 [connection signal="area_shape_entered" from="Check" to="." method="_on_TLCheck_area_shape_entered"]

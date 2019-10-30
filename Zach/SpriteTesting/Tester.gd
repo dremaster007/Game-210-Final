@@ -2,6 +2,9 @@ extends Node2D
 
 export (PackedScene) var Paint
 
+var red_score = 0
+var blue_score = 0
+
 func _process(delta):
 	get_input()
 
@@ -17,12 +20,24 @@ func place_sprite(color, mouse_pos):
 		"red":
 			color_vals = Color(1,0,0,1)
 			var p = Paint.instance()
-			p.start(color_vals)
+			p.start(color_vals, "red")
 			p.position = mouse_pos
-			get_node("RedContainer").add_child(p)
+			get_node("Container").add_child(p)
 		"blue":
 			color_vals = Color(0,0,1,1)
 			var p = Paint.instance()
-			p.start(color_vals)
+			p.start(color_vals, "blue")
 			p.position = mouse_pos
-			get_node("BlueContainer").add_child(p)
+			get_node("Container").add_child(p)
+	count_score()
+
+func count_score():
+	if $Container.get_child_count() == 0:
+		return
+	for node in $Container.get_children():
+		if node.type == "red":
+			red_score += 1
+		elif node.type == "blue":
+			blue_score += 1
+	print("Red Score is: ", red_score)
+	print("Blue Score is: ", blue_score)
