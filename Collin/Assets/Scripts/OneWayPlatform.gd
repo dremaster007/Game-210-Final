@@ -5,9 +5,13 @@ func _on_OneWayPlatform_area_entered(area):
 		var player = area.get_parent()
 		if player.platform_fall == true:
 			$StaticBody2D/CollisionShape2D.disabled = true
-		elif player.velocity.y > player.EPSILON:
+			print("1")
+		elif player.velocity.y < player.EPSILON:
 			$StaticBody2D/CollisionShape2D.disabled = true
-		elif player.velocity.y <= player.EPSILON:
+			print("2")
+		elif player.velocity.y >= player.EPSILON:
 			$StaticBody2D/CollisionShape2D.disabled = false
+			print("3")
 		else:
 			$StaticBody2D/CollisionShape2D.disabled = false
+			print("4")

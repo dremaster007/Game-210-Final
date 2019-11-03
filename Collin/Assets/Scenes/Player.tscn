@@ -4,25 +4,24 @@
 [ext_resource path="res://icon.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 55.6505, 1.55373e+009 )
+extents = Vector2( 33.78, 8.16731e+008 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 66.2019, 86.0036 )
+extents = Vector2( 45.4112, 54.7645 )
 
 [node name="Player" type="KinematicBody2D" groups=[
 "player",
 ]]
 collision_mask = 6
 script = ExtResource( 1 )
-speed = 5
-jump_speed = 300
+speed = 20
+jump_speed = 400
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2( 1, -4.37114e-008 )
 shape = SubResource( 1 )
 
 [node name="Sprite2D" type="Sprite" parent="."]
-scale = Vector2( 1.5, 2 )
 texture = ExtResource( 2 )
 
 [node name="Area2D" type="Area2D" parent="." groups=[

@@ -3,10 +3,10 @@
 [ext_resource path="res://Assets/Scripts/OneWayPlatform.gd" type="Script" id=1]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 430.614, 84.7553 )
+extents = Vector2( 192.43, 43.7264 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 423.582, 33.7708 )
+extents = Vector2( 177.779, 20.8936 )
 
 [node name="OneWayPlatform" type="Area2D" groups=[
 "one_way_platform",
