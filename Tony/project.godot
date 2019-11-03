@@ -18,6 +18,10 @@ _global_script_class_icons={
 config/name="Final"
 config/icon="res://icon.png"
 
+[display]
+
+window/vsync/use_vsync=false
+
 [input]
 
 left_1={
