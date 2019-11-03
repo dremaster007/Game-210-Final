@@ -7,6 +7,7 @@ var splatter_textures = [load("res://SpriteTesting/SpriteAssets/splatter_1.png")
 # is the paint on the background
 var is_placed = false
 var type
+#var going_to_qf = false
 
 # set all of the textures
 func _ready():
@@ -21,43 +22,39 @@ func start(color_val, color_type):
 		node.modulate = color_val
 		type = color_type
 
+func _process(delta):
+	if Input.is_action_just_pressed("ui_left"):
+		for node in $SpriteHolder.get_children():
+			node.hide()
+	if Input.is_action_just_pressed("ui_right"):
+		for node in $SpriteHolder.get_children():
+			node.show()
+
+func set_placed():
+	is_placed = true
+
 func _on_TLCheck_area_shape_entered(area_id, area, area_shape, self_shape):
 	if area.get_parent().is_placed:
 		if area_shape == 0:
+			if area.get_parent().get_node("SpriteHolder/Sprite1") == null:
+				return
 			area.get_parent().get_node("SpriteHolder/Sprite1").queue_free()
 			area.get_parent().get_node("Check/Col1").queue_free()
-#		if area_shape == 0 and self_shape == 1:
-#			area.get_parent().get_node("SpriteHolder/Sprite1").queue_free()
-#		if area_shape == 0 and self_shape == 2:
-#			pass
-#		if area_shape == 0 and self_shape == 3:
-#			pass
 		if area_shape == 1:
+			if area.get_parent().get_node("SpriteHolder/Sprite2") == null:
+				return
 			area.get_parent().get_node("SpriteHolder/Sprite2").queue_free()
 			area.get_parent().get_node("Check/Col2").queue_free()
-#		if area_shape == 1 and self_shape == 1:
-#			pass
-#		if area_shape == 1 and self_shape == 2:
-#			pass
-#		if area_shape == 1 and self_shape == 3:
-#			pass
 		if area_shape == 2:
+			if area.get_parent().get_node("SpriteHolder/Sprite3") == null:
+				return
 			area.get_parent().get_node("SpriteHolder/Sprite3").queue_free()
 			area.get_parent().get_node("Check/Col3").queue_free()
-#		if area_shape == 2 and self_shape == 1:
-#			pass
-#		if area_shape == 2 and self_shape == 2:
-#			pass
-#		if area_shape == 2 and self_shape == 3:
-#			pass
 		if area_shape == 3:
+			if area.get_parent().get_node("SpriteHolder/Sprite4") == null:
+				return
 			area.get_parent().get_node("SpriteHolder/Sprite4").queue_free()
 			area.get_parent().get_node("Check/Col4").queue_free()
-#		if area_shape == 3 and self_shape == 1:
-#			pass
-#		if area_shape == 3 and self_shape == 2:
-#			pass
-#		if area_shape == 3 and self_shape == 3:
-#			pass
-	yield(get_tree().create_timer(0.3), "timeout")
-	is_placed = true
+
+func _on_PlaceTimer_timeout():
+	set_placed()
