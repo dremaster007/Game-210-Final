@@ -58,10 +58,13 @@ up_1={
 [layer_names]
 
 2d_physics/layer_1="player"
+3d_render/layer_1="background"
 3d_physics/layer_1="player"
 2d_physics/layer_2="world"
+3d_render/layer_2="midground"
 3d_physics/layer_2="world"
 2d_physics/layer_3="platforms"
+3d_render/layer_3="forground"
 3d_physics/layer_3="platforms"
 
 [rendering]
