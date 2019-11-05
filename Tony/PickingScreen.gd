@@ -1,8 +1,13 @@
 extends Spatial
 
-onready var characters = [$MainBuilding/Character1, $MainBuilding/Character2, $MainBuilding/Character3,
-						$MainBuilding/Character4, $MainBuilding/Character5, $MainBuilding/Character6,
-						$MainBuilding/Character7, $MainBuilding/Character8]
+onready var characters = [$MainBuilding/CharacterHolder/Character1,
+						$MainBuilding/CharacterHolder/Character2,
+						$MainBuilding/CharacterHolder/Character3,
+						$MainBuilding/CharacterHolder/Character4,
+						$MainBuilding/CharacterHolder/Character5,
+						$MainBuilding/CharacterHolder/Character6,
+						$MainBuilding/CharacterHolder/Character7,
+						$MainBuilding/CharacterHolder/Character8]
 
 var char_selected = null
 var selected_num = 0
@@ -61,7 +66,7 @@ func cycle_characters():
 	char_selected = characters[selected_num]
 	# Set all other sprites in the array to look like they are unselected
 	for i in characters:
-		i.opacity = 1
+		print(i.get_surface_material(0))
 	# Set the character select to show that they are selected
-	char_selected.opacity = 0.5
+	#char_selected.opacity = 0.5
 
