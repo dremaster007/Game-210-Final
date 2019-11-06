@@ -32,12 +32,17 @@ func place_sprite(color, mouse_pos):
 	count_score()
 
 func count_score():
+	var red_counter = 0
+	var blue_counter = 0
 	if $Container.get_child_count() == 0:
 		return
 	for node in $Container.get_children():
 		if node.type == "red":
-			red_score += 1
+			red_counter += node.score_value
 		elif node.type == "blue":
-			blue_score += 1
-	#print("Red Score is: ", red_score)
-	#print("Blue Score is: ", blue_score)
+			blue_counter += node.score_value
+		print(red_counter)
+	red_score = red_counter
+	blue_score = blue_counter
+	print("The red score is: ", red_score)
+	print("The blue score is: ", blue_score)
