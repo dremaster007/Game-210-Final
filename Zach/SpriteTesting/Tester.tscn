@@ -15,4 +15,3 @@ scale = Vector2( 19.1417, 13.1264 )
 texture = ExtResource( 3 )
 
 [node name="Container" type="Node2D" parent="."]
-

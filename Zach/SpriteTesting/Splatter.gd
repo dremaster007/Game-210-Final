@@ -28,6 +28,7 @@ func _process(delta):
 	if Input.is_action_just_pressed("ui_right"):
 		for node in $SpriteHolder.get_children():
 			node.show()
+	print(score_value)
 	if score_value == 0:
 		queue_free()
 
@@ -39,27 +40,27 @@ func _on_TLCheck_area_shape_entered(area_id, area, area_shape, self_shape):
 		if area_shape == 0:
 			if area.get_parent().get_node("SpriteHolder/Sprite1") == null:
 				return
+			area.get_parent().score_value -= 1
 			area.get_parent().get_node("SpriteHolder/Sprite1").queue_free()
 			area.get_parent().get_node("Check/Col1").queue_free()
-			area.get_parent().score_value -= 1
 		if area_shape == 1:
 			if area.get_parent().get_node("SpriteHolder/Sprite2") == null:
 				return
+			area.get_parent().score_value -= 1
 			area.get_parent().get_node("SpriteHolder/Sprite2").queue_free()
 			area.get_parent().get_node("Check/Col2").queue_free()
-			area.get_parent().score_value -= 1
 		if area_shape == 2:
 			if area.get_parent().get_node("SpriteHolder/Sprite3") == null:
 				return
+			area.get_parent().score_value -= 1
 			area.get_parent().get_node("SpriteHolder/Sprite3").queue_free()
 			area.get_parent().get_node("Check/Col3").queue_free()
-			area.get_parent().score_value -= 1
 		if area_shape == 3:
 			if area.get_parent().get_node("SpriteHolder/Sprite4") == null:
 				return
+			area.get_parent().score_value -= 1
 			area.get_parent().get_node("SpriteHolder/Sprite4").queue_free()
 			area.get_parent().get_node("Check/Col4").queue_free()
-			area.get_parent().score_value -= 1
 
 func _on_PlaceTimer_timeout():
 	set_placed()
