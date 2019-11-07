@@ -21,6 +21,8 @@ var platform_fall = false
 var current_platform = null
 
 var state 
+var att_direction = ""
+var facing_dir = "Right"
 
 func _ready():
 	change_state(IDLE)
@@ -44,11 +46,13 @@ func _physics_process(delta):
 func get_input():
 	var friction = false
 	if Input.is_action_pressed("left_%s" % player_number):
+		facing_dir = "Left"
 		if is_on_floor():
 			if state != WALK:
 				change_state(WALK)
 		velocity.x = max(velocity.x - ACCELERATION, -MAX_SPEED)
 	elif Input.is_action_pressed("right_%s" % player_number):
+		facing_dir = "Right"
 		if is_on_floor():
 			if state != WALK:
 				change_state(WALK)
@@ -63,6 +67,8 @@ func get_input():
 			change_state(JUMP)
 	
 	if Input.is_action_just_pressed("down_%s" % player_number):
+		if state == JUMP or state == FALLING or state == FAST_FALLING:
+			att_direction = "Down"
 		if state != FAST_FALLING:
 			if !is_on_floor():
 				if velocity.y < 0:
@@ -79,38 +85,62 @@ func get_input():
 			change_state(FALLING)
 		else:
 			change_state(IDLE)
+	
+	if Input.is_action_pressed("up_%s" % player_number):
+		att_direction = "Up"
+	
+	if Input.is_action_pressed("attack_%s" % player_number):
+		change_state(ATTACK)
 
 func change_state(new_state):
 	state = new_state
 	match state:
 		IDLE:
 			platform_fall = false
-			#print("idle")
+			att_direction = "Neutral"
+			$Attack_Collision/AnimationPlayer.play("Attack_Null")
+			print("idle")
 		WALK:
-			pass
-			#print("Walk")
+			att_direction = "Neutral"
+			print("Walk")
 		RUN:
-			pass
-			#print("run")
+			att_direction = "Neutral"
+			print("run")
 		JUMP: 
 			velocity.y = JUMP_HEIGHT
 			current_jumps += 1
-			#print("jump")
+			att_direction = "Neutral"
+			print("jump")
 		FALLING:
-			pass
-			#print("Falling")
+			att_direction = "Neutral"
+			print("Falling")
 		FAST_FALLING:
 			platform_fall = true
-			#print("Fast Falling")
+			print("Fast Falling")
 		ATTACK:
-			pass
-			#print("Attack")
+			if att_direction == "Up":
+				$Attack_Collision/AnimationPlayer.play("Attack_Up") 
+			if att_direction == "Down": 
+				$Attack_Collision/AnimationPlayer.play("Attack_Down")
+			if att_direction == "Neutral":
+				if facing_dir == "Left":
+					$Attack_Collision/AnimationPlayer.play("Attack_Neutral_Left")
+				else:
+					$Attack_Collision/AnimationPlayer.play("Attack_Neutral_Right")
+			print("Attack")
 		STUNNED:
-			pass
-			#print("Stunned")
+			att_direction = "Neutral"
+			print("Stunned")
 
 func _on_Area2D_body_entered(body):
 	current_platform = body
 
 func _on_Area2D_body_exited(body):
 	current_platform = null
+
+func _on_AnimationPlayer_animation_finished(anim_name):
+	if anim_name == "Attack_Null":
+		return
+	else:
+		$Attack_Collision/AnimationPlayer.play("Attack_Null")
+		att_direction = "Neutral"
