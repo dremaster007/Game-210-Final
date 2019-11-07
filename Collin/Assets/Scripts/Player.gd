@@ -1,9 +1,11 @@
 extends KinematicBody2D
 
-const GRAVITY = 30
+const GRAVITY = 35
 const ACCELERATION = 100
 const MAX_SPEED = 450
 const JUMP_HEIGHT = -700
+
+export (int) var player_number
 
 var velocity = Vector2()
 var dodge_velocity = Vector2()
@@ -41,12 +43,12 @@ func _physics_process(delta):
 
 func get_input():
 	var friction = false
-	if Input.is_action_pressed("left_1"):
+	if Input.is_action_pressed("left_%s" % player_number):
 		if is_on_floor():
 			if state != WALK:
 				change_state(WALK)
 		velocity.x = max(velocity.x - ACCELERATION, -MAX_SPEED)
-	elif Input.is_action_pressed("right_1"):
+	elif Input.is_action_pressed("right_%s" % player_number):
 		if is_on_floor():
 			if state != WALK:
 				change_state(WALK)
@@ -56,11 +58,11 @@ func get_input():
 		# This slows down our character from their current velocity to 0, 20% each frame
 		velocity.x = lerp(velocity.x, 0, 0.2)
 	
-	if Input.is_action_just_pressed("jump_1"):
+	if Input.is_action_just_pressed("jump_%s" % player_number):
 		if current_jumps < max_jumps:
 			change_state(JUMP)
 	
-	if Input.is_action_just_pressed("down_1"):
+	if Input.is_action_just_pressed("down_%s" % player_number):
 		if state != FAST_FALLING:
 			if !is_on_floor():
 				if velocity.y < 0:
@@ -71,7 +73,7 @@ func get_input():
 				current_platform = null
 				position.y += 1
 	
-	if Input.is_action_just_released("down_1"):
+	if Input.is_action_just_released("down_%s" % player_number):
 		platform_fall = false
 		if !is_on_floor():
 			change_state(FALLING)
