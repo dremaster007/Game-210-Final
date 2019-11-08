@@ -9,7 +9,7 @@ extents = Vector2( 32, 32 )
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 34, 34 )
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=3]
 resource_name = "Attack_Down"
 length = 0.1
 tracks/0/type = "value"
@@ -61,7 +61,7 @@ tracks/3/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=4]
 resource_name = "Attack_Left"
 length = 0.1
 tracks/0/type = "value"
@@ -113,7 +113,7 @@ tracks/3/keys = {
 "values": [ Vector2( -46, -1 ) ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=5]
 resource_name = "Attack_Neutral"
 length = 0.1
 tracks/0/type = "value"
@@ -165,7 +165,7 @@ tracks/3/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=6]
 resource_name = "Attack_Null"
 length = 0.1
 tracks/0/type = "value"
@@ -193,8 +193,7 @@ tracks/1/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=6]
-resource_name = "Attack_Right"
+[sub_resource type="Animation" id=7]
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:rotation_degrees")
@@ -245,7 +244,7 @@ tracks/3/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=8]
 resource_name = "Down_Neutral_Left"
 length = 0.1
 tracks/0/type = "value"
@@ -349,7 +348,7 @@ tracks/3/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="RectangleShape2D" id=12]
+[sub_resource type="RectangleShape2D" id=10]
 extents = Vector2( 28.7436, 13.7969 )
 
 [node name="Player" type="KinematicBody2D" groups=[
@@ -376,16 +375,20 @@ rotation = 1.5708
 collision_layer = 8
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Attack_Collision"]
-anims/Attack_Down = SubResource( 4 )
-anims/Attack_Left = SubResource( 11 )
-anims/Attack_Neutral = SubResource( 8 )
-anims/Attack_Null = SubResource( 7 )
-anims/Attack_Right = SubResource( 6 )
-anims/Down_Neutral_Left = SubResource( 10 )
+anims/Attack_Down = SubResource( 3 )
+anims/Attack_Left = SubResource( 4 )
+anims/Attack_Neutral = SubResource( 5 )
+anims/Attack_Null = SubResource( 6 )
+anims/Attack_Right = SubResource( 7 )
+anims/Down_Neutral_Left = SubResource( 8 )
 anims/Down_Neutral_Right = SubResource( 9 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Attack_Collision"]
-shape = SubResource( 12 )
+shape = SubResource( 10 )
+
+[node name="Platform_Fall_Timer" type="Timer" parent="."]
+wait_time = 0.5
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]
 [connection signal="animation_finished" from="Attack_Collision/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="timeout" from="Platform_Fall_Timer" to="." method="_on_Platform_Fall_Timer_timeout"]

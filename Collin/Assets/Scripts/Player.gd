@@ -23,6 +23,7 @@ var current_platform = null
 var state 
 var att_direction = ""
 var facing_dir = "Right"
+var platform_fall_count = 0
 
 func _ready():
 	change_state(IDLE)
@@ -68,7 +69,7 @@ func get_input():
 		if current_jumps < max_jumps:
 			change_state(JUMP)
 	
-	if Input.is_action_just_pressed("down_%s" % player_number):
+	if Input.is_action_pressed("down_%s" % player_number):
 		if state == JUMP or state == FALLING or state == FAST_FALLING:
 			att_direction = "Down"
 		if state != FAST_FALLING:
@@ -76,11 +77,15 @@ func get_input():
 				if velocity.y < 0:
 					velocity.y = 0
 				change_state(FAST_FALLING)
-		if current_platform != null:
+		att_direction = "Down"
+	
+	if Input.is_action_just_pressed("down_%s" % player_number):
+		platform_fall_count += 1
+		$Platform_Fall_Timer.start()
+		if current_platform != null and platform_fall_count >= 2:
 			if current_platform.is_in_group("one_way_platform"):
 				current_platform = null
 				position.y += 1
-		att_direction = "Down"
 	
 	if Input.is_action_just_released("down_%s" % player_number):
 		platform_fall = false
@@ -95,6 +100,7 @@ func get_input():
 	if Input.is_action_just_pressed("attack_%s" % player_number):
 		change_state(ATTACK)
 
+#var current_speed = velocity.x 
 func change_state(new_state):
 	state = new_state
 	match state:
@@ -121,10 +127,12 @@ func change_state(new_state):
 				att_direction = "Down"
 			print("Falling")
 		FAST_FALLING:
-			platform_fall = true
+			if platform_fall_count >= 2:
+				platform_fall = true
 			att_direction = "Down"
 			print("Fast Falling")
 		ATTACK:
+#			velocity.x = 0
 			if velocity.y > EPSILON and !Input.is_action_pressed("up_%s" % player_number) and att_direction != "Left" and att_direction != "Right":
 				att_direction = "Down"
 			if att_direction == "Down": 
@@ -140,6 +148,8 @@ func change_state(new_state):
 				$Attack_Collision/AnimationPlayer.play("Attack_Left")
 			if att_direction == "Right":
 				$Attack_Collision/AnimationPlayer.play("Attack_Right")
+#			yield(get_tree().create_timer(1.5), "timeout")
+#			velocity.x = current_speed
 			print("Attack")
 		STUNNED:
 			att_direction = "Neutral"
@@ -159,3 +169,5 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 		if att_direction != "Down":
 			att_direction = "Neutral"
 
+func _on_Platform_Fall_Timer_timeout():
+	platform_fall_count = 0
