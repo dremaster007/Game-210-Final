@@ -7,8 +7,6 @@
 [ext_resource path="res://Assets/Sprites/splatter_2.png" type="Texture" id=5]
 [ext_resource path="res://icon.png" type="Texture" id=6]
 
-
-
 [sub_resource type="CubeMesh" id=1]
 size = Vector3( 20, 0.1, 20 )
 
