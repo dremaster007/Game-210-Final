@@ -41,7 +41,6 @@ func count_score():
 			red_counter += node.score_value
 		elif node.type == "blue":
 			blue_counter += node.score_value
-		print(red_counter)
 	red_score = red_counter
 	blue_score = blue_counter
 	print("The red score is: ", red_score)

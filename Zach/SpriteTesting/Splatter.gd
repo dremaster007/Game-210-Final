@@ -28,35 +28,46 @@ func _process(delta):
 	if Input.is_action_just_pressed("ui_right"):
 		for node in $SpriteHolder.get_children():
 			node.show()
-	print(score_value)
 	if score_value == 0:
 		queue_free()
 
 func set_placed():
 	is_placed = true
 
+func is_sprite_null(area, sprite_num):
+	if area.get_parent().get_node("SpriteHolder/Sprite%s" % sprite_num) == null:
+		return true
+
 func _on_TLCheck_area_shape_entered(area_id, area, area_shape, self_shape):
 	if area.get_parent().is_placed:
 		if area_shape == 0:
-			if area.get_parent().get_node("SpriteHolder/Sprite1") == null:
+#			if area.get_parent().get_node("SpriteHolder/Sprite1") == null:
+#				return
+			if is_sprite_null(area, "1"):
 				return
 			area.get_parent().score_value -= 1
 			area.get_parent().get_node("SpriteHolder/Sprite1").queue_free()
 			area.get_parent().get_node("Check/Col1").queue_free()
 		if area_shape == 1:
-			if area.get_parent().get_node("SpriteHolder/Sprite2") == null:
+#			if area.get_parent().get_node("SpriteHolder/Sprite2") == null:
+#				return
+			if is_sprite_null(area, "2"):
 				return
 			area.get_parent().score_value -= 1
 			area.get_parent().get_node("SpriteHolder/Sprite2").queue_free()
 			area.get_parent().get_node("Check/Col2").queue_free()
 		if area_shape == 2:
-			if area.get_parent().get_node("SpriteHolder/Sprite3") == null:
+#			if area.get_parent().get_node("SpriteHolder/Sprite3") == null:
+#				return
+			if is_sprite_null(area, "3"):
 				return
 			area.get_parent().score_value -= 1
 			area.get_parent().get_node("SpriteHolder/Sprite3").queue_free()
 			area.get_parent().get_node("Check/Col3").queue_free()
 		if area_shape == 3:
-			if area.get_parent().get_node("SpriteHolder/Sprite4") == null:
+#			if area.get_parent().get_node("SpriteHolder/Sprite4") == null:
+#				return
+			if is_sprite_null(area, "4"):
 				return
 			area.get_parent().score_value -= 1
 			area.get_parent().get_node("SpriteHolder/Sprite4").queue_free()
