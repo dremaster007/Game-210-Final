@@ -38,38 +38,33 @@ func is_sprite_null(area, sprite_num):
 	if area.get_parent().get_node("SpriteHolder/Sprite%s" % sprite_num) == null:
 		return true
 
+func decrease_score_value(amount):
+	score_value -= amount
+
 func _on_TLCheck_area_shape_entered(area_id, area, area_shape, self_shape):
 	if area.get_parent().is_placed:
 		if area_shape == 0:
-#			if area.get_parent().get_node("SpriteHolder/Sprite1") == null:
-#				return
 			if is_sprite_null(area, "1"):
 				return
-			area.get_parent().score_value -= 1
+			area.get_parent().decrease_score_value(1)
 			area.get_parent().get_node("SpriteHolder/Sprite1").queue_free()
 			area.get_parent().get_node("Check/Col1").queue_free()
 		if area_shape == 1:
-#			if area.get_parent().get_node("SpriteHolder/Sprite2") == null:
-#				return
 			if is_sprite_null(area, "2"):
 				return
-			area.get_parent().score_value -= 1
+			area.get_parent().decrease_score_value(1)
 			area.get_parent().get_node("SpriteHolder/Sprite2").queue_free()
 			area.get_parent().get_node("Check/Col2").queue_free()
 		if area_shape == 2:
-#			if area.get_parent().get_node("SpriteHolder/Sprite3") == null:
-#				return
 			if is_sprite_null(area, "3"):
 				return
-			area.get_parent().score_value -= 1
+			area.get_parent().decrease_score_value(1)
 			area.get_parent().get_node("SpriteHolder/Sprite3").queue_free()
 			area.get_parent().get_node("Check/Col3").queue_free()
 		if area_shape == 3:
-#			if area.get_parent().get_node("SpriteHolder/Sprite4") == null:
-#				return
 			if is_sprite_null(area, "4"):
 				return
-			area.get_parent().score_value -= 1
+			area.get_parent().decrease_score_value(1)
 			area.get_parent().get_node("SpriteHolder/Sprite4").queue_free()
 			area.get_parent().get_node("Check/Col4").queue_free()
 
