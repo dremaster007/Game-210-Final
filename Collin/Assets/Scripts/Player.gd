@@ -46,12 +46,14 @@ func _physics_process(delta):
 func get_input():
 	var friction = false
 	if Input.is_action_pressed("left_%s" % player_number):
+		att_direction = "Left"
 		facing_dir = "Left"
 		if is_on_floor():
 			if state != WALK:
 				change_state(WALK)
 		velocity.x = max(velocity.x - ACCELERATION, -MAX_SPEED)
 	elif Input.is_action_pressed("right_%s" % player_number):
+		att_direction = "Right"
 		facing_dir = "Right"
 		if is_on_floor():
 			if state != WALK:
@@ -78,6 +80,7 @@ func get_input():
 			if current_platform.is_in_group("one_way_platform"):
 				current_platform = null
 				position.y += 1
+		att_direction = "Down"
 	
 	if Input.is_action_just_released("down_%s" % player_number):
 		platform_fall = false
@@ -87,9 +90,9 @@ func get_input():
 			change_state(IDLE)
 	
 	if Input.is_action_pressed("up_%s" % player_number):
-		att_direction = "Up"
+		att_direction = "Neutral"
 	
-	if Input.is_action_pressed("attack_%s" % player_number):
+	if Input.is_action_just_pressed("attack_%s" % player_number):
 		change_state(ATTACK)
 
 func change_state(new_state):
@@ -101,10 +104,8 @@ func change_state(new_state):
 			$Attack_Collision/AnimationPlayer.play("Attack_Null")
 			print("idle")
 		WALK:
-			att_direction = "Neutral"
 			print("Walk")
 		RUN:
-			att_direction = "Neutral"
 			print("run")
 		JUMP: 
 			velocity.y = JUMP_HEIGHT
@@ -112,21 +113,33 @@ func change_state(new_state):
 			att_direction = "Neutral"
 			print("jump")
 		FALLING:
-			att_direction = "Neutral"
+			if velocity.x > EPSILON:
+				att_direction = "Right"
+			elif velocity.x < EPSILON:
+				att_direction = "Left"
+			else:
+				att_direction = "Down"
 			print("Falling")
 		FAST_FALLING:
 			platform_fall = true
+			att_direction = "Down"
 			print("Fast Falling")
 		ATTACK:
-			if att_direction == "Up":
-				$Attack_Collision/AnimationPlayer.play("Attack_Up") 
+			if velocity.y > EPSILON and !Input.is_action_pressed("up_%s" % player_number) and att_direction != "Left" and att_direction != "Right":
+				att_direction = "Down"
 			if att_direction == "Down": 
-				$Attack_Collision/AnimationPlayer.play("Attack_Down")
+				if velocity.y > EPSILON:
+					$Attack_Collision/AnimationPlayer.play("Attack_Down")
+				elif facing_dir == "Left":
+					$Attack_Collision/AnimationPlayer.play("Down_Neutral_Left")
+				elif facing_dir == "Right":
+					$Attack_Collision/AnimationPlayer.play("Down_Neutral_Right")
 			if att_direction == "Neutral":
-				if facing_dir == "Left":
-					$Attack_Collision/AnimationPlayer.play("Attack_Neutral_Left")
-				else:
-					$Attack_Collision/AnimationPlayer.play("Attack_Neutral_Right")
+				$Attack_Collision/AnimationPlayer.play("Attack_Neutral") 
+			if att_direction == "Left":
+				$Attack_Collision/AnimationPlayer.play("Attack_Left")
+			if att_direction == "Right":
+				$Attack_Collision/AnimationPlayer.play("Attack_Right")
 			print("Attack")
 		STUNNED:
 			att_direction = "Neutral"
@@ -143,4 +156,6 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 		return
 	else:
 		$Attack_Collision/AnimationPlayer.play("Attack_Null")
-		att_direction = "Neutral"
+		if att_direction != "Down":
+			att_direction = "Neutral"
+
