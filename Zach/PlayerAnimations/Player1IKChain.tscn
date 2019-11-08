@@ -199,7 +199,7 @@ __meta__ = {
 
 [node name="splatter_boi_leftupperarm" type="Sprite" parent="splatter_boi_lowerbody/splatter_boi_upperbody"]
 position = Vector2( -104.156, -115.894 )
-rotation = -0.214816
+rotation = 0.0494602
 texture = ExtResource( 7 )
 offset = Vector2( -29.4277, 45.9216 )
 __meta__ = {
@@ -209,7 +209,7 @@ __meta__ = {
 
 [node name="splatter_boi_leftlowerarm" type="Sprite" parent="splatter_boi_lowerbody/splatter_boi_upperbody/splatter_boi_leftupperarm"]
 position = Vector2( -73.8233, 113.564 )
-rotation = -0.615167
+rotation = 0.0627892
 texture = ExtResource( 8 )
 offset = Vector2( 23.6928, 97.7971 )
 __meta__ = {
