@@ -5,6 +5,8 @@ const ACCELERATION = 100
 const MAX_SPEED = 450
 const JUMP_HEIGHT = -700
 
+var debug_mode = false
+
 export (int) var player_number
 
 var velocity = Vector2()
@@ -19,6 +21,8 @@ var current_jumps = 0
 var platform_fall = false
 
 var current_platform = null
+
+onready var kbt = $KnockbackTween
 
 var state 
 var att_direction = ""
@@ -46,6 +50,9 @@ func _physics_process(delta):
 
 func get_input():
 	var friction = false
+	if Input.is_action_just_pressed("debug_mode"):
+		debug_mode = !debug_mode
+		print("debug_mode: ", debug_mode)
 	if Input.is_action_pressed("left_%s" % player_number):
 		att_direction = "Left"
 		facing_dir = "Left"
@@ -108,16 +115,20 @@ func change_state(new_state):
 			platform_fall = false
 			att_direction = "Neutral"
 			$Attack_Collision/AnimationPlayer.play("Attack_Null")
-			print("idle")
+			if debug_mode:
+				print("idle")
 		WALK:
-			print("Walk")
+			if debug_mode:
+				print("Walk")
 		RUN:
-			print("run")
+			if debug_mode:
+				print("run")
 		JUMP: 
 			velocity.y = JUMP_HEIGHT
 			current_jumps += 1
 			att_direction = "Neutral"
-			print("jump")
+			if debug_mode:
+				print("jump")
 		FALLING:
 			if velocity.x > EPSILON:
 				att_direction = "Right"
@@ -125,12 +136,14 @@ func change_state(new_state):
 				att_direction = "Left"
 			else:
 				att_direction = "Down"
-			print("Falling")
+			if debug_mode:
+				print("Falling")
 		FAST_FALLING:
 			if platform_fall_count >= 2:
 				platform_fall = true
 			att_direction = "Down"
-			print("Fast Falling")
+			if debug_mode:
+				print("Fast Falling")
 		ATTACK:
 #			velocity.x = 0
 			if velocity.y > EPSILON and !Input.is_action_pressed("up_%s" % player_number) and att_direction != "Left" and att_direction != "Right":
@@ -150,10 +163,10 @@ func change_state(new_state):
 				$Attack_Collision/AnimationPlayer.play("Attack_Right")
 #			yield(get_tree().create_timer(1.5), "timeout")
 #			velocity.x = current_speed
-			print("Attack")
+			#print("Attack")
 		STUNNED:
 			att_direction = "Neutral"
-			print("Stunned")
+			#print("Stunned")
 
 func _on_Area2D_body_entered(body):
 	current_platform = body
