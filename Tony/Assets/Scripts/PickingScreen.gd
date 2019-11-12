@@ -77,3 +77,8 @@ func cycle_characters():
 	# Set the character select to show that they are selected
 	#char_selected.opacity = 0.5
 
+func _on_BackButton_input_event(camera, event, click_position, click_normal, shape_idx):
+	if event is InputEventMouseButton:
+		if event.button_index == 1:
+			if event.pressed == false:
+				get_tree().change_scene("res://Assets/Scenes/TitleScreen.tscn")

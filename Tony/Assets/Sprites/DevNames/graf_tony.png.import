@@ -2,8 +2,8 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/splatter_4.png-8a56468834c2da1141ee7bed66828c6e.s3tc.stex"
-path.etc2="res://.import/splatter_4.png-8a56468834c2da1141ee7bed66828c6e.etc2.stex"
+path.s3tc="res://.import/graf_tony.png-3554927ce6f40d44b20dc1d09d3564d5.s3tc.stex"
+path.etc2="res://.import/graf_tony.png-3554927ce6f40d44b20dc1d09d3564d5.etc2.stex"
 metadata={
 "imported_formats": [ "s3tc", "etc2" ],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Sprites/splatter_4.png"
-dest_files=[ "res://.import/splatter_4.png-8a56468834c2da1141ee7bed66828c6e.s3tc.stex", "res://.import/splatter_4.png-8a56468834c2da1141ee7bed66828c6e.etc2.stex" ]
+source_file="res://Assets/Sprites/DevNames/graf_tony.png"
+dest_files=[ "res://.import/graf_tony.png-3554927ce6f40d44b20dc1d09d3564d5.s3tc.stex", "res://.import/graf_tony.png-3554927ce6f40d44b20dc1d09d3564d5.etc2.stex" ]
 
 [params]
 

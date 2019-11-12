@@ -2,8 +2,8 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/graf_zach.png-8ed62471a43cfb252ef06048cad27884.s3tc.stex"
-path.etc2="res://.import/graf_zach.png-8ed62471a43cfb252ef06048cad27884.etc2.stex"
+path.s3tc="res://.import/graf_wakim.png-144a3d50635e9b3b8d0dc2cf0a2b1390.s3tc.stex"
+path.etc2="res://.import/graf_wakim.png-144a3d50635e9b3b8d0dc2cf0a2b1390.etc2.stex"
 metadata={
 "imported_formats": [ "s3tc", "etc2" ],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Sprites/graf_zach.png"
-dest_files=[ "res://.import/graf_zach.png-8ed62471a43cfb252ef06048cad27884.s3tc.stex", "res://.import/graf_zach.png-8ed62471a43cfb252ef06048cad27884.etc2.stex" ]
+source_file="res://Assets/Sprites/DevNames/graf_wakim.png"
+dest_files=[ "res://.import/graf_wakim.png-144a3d50635e9b3b8d0dc2cf0a2b1390.s3tc.stex", "res://.import/graf_wakim.png-144a3d50635e9b3b8d0dc2cf0a2b1390.etc2.stex" ]
 
 [params]
 
