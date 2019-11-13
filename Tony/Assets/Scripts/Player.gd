@@ -7,6 +7,8 @@ const JUMP_HEIGHT = -700
 
 var debug_mode = false
 
+onready var player_anim = $Player1IKChain/AnimationPlayer
+
 export (int) var player_number
 
 var velocity = Vector2()
@@ -57,6 +59,7 @@ func get_input():
 		att_direction = "Left"
 		facing_dir = "Left"
 		if is_on_floor():
+			print("test")
 			if state != WALK:
 				change_state(WALK)
 		velocity.x = max(velocity.x - ACCELERATION, -MAX_SPEED)
@@ -115,15 +118,28 @@ func change_state(new_state):
 			platform_fall = false
 			att_direction = "Neutral"
 			$Attack_Collision/AnimationPlayer.play("Attack_Null")
+			player_anim.play("idle")
 			if debug_mode:
 				print("idle")
 		WALK:
+			if player_anim.current_animation == "walking":
+				pass
+			else:
+				player_anim.play("walking")
 			if debug_mode:
 				print("Walk")
 		RUN:
 			if debug_mode:
 				print("run")
-		JUMP: 
+		JUMP:
+			if current_jumps == 0:
+				player_anim.play("jump")
+			else:
+				print(facing_dir)
+				if facing_dir == "Right":
+					player_anim.play("jump_flip")
+				elif facing_dir == "Left":
+					player_anim.play_backwards("jump_flip")
 			velocity.y = JUMP_HEIGHT
 			current_jumps += 1
 			att_direction = "Neutral"
@@ -157,9 +173,11 @@ func change_state(new_state):
 					$Attack_Collision/AnimationPlayer.play("Down_Neutral_Right")
 			if att_direction == "Neutral":
 				$Attack_Collision/AnimationPlayer.play("Attack_Neutral") 
+				player_anim.play("neutral_kick")
 			if att_direction == "Left":
 				$Attack_Collision/AnimationPlayer.play("Attack_Left")
 			if att_direction == "Right":
+				player_anim.play("side_kick")
 				$Attack_Collision/AnimationPlayer.play("Attack_Right")
 #			yield(get_tree().create_timer(1.5), "timeout")
 #			velocity.x = current_speed

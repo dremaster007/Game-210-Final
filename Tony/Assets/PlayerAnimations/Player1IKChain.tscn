@@ -1,0 +1,243 @@
+[gd_scene load_steps=27 format=2]
+
+[ext_resource path="res://Assets/PlayerAnimations/Player1IKChain.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Sprites/FirstCharacterPieces/splatter_boi_lowerbody.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Sprites/FirstCharacterPieces/splatter_boi_upperbody.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Sprites/FirstCharacterPieces/splatter_boi_head.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Sprites/FirstCharacterPieces/splatter_boi_rightupperarm.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Sprites/FirstCharacterPieces/splatter_boi_rightlowerarm.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Sprites/FirstCharacterPieces/splatter_boi_leftupperarm.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Sprites/FirstCharacterPieces/splatter_boi_leftlowerarm.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Sprites/FirstCharacterPieces/splatter_boi_rightupperleg.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Sprites/FirstCharacterPieces/splatter_boi_rightlowerleg.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Sprites/FirstCharacterPieces/splatter_boi_leftupperleg.png" type="Texture" id=11]
+[ext_resource path="res://Assets/Sprites/FirstCharacterPieces/splatter_boi_leftlowerleg.png" type="Texture" id=12]
+[ext_resource path="res://Assets/Sprites/smoke_effect.png" type="Texture" id=13]
+[ext_resource path="res://Assets/PlayerAnimations/animations/idle.tres" type="Animation" id=14]
+[ext_resource path="res://Assets/PlayerAnimations/animations/jump.tres" type="Animation" id=15]
+[ext_resource path="res://Assets/PlayerAnimations/animations/jump_flip.tres" type="Animation" id=16]
+[ext_resource path="res://Assets/PlayerAnimations/animations/neutral_kick.tres" type="Animation" id=17]
+[ext_resource path="res://Assets/PlayerAnimations/animations/side_kick.tres" type="Animation" id=18]
+[ext_resource path="res://Assets/PlayerAnimations/animations/walking.tres" type="Animation" id=19]
+[ext_resource path="res://Assets/Sprites/swipe.png" type="Texture" id=20]
+
+[sub_resource type="Gradient" id=1]
+offsets = PoolRealArray( 0, 0.414815, 0.896296 )
+colors = PoolColorArray( 1, 1, 1, 0.521569, 1, 0.920074, 0.789063, 0.294118, 1, 0.976471, 0.933333, 0.635294 )
+
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 1 )
+
+[sub_resource type="ParticlesMaterial" id=3]
+emission_shape = 2
+emission_box_extents = Vector3( 100, 1, 1 )
+flag_disable_z = true
+gravity = Vector3( 0, -100, 0 )
+angular_velocity = 0.376471
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+angle_random = 1.0
+scale = 0.01
+scale_random = 0.09
+color_ramp = SubResource( 2 )
+
+[sub_resource type="Gradient" id=4]
+offsets = PoolRealArray( 0, 0.651852 )
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0.133333 )
+
+[sub_resource type="GradientTexture" id=5]
+gradient = SubResource( 4 )
+
+[sub_resource type="ParticlesMaterial" id=6]
+emission_shape = 2
+emission_box_extents = Vector3( 30, 1, 1 )
+flag_disable_z = true
+spread = 180.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 1500.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 0.3
+scale_random = 0.8
+color_ramp = SubResource( 5 )
+
+[node name="Player1IKChain" type="Node2D"]
+rotation = -0.0318394
+scale = Vector2( 0.1, 0.1 )
+script = ExtResource( 1 )
+
+[node name="splatter_boi_lowerbody" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+offset = Vector2( 1.40692, 48.4413 )
+
+[node name="splatter_boi_upperbody" type="Sprite" parent="splatter_boi_lowerbody"]
+position = Vector2( 7.8, 28 )
+rotation = 0.292131
+z_index = 1
+texture = ExtResource( 3 )
+offset = Vector2( -9.60779, -99.6175 )
+
+[node name="splatter_boi_head" type="Sprite" parent="splatter_boi_lowerbody/splatter_boi_upperbody"]
+editor/display_folded = true
+position = Vector2( -11.1607, -167.384 )
+rotation = -0.000962373
+texture = ExtResource( 4 )
+offset = Vector2( -23.5762, -139.338 )
+__meta__ = {
+"_edit_bone_": true,
+"_edit_ik_": true
+}
+
+[node name="End" type="Position2D" parent="splatter_boi_lowerbody/splatter_boi_upperbody/splatter_boi_head"]
+position = Vector2( 36.4746, -165.6 )
+rotation = 0.000962342
+__meta__ = {
+"_edit_bone_": true
+}
+
+[node name="splatter_boi_rightupperarm" type="Sprite" parent="splatter_boi_lowerbody/splatter_boi_upperbody"]
+position = Vector2( 97.7749, -109.061 )
+rotation = -0.637045
+z_index = -1
+texture = ExtResource( 5 )
+offset = Vector2( 9.41809, 55.3831 )
+__meta__ = {
+"_edit_bone_": true,
+"_edit_ik_": true
+}
+
+[node name="splatter_boi_rightlowerarm" type="Sprite" parent="splatter_boi_lowerbody/splatter_boi_upperbody/splatter_boi_rightupperarm"]
+editor/display_folded = true
+position = Vector2( 51.7791, 122.635 )
+rotation = 0.94134
+z_index = 1
+texture = ExtResource( 6 )
+offset = Vector2( -28.5833, 98.1208 )
+__meta__ = {
+"_edit_bone_": true
+}
+
+[node name="End" type="Position2D" parent="splatter_boi_lowerbody/splatter_boi_upperbody/splatter_boi_rightupperarm/splatter_boi_rightlowerarm"]
+position = Vector2( -21.756, 150.935 )
+rotation = 0.0770117
+__meta__ = {
+"_edit_bone_": true
+}
+
+[node name="splatter_boi_leftupperarm" type="Sprite" parent="splatter_boi_lowerbody/splatter_boi_upperbody"]
+position = Vector2( -104.156, -115.894 )
+rotation = -0.689422
+texture = ExtResource( 7 )
+offset = Vector2( -29.4277, 45.9216 )
+__meta__ = {
+"_edit_bone_": true,
+"_edit_ik_": true
+}
+
+[node name="splatter_boi_leftlowerarm" type="Sprite" parent="splatter_boi_lowerbody/splatter_boi_upperbody/splatter_boi_leftupperarm"]
+editor/display_folded = true
+position = Vector2( -73.8233, 113.564 )
+rotation = 0.254614
+texture = ExtResource( 8 )
+offset = Vector2( 23.6928, 97.7971 )
+__meta__ = {
+"_edit_bone_": true
+}
+
+[node name="End" type="Position2D" parent="splatter_boi_lowerbody/splatter_boi_upperbody/splatter_boi_leftupperarm/splatter_boi_leftlowerarm"]
+position = Vector2( 6.42883, 157.479 )
+rotation = -0.359084
+__meta__ = {
+"_edit_bone_": true
+}
+
+[node name="splatter_boi_rightupperleg" type="Sprite" parent="splatter_boi_lowerbody"]
+position = Vector2( -36.1761, 108.528 )
+rotation = -0.33743
+z_index = -2
+texture = ExtResource( 9 )
+offset = Vector2( 5.21301, 46.8873 )
+__meta__ = {
+"_edit_bone_": true,
+"_edit_ik_": true
+}
+
+[node name="splatter_boi_rightlowerleg" type="Sprite" parent="splatter_boi_lowerbody/splatter_boi_rightupperleg"]
+editor/display_folded = true
+position = Vector2( 12.8672, 109.655 )
+rotation = 0.458723
+texture = ExtResource( 10 )
+offset = Vector2( 33.9658, 61.6724 )
+__meta__ = {
+"_edit_bone_": true
+}
+
+[node name="End" type="Position2D" parent="splatter_boi_lowerbody/splatter_boi_rightupperleg/splatter_boi_rightlowerleg"]
+position = Vector2( 10.4111, 106.969 )
+rotation = -0.0157129
+__meta__ = {
+"_edit_bone_": true
+}
+
+[node name="splatter_boi_leftupperleg" type="Sprite" parent="splatter_boi_lowerbody"]
+position = Vector2( 38.0542, 102.058 )
+rotation = -0.00147376
+z_index = -3
+texture = ExtResource( 11 )
+offset = Vector2( -6.4436, 55.3226 )
+__meta__ = {
+"_edit_bone_": true,
+"_edit_ik_": true
+}
+
+[node name="splatter_boi_leftlowerleg" type="Sprite" parent="splatter_boi_lowerbody/splatter_boi_leftupperleg"]
+position = Vector2( -23.2888, 123.181 )
+rotation = 0.570655
+texture = ExtResource( 12 )
+offset = Vector2( 22.9964, 64.2264 )
+__meta__ = {
+"_edit_bone_": true
+}
+
+[node name="End" type="Position2D" parent="splatter_boi_lowerbody/splatter_boi_leftupperleg/splatter_boi_leftlowerleg"]
+position = Vector2( -1.87732, 106.918 )
+__meta__ = {
+"_edit_bone_": true
+}
+
+[node name="Particles2D" type="Particles2D" parent="."]
+position = Vector2( -16.6667, 236.667 )
+z_index = -10
+emitting = false
+amount = 16
+lifetime = 1.3
+randomness = 1.0
+local_coords = false
+process_material = SubResource( 3 )
+texture = ExtResource( 13 )
+
+[node name="DustParticles" type="Particles2D" parent="."]
+position = Vector2( 0.186127, 278.047 )
+rotation = 3.72529e-009
+emitting = false
+amount = 30
+lifetime = 0.2
+one_shot = true
+process_material = SubResource( 6 )
+texture = ExtResource( 13 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/idle = ExtResource( 14 )
+anims/jump = ExtResource( 15 )
+anims/jump_flip = ExtResource( 16 )
+anims/neutral_kick = ExtResource( 17 )
+anims/side_kick = ExtResource( 18 )
+anims/walking = ExtResource( 19 )
+
+[node name="Sprite" type="Sprite" parent="."]
+visible = false
+position = Vector2( 215.836, -40.1485 )
+rotation = -0.0473813
+scale = Vector2( 3.13699, 6.95819 )
+texture = ExtResource( 20 )
+
