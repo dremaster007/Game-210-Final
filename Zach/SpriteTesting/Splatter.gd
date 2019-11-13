@@ -4,9 +4,9 @@ extends Node2D
 var splatter_textures = [load("res://SpriteTesting/SpriteAssets/splatter_1.png"), load("res://SpriteTesting/SpriteAssets/splatter_2.png"), 
 		load("res://SpriteTesting/SpriteAssets/splatter_3.png"), load("res://SpriteTesting/SpriteAssets/splatter_4.png")]
 
-var is_placed = false
-var type
-var score_value = 4
+var is_placed = false # are the sprite officially on the wall?
+var type # color of sprite
+var score_value = 4 # how much score this sprite node holds
 
 # set all of the textures
 func _ready():
@@ -21,25 +21,30 @@ func start(color_val, color_type):
 		node.modulate = color_val
 		type = color_type
 
+# checks the score value
 func _process(delta):
-	if Input.is_action_just_pressed("ui_left"):
-		for node in $SpriteHolder.get_children():
-			node.hide()
-	if Input.is_action_just_pressed("ui_right"):
-		for node in $SpriteHolder.get_children():
-			node.show()
+	check_score_value()
+
+# determines if the score value is 0, then free's it
+func check_score_value():
 	if score_value == 0:
 		queue_free()
 
+# decreases the score value of node
+func decrease_score_value(amount):
+	score_value -= amount
+
+# just sets is_placed to true
 func set_placed():
 	is_placed = true
 
+# returns true if the sent node is not in the hierarchy
 func is_sprite_null(area, sprite_num):
 	if area.get_parent().get_node("SpriteHolder/Sprite%s" % sprite_num) == null:
 		return true
 
-func decrease_score_value(amount):
-	score_value -= amount
+func kill_sprite_parts(area, sprite_num):
+	pass
 
 func _on_TLCheck_area_shape_entered(area_id, area, area_shape, self_shape):
 	if area.get_parent().is_placed:
