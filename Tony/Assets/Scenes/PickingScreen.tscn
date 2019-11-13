@@ -313,7 +313,6 @@ material/0 = SubResource( 34 )
 
 [node name="BackButton" type="Area" parent="MainBuilding"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.28123, 1, 0 )
-input_ray_pickable = true
 
 [node name="Top" type="MeshInstance" parent="MainBuilding/BackButton"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
@@ -331,5 +330,4 @@ material/0 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="MainBuilding/BackButton"]
 shape = SubResource( 39 )
-
 [connection signal="input_event" from="MainBuilding/BackButton" to="." method="_on_BackButton_input_event"]

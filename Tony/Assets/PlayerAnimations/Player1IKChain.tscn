@@ -55,6 +55,7 @@ flag_disable_z = true
 spread = 180.0
 gravity = Vector3( 0, 0, 0 )
 initial_velocity = 1500.0
+angular_velocity = 1.05
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 scale = 0.3
@@ -240,4 +241,3 @@ position = Vector2( 215.836, -40.1485 )
 rotation = -0.0473813
 scale = Vector2( 3.13699, 6.95819 )
 texture = ExtResource( 20 )
-

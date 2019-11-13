@@ -5,7 +5,7 @@
 [ext_resource path="res://Assets/Scenes/Player.tscn" type="PackedScene" id=3]
 
 [sub_resource type="StreamTexture" id=1]
-flags = 23
+flags = 7
 load_path = "res://.import/icon.png-487276ed1e3a0c39cad0279d744ee560.s3tc.stex"
 
 [sub_resource type="RectangleShape2D" id=2]
@@ -69,4 +69,3 @@ position = Vector2( 912.428, 979.704 )
 
 [node name="Player2" parent="." instance=ExtResource( 3 )]
 position = Vector2( 1172.71, 976.45 )
-

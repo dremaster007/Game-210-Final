@@ -4,18 +4,6 @@ var speed = 4
 
 func _ready():
 	$AnimationPlayer.current_animation = "idle"
-	yield(get_tree().create_timer(2), "timeout")
-	$AnimationPlayer.current_animation = "side_kick"
-
-func _process(delta):
-	if Input.is_action_just_pressed("ui_right"):
-		$Particles2D.emitting = true
-		$AnimationPlayer.current_animation = "walking"
-	if Input.is_action_pressed("ui_right"):
-		position.x += speed
-	if Input.is_action_just_released("ui_right"):
-		$Particles2D.emitting = false
-		$AnimationPlayer.current_animation = "idle"
 
 func play_particle():
 	$DustParticles.emitting = true

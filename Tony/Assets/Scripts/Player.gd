@@ -5,7 +5,7 @@ const ACCELERATION = 100
 const MAX_SPEED = 450
 const JUMP_HEIGHT = -700
 
-var debug_mode = false
+var debug_mode = {"show_state_prints": false, "show_collision_shapes": false}
 
 onready var player_anim = $Player1IKChain/AnimationPlayer
 
@@ -38,6 +38,7 @@ func _physics_process(delta):
 	if is_on_floor():
 		current_jumps = 0
 	get_input()
+	
 	if state == JUMP and velocity.y > EPSILON:
 		change_state(FALLING)
 	
@@ -51,19 +52,42 @@ func _physics_process(delta):
 	velocity = move_and_slide(velocity, Vector2.UP)
 
 func get_input():
+	#------------------------------------------------------------
+	# HERE ARE SOME SHORTCUTS FOR INPUTS
+	var left = Input.is_action_pressed("left_%s" % player_number)
+	var left_released = Input.is_action_just_released("left_%s" % player_number)
+	var right = Input.is_action_pressed("right_%s" % player_number)
+	var right_released = Input.is_action_just_released("right_%s" % player_number)
+	var up = Input.is_action_pressed("up_%s" % player_number)
+	var down = Input.is_action_pressed("down_%s" % player_number)
+	var down_just_pressed = Input.is_action_just_pressed("down_%s" % player_number)
+	var down_released = Input.is_action_just_released("down_%s" % player_number)
+	var jump = Input.is_action_just_pressed("jump_%s" % player_number)
+	var attack = Input.is_action_just_pressed("attack_%s" % player_number)
+	#------------------------------------------------------------
+	
 	var friction = false
-	if Input.is_action_just_pressed("debug_mode"):
-		debug_mode = !debug_mode
+	
+	#----------------------------------------------------
+	# DEBUG CONTROLS
+	if Input.is_action_just_pressed("toggle_state_print"):
+		debug_mode["show_state_prints"] = !debug_mode["show_state_prints"]
 		print("debug_mode: ", debug_mode)
-	if Input.is_action_pressed("left_%s" % player_number):
+	
+	# CURRENTLY DOESN'T SHOW COLLISIONS
+	if Input.is_action_just_pressed("toggle_collision_shapes"):
+		debug_mode["show_collision_shapes"] = !debug_mode["show_collision_shapes"]
+		print("debug_mode: ", debug_mode)
+	#----------------------------------------------------
+	
+	if left:
 		att_direction = "Left"
 		facing_dir = "Left"
 		if is_on_floor():
-			print("test")
 			if state != WALK:
 				change_state(WALK)
 		velocity.x = max(velocity.x - ACCELERATION, -MAX_SPEED)
-	elif Input.is_action_pressed("right_%s" % player_number):
+	elif right:
 		att_direction = "Right"
 		facing_dir = "Right"
 		if is_on_floor():
@@ -75,11 +99,15 @@ func get_input():
 		# This slows down our character from their current velocity to 0, 20% each frame
 		velocity.x = lerp(velocity.x, 0, 0.2)
 	
-	if Input.is_action_just_pressed("jump_%s" % player_number):
+	if left_released or right_released:
+		if is_on_floor():
+			change_state(IDLE)
+	
+	if jump:
 		if current_jumps < max_jumps:
 			change_state(JUMP)
 	
-	if Input.is_action_pressed("down_%s" % player_number):
+	if down:
 		if state == JUMP or state == FALLING or state == FAST_FALLING:
 			att_direction = "Down"
 		if state != FAST_FALLING:
@@ -89,7 +117,7 @@ func get_input():
 				change_state(FAST_FALLING)
 		att_direction = "Down"
 	
-	if Input.is_action_just_pressed("down_%s" % player_number):
+	if down_just_pressed:
 		platform_fall_count += 1
 		$Platform_Fall_Timer.start()
 		if current_platform != null and platform_fall_count >= 2:
@@ -97,17 +125,17 @@ func get_input():
 				current_platform = null
 				position.y += 1
 	
-	if Input.is_action_just_released("down_%s" % player_number):
+	if down_released:
 		platform_fall = false
 		if !is_on_floor():
 			change_state(FALLING)
 		else:
 			change_state(IDLE)
 	
-	if Input.is_action_pressed("up_%s" % player_number):
+	if up:
 		att_direction = "Neutral"
 	
-	if Input.is_action_just_pressed("attack_%s" % player_number):
+	if attack:
 		change_state(ATTACK)
 
 #var current_speed = velocity.x 
@@ -119,23 +147,22 @@ func change_state(new_state):
 			att_direction = "Neutral"
 			$Attack_Collision/AnimationPlayer.play("Attack_Null")
 			player_anim.play("idle")
-			if debug_mode:
+			if debug_mode["show_state_prints"] == true:
 				print("idle")
 		WALK:
 			if player_anim.current_animation == "walking":
 				pass
 			else:
 				player_anim.play("walking")
-			if debug_mode:
+			if debug_mode["show_state_prints"] == true:
 				print("Walk")
 		RUN:
-			if debug_mode:
+			if debug_mode["show_state_prints"] == true:
 				print("run")
 		JUMP:
 			if current_jumps == 0:
 				player_anim.play("jump")
 			else:
-				print(facing_dir)
 				if facing_dir == "Right":
 					player_anim.play("jump_flip")
 				elif facing_dir == "Left":
@@ -143,7 +170,7 @@ func change_state(new_state):
 			velocity.y = JUMP_HEIGHT
 			current_jumps += 1
 			att_direction = "Neutral"
-			if debug_mode:
+			if debug_mode["show_state_prints"] == true:
 				print("jump")
 		FALLING:
 			if velocity.x > EPSILON:
@@ -152,13 +179,13 @@ func change_state(new_state):
 				att_direction = "Left"
 			else:
 				att_direction = "Down"
-			if debug_mode:
+			if debug_mode["show_state_prints"] == true:
 				print("Falling")
 		FAST_FALLING:
 			if platform_fall_count >= 2:
 				platform_fall = true
 			att_direction = "Down"
-			if debug_mode:
+			if debug_mode["show_state_prints"] == true:
 				print("Fast Falling")
 		ATTACK:
 #			velocity.x = 0
@@ -181,10 +208,12 @@ func change_state(new_state):
 				$Attack_Collision/AnimationPlayer.play("Attack_Right")
 #			yield(get_tree().create_timer(1.5), "timeout")
 #			velocity.x = current_speed
-			#print("Attack")
+			if debug_mode["show_state_prints"] == true:
+				print("Attack")
 		STUNNED:
 			att_direction = "Neutral"
-			#print("Stunned")
+			if debug_mode["show_state_prints"] == true:
+				print("Stunned")
 
 func _on_Area2D_body_entered(body):
 	current_platform = body
