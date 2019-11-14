@@ -19,6 +19,13 @@ config/name="Final"
 run/main_scene="res://SpriteTesting/Tester.tscn"
 config/icon="res://icon.png"
 
+[display]
+
+window/size/width=1920
+window/size/height=1080
+window/stretch/mode="viewport"
+window/stretch/aspect="keep"
+
 [input]
 
 left_1={
