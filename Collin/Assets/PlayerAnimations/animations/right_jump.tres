@@ -423,4 +423,15 @@ tracks/34/keys = {
 "update": 1,
 "values": [ false ]
 }
-
+tracks/35/type = "value"
+tracks/35/path = NodePath("../Attack_Collision/CollisionShape2D:disabled")
+tracks/35/interp = 1
+tracks/35/loop_wrap = true
+tracks/35/imported = false
+tracks/35/enabled = true
+tracks/35/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}

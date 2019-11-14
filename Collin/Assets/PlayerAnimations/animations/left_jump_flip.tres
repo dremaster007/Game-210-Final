@@ -450,4 +450,15 @@ tracks/36/keys = {
 "update": 1,
 "values": [ false ]
 }
-
+tracks/37/type = "value"
+tracks/37/path = NodePath("../Attack_Collision/CollisionShape2D:disabled")
+tracks/37/interp = 1
+tracks/37/loop_wrap = true
+tracks/37/imported = false
+tracks/37/enabled = true
+tracks/37/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
