@@ -459,3 +459,4 @@ texture = ExtResource( 8 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/change_scene = SubResource( 1 )
+
