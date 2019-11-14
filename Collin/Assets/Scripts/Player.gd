@@ -324,9 +324,10 @@ func _on_Platform_Fall_Timer_timeout():
 #player's state changes to STUNNED when hit and will handle player damage
 func take_damage():
 	change_state(STUNNED)
-	print("hit %s" % player_number)
+#	print("hit %s" % player_number)
 	
 
+#sets knockback directions for when the player gets hit
 func knockback(knockback_x , knockback_y):
 	velocity.x = knockback_x
 	velocity.y = knockback_y
@@ -334,6 +335,7 @@ func knockback(knockback_x , knockback_y):
 
 #detects player collision with the attack collision 
 #will only react to opposing player collision and call their take_damage function
+#calls opposing players knockback function on attack collision
 func _on_Attack_Collision_body_entered(body):
 	if body.is_in_group("player") and body.player_number != player_number:
 		body.take_damage()
