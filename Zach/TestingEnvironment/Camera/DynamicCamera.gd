@@ -1,6 +1,6 @@
 extends Camera2D
 
-export (float) var zoom_offset = 0.2
+export (float) var zoom_offset = 0.4
 export (bool) var debug_mode = true
 
 var camera_rect = Rect2()
@@ -62,9 +62,10 @@ func calculate_center(rect):
 		rect.position.y + rect.size.y / 2)
 
 func calculate_zoom(rect, viewport_size):
+	var min_zoom = 0.5
 	var max_zoom = max(
-		max(0.4, rect.size.x / viewport_size.x + zoom_offset),
-		max(0.4, rect.size.y / viewport_size.y + zoom_offset))
+		max(min_zoom, rect.size.x / viewport_size.x + zoom_offset),
+		max(min_zoom, rect.size.y / viewport_size.y + zoom_offset))
 	return Vector2(max_zoom, max_zoom)
 
 func _draw():
