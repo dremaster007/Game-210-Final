@@ -1,26 +1,30 @@
 extends Camera2D
 
-export (float) var zoom_offset = 0.4
-export (bool) var debug_mode = false
+# for this to work, it needs to be a child singular child of the main scene, and the main
+# scene needs to have a container called "Player_Container" with all of the players in it
 
-var camera_rect = Rect2()
-var viewport_rect = Rect2()
+export (float) var zoom_offset = 0.4 # this is the leeway that the zoom will take place
+export (bool) var debug_mode = false # will draw a visual helper to see whats happengin
 
-var number_of_players = 0
+var camera_rect = Rect2() # the cameras rectangle
+var viewport_rect = Rect2() # the viewports rectangle
 
+var number_of_players = 0 # number of players in game
+
+# character variables, we can have up to 4 players
 var player1 = null
 var player2 = null
 var player3 = null
 var player4 = null
 
-var player_array = []
+var player_array = [] # array that will be populated with objects of players
 
 func _ready():
-	set_process(false)
-	yield(get_tree().create_timer(0.05), "timeout")
-	number_of_players = get_parent().number_of_players
-	for player in number_of_players:
-		match player + 1:
+	set_process(false) # stop process
+	yield(get_tree().create_timer(0.05), "timeout") # wait for main scene to catch up
+	number_of_players = get_parent().number_of_players # set the number of players we have
+	for player in number_of_players: # loop over the number of players we have
+		match player + 1: # set the player variables to the corresponding variables
 			0:
 				return
 			1:
@@ -35,23 +39,21 @@ func _ready():
 			4:
 				player4 = get_parent().get_node("Player_Container/Player4")
 				player_array.append(player4)
-	viewport_rect = get_viewport_rect()
-	print(player_array)
-	set_process(true)
+	viewport_rect = get_viewport_rect() # set the viewport rect 
+	set_process(true) # set process true
 
 func _process(delta):
-	camera_rect = Rect2(player_array[0].global_position, Vector2())
-	var counter = 0
-	for index in player_array:
-		if counter == 0:
-			counter += 1
-			continue
-		camera_rect = camera_rect.expand(player_array[counter].global_position)
-		counter += 1
-	counter = 0
+	camera_rect = Rect2(player_array[0].global_position, Vector2()) # set the camera rect to first player
+	var counter = 0 # loop helper
+	for index in player_array: # loop over the player array objects
+		if counter == 0: # if the counter is 0 
+			counter += 1 # increase it
+			continue # skip to next index
+		camera_rect = camera_rect.expand(player_array[counter].global_position) # add another character to the extents
+		counter += 1 # increase counter
 	
-	offset = calculate_center(camera_rect)
-	zoom = calculate_zoom(camera_rect, viewport_rect.size)
+	offset = calculate_center(camera_rect) # set our offset
+	zoom = calculate_zoom(camera_rect, viewport_rect.size) # set our size
 	
 	if debug_mode:
 		update()
