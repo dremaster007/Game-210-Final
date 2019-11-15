@@ -26,3 +26,5 @@ expand = true
 [node name="TitleTransition" parent="." instance=ExtResource( 4 )]
 [connection signal="pressed" from="PlayButton" to="." method="_on_PlayButton_pressed"]
 [connection signal="transition_finished" from="TitleTransition" to="." method="_on_TitleTransition_transition_finished"]
+
+[editable path="TitleTransition"]
