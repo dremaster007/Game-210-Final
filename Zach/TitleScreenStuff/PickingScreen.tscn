@@ -1,16 +1,16 @@
 [gd_scene load_steps=51 format=2]
 
-[ext_resource path="res://Assets/Scripts/PickingScreen.gd" type="Script" id=1]
-[ext_resource path="res://Assets/Sprites/DevNames/graf_tony.png" type="Texture" id=2]
-[ext_resource path="res://Assets/Sprites/splatter_3.png" type="Texture" id=3]
-[ext_resource path="res://Assets/Sprites/splatter_2.png" type="Texture" id=4]
-[ext_resource path="res://Assets/Sprites/DevNames/graf_colin.png" type="Texture" id=5]
-[ext_resource path="res://Assets/Sprites/DevNames/graf_wakim.png" type="Texture" id=6]
-[ext_resource path="res://Assets/Sprites/splatter_4.png" type="Texture" id=7]
-[ext_resource path="res://Assets/Sprites/graf_pow1.png" type="Texture" id=8]
-[ext_resource path="res://Assets/Sprites/splatter_1.png" type="Texture" id=9]
+[ext_resource path="res://TitleScreenStuff/TitleScreen.gd" type="Script" id=1]
+[ext_resource path="res://SpriteTesting/SpriteAssets/graf_tony.png" type="Texture" id=2]
+[ext_resource path="res://SpriteTesting/SpriteAssets/splatter_3.png" type="Texture" id=3]
+[ext_resource path="res://SpriteTesting/SpriteAssets/splatter_2.png" type="Texture" id=4]
+[ext_resource path="res://SpriteTesting/SpriteAssets/graf_colin.png" type="Texture" id=5]
+[ext_resource path="res://SpriteTesting/SpriteAssets/graf_wakim.png" type="Texture" id=6]
+[ext_resource path="res://SpriteTesting/SpriteAssets/splatter_4.png" type="Texture" id=7]
+[ext_resource path="res://SpriteTesting/SpriteAssets/graf_pow1.png" type="Texture" id=8]
+[ext_resource path="res://SpriteTesting/SpriteAssets/splatter_1.png" type="Texture" id=9]
 [ext_resource path="res://icon.png" type="Texture" id=10]
-[ext_resource path="res://Assets/Sprites/DevNames/graf_zach.png" type="Texture" id=11]
+[ext_resource path="res://SpriteTesting/SpriteAssets/graf_zach.png" type="Texture" id=11]
 
 [sub_resource type="CubeMesh" id=1]
 size = Vector3( 20, 0.1, 20 )
@@ -59,7 +59,6 @@ albedo_texture = ExtResource( 3 )
 
 [sub_resource type="StreamTexture" id=14]
 flags = 23
-load_path = "res://.import/graf_zach.png-8ed62471a43cfb252ef06048cad27884.s3tc.stex"
 
 [sub_resource type="SpatialMaterial" id=15]
 render_priority = 10
@@ -313,7 +312,6 @@ material/0 = SubResource( 34 )
 
 [node name="BackButton" type="Area" parent="MainBuilding"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.28123, 1, 0 )
-input_ray_pickable = true
 
 [node name="Top" type="MeshInstance" parent="MainBuilding/BackButton"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
@@ -331,5 +329,4 @@ material/0 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="MainBuilding/BackButton"]
 shape = SubResource( 39 )
-
 [connection signal="input_event" from="MainBuilding/BackButton" to="." method="_on_BackButton_input_event"]
