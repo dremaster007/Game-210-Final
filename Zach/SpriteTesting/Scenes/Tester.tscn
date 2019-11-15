@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://SpriteTesting/Scripts/Tester.gd" type="Script" id=1]
+[ext_resource path="res://SpriteTesting/Scenes/Splatter.tscn" type="PackedScene" id=2]
+[ext_resource path="res://icon.png" type="Texture" id=3]
+
+
+
+[node name="Tester" type="Node2D"]
+script = ExtResource( 1 )
+Paint = ExtResource( 2 )
+
+[node name="BG" type="Sprite" parent="."]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 514.917, 322.426 )
+scale = Vector2( 19.1417, 13.1264 )
+texture = ExtResource( 3 )
+
+[node name="Container" type="Node2D" parent="."]

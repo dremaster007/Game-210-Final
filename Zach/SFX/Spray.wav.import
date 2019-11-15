@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Spray.wav-11db59e5af7125e93ccc56319f7bd5eb.sample"
+
+[deps]
+
+source_file="res://SFX/Spray.wav"
+dest_files=[ "res://.import/Spray.wav-11db59e5af7125e93ccc56319f7bd5eb.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

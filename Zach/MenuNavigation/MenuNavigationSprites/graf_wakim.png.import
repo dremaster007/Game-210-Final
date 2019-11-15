@@ -2,8 +2,8 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/splatter_1.png-c140c36b64614b5db4aa22c0c96bc6a2.s3tc.stex"
-path.etc2="res://.import/splatter_1.png-c140c36b64614b5db4aa22c0c96bc6a2.etc2.stex"
+path.s3tc="res://.import/graf_wakim.png-ecb07a1e3e2e60cbb00555cf18b42c18.s3tc.stex"
+path.etc2="res://.import/graf_wakim.png-ecb07a1e3e2e60cbb00555cf18b42c18.etc2.stex"
 metadata={
 "imported_formats": [ "s3tc", "etc2" ],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://SpriteTesting/SpriteAssets/splatter_1.png"
-dest_files=[ "res://.import/splatter_1.png-c140c36b64614b5db4aa22c0c96bc6a2.s3tc.stex", "res://.import/splatter_1.png-c140c36b64614b5db4aa22c0c96bc6a2.etc2.stex" ]
+source_file="res://MenuNavigation/MenuNavigationSprites/graf_wakim.png"
+dest_files=[ "res://.import/graf_wakim.png-ecb07a1e3e2e60cbb00555cf18b42c18.s3tc.stex", "res://.import/graf_wakim.png-ecb07a1e3e2e60cbb00555cf18b42c18.etc2.stex" ]
 
 [params]
 

@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://MenuNavigation/TitleScreen/Scripts/TitleScreen.gd" type="Script" id=1]
+[ext_resource path="res://MenuNavigation/MenuNavigationSprites/BrickBackground.png" type="Texture" id=2]
+[ext_resource path="res://MenuNavigation/MenuNavigationSprites/PlayButton.png" type="Texture" id=3]
+[ext_resource path="res://MenuNavigation/TitleScreen/Scenes/TitleTransition.tscn" type="PackedScene" id=4]
+[ext_resource path="res://SFX/SprayCanShake.wav" type="AudioStream" id=5]
+
+[node name="TitleScreen" type="Node2D"]
+script = ExtResource( 1 )
+picking_scene = "res://MenuNavigation/PickingScreen/Scenes/PickingScreen.tscn"
+
+[node name="BrickBackground" type="Sprite" parent="."]
+position = Vector2( 968.35, 547.666 )
+scale = Vector2( 0.494612, 0.417136 )
+texture = ExtResource( 2 )
+
+[node name="PlayButton" type="TextureButton" parent="."]
+margin_left = 540.133
+margin_top = 272.04
+margin_right = 1410.13
+margin_bottom = 822.04
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource( 3 )
+expand = true
+
+[node name="TitleTransition" parent="." instance=ExtResource( 4 )]
+editor/display_folded = true
+
+[node name="PlayButtonSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+volume_db = 2.0
+[connection signal="pressed" from="PlayButton" to="." method="_on_PlayButton_pressed"]
+[connection signal="transition_finished" from="TitleTransition" to="." method="_on_TitleTransition_transition_finished"]
+
+[editable path="TitleTransition"]
