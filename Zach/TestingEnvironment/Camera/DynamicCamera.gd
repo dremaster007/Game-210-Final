@@ -1,7 +1,7 @@
 extends Camera2D
 
 export (float) var zoom_offset = 0.4
-export (bool) var debug_mode = true
+export (bool) var debug_mode = false
 
 var camera_rect = Rect2()
 var viewport_rect = Rect2()
