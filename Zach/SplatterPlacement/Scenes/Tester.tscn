@@ -1,10 +1,8 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://SpriteTesting/Scripts/Tester.gd" type="Script" id=1]
-[ext_resource path="res://SpriteTesting/Scenes/Splatter.tscn" type="PackedScene" id=2]
+[ext_resource path="res://SplatterPlacement/Scripts/Tester.gd" type="Script" id=1]
+[ext_resource path="res://SplatterPlacement/Scenes/Splatter.tscn" type="PackedScene" id=2]
 [ext_resource path="res://icon.png" type="Texture" id=3]
-
-
 
 [node name="Tester" type="Node2D"]
 script = ExtResource( 1 )

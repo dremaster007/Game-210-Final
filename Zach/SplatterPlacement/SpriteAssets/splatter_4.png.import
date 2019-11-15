@@ -2,8 +2,8 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/splatter_4.png-8d197ad962e38ee1a3cc538ad5ad1dcf.s3tc.stex"
-path.etc2="res://.import/splatter_4.png-8d197ad962e38ee1a3cc538ad5ad1dcf.etc2.stex"
+path.s3tc="res://.import/splatter_4.png-6414995c2912a5d99d65b3004ea5a116.s3tc.stex"
+path.etc2="res://.import/splatter_4.png-6414995c2912a5d99d65b3004ea5a116.etc2.stex"
 metadata={
 "imported_formats": [ "s3tc", "etc2" ],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://SpriteTesting/SpriteAssets/splatter_4.png"
-dest_files=[ "res://.import/splatter_4.png-8d197ad962e38ee1a3cc538ad5ad1dcf.s3tc.stex", "res://.import/splatter_4.png-8d197ad962e38ee1a3cc538ad5ad1dcf.etc2.stex" ]
+source_file="res://SplatterPlacement/SpriteAssets/splatter_4.png"
+dest_files=[ "res://.import/splatter_4.png-6414995c2912a5d99d65b3004ea5a116.s3tc.stex", "res://.import/splatter_4.png-6414995c2912a5d99d65b3004ea5a116.etc2.stex" ]
 
 [params]
 
