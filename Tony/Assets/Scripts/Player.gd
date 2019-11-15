@@ -49,6 +49,9 @@ var facing_dir = "right"
 # ????
 var platform_fall_count = 0
 
+export (int) var knockback_dir_x
+export (int) var knockback_dir_y
+
 func _ready():
 	change_state(IDLE)
 
@@ -317,3 +320,23 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 
 func _on_Platform_Fall_Timer_timeout():
 	platform_fall_count = 0
+
+#player's state changes to STUNNED when hit and will handle player damage
+func take_damage():
+	change_state(STUNNED)
+#	print("hit %s" % player_number)
+	
+
+#sets knockback directions for when the player gets hit
+func knockback(knockback_x , knockback_y):
+	velocity.x = knockback_x
+	velocity.y = knockback_y
+
+#detects player collision with the attack collision 
+#will only react to opposing player collision and call their take_damage function
+#calls opposing players knockback function on attack collision
+func _on_Attack_Collision_body_entered(body):
+	if body.is_in_group("player") and body.player_number != player_number:
+		print(body.name)
+		body.take_damage()
+		body.knockback(knockback_dir_x, knockback_dir_y)

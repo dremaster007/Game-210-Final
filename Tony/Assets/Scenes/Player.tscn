@@ -11,7 +11,7 @@ height = 27.3579
 extents = Vector2( 18.2939, 40.6186 )
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 22.4211, 15.7895 )
+extents = Vector2( 0, 0 )
 
 [sub_resource type="Animation" id=4]
 resource_name = "down_air_attack"
@@ -439,7 +439,7 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0.0950727 ),
+"times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ Vector2( 45.2632, 2.10526 ) ]
@@ -451,7 +451,7 @@ tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 0.0950727 ),
+"times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ 0.0 ]
@@ -462,6 +462,7 @@ tracks/4/keys = {
 ]]
 collision_mask = 6
 script = ExtResource( 1 )
+knockback_dir_y = -1000
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 4.86324, -2.16144 )
@@ -487,8 +488,8 @@ anims/null = SubResource( 9 )
 anims/right_attack = SubResource( 10 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Attack_Collision"]
-position = Vector2( 5.26315, -60 )
 shape = SubResource( 3 )
+disabled = true
 
 [node name="Platform_Fall_Timer" type="Timer" parent="."]
 wait_time = 0.5
@@ -501,30 +502,34 @@ position = Vector2( 0, 0 )
 
 [node name="splatter_boi_upperbody" parent="Player1IKChain/splatter_boi_lowerbody" index="0"]
 position = Vector2( 7.8, 28 )
+rotation = 0.0
 
 [node name="splatter_boi_head" parent="Player1IKChain/splatter_boi_lowerbody/splatter_boi_upperbody" index="0"]
 rotation = -0.000962373
 
 [node name="splatter_boi_rightupperarm" parent="Player1IKChain/splatter_boi_lowerbody/splatter_boi_upperbody" index="1"]
-rotation = -0.698132
+rotation = -6.21051
 
 [node name="splatter_boi_rightlowerarm" parent="Player1IKChain/splatter_boi_lowerbody/splatter_boi_upperbody/splatter_boi_rightupperarm" index="0"]
-rotation = 0.94134
+rotation = -0.189825
 
 [node name="splatter_boi_leftupperarm" parent="Player1IKChain/splatter_boi_lowerbody/splatter_boi_upperbody" index="2"]
-rotation = -0.689422
+rotation = -0.214815
+
+[node name="splatter_boi_leftlowerarm" parent="Player1IKChain/splatter_boi_lowerbody/splatter_boi_upperbody/splatter_boi_leftupperarm" index="0"]
+rotation = 0.220627
 
 [node name="splatter_boi_rightupperleg" parent="Player1IKChain/splatter_boi_lowerbody" index="1"]
-rotation = -0.33743
+rotation = 0.17725
 
 [node name="splatter_boi_rightlowerleg" parent="Player1IKChain/splatter_boi_lowerbody/splatter_boi_rightupperleg" index="0"]
-rotation = 0.458723
+rotation = -0.0807508
 
 [node name="splatter_boi_leftupperleg" parent="Player1IKChain/splatter_boi_lowerbody" index="2"]
-rotation = -0.00147376
+rotation = -0.342484
 
 [node name="splatter_boi_leftlowerleg" parent="Player1IKChain/splatter_boi_lowerbody/splatter_boi_leftupperleg" index="0"]
-rotation = 0.570655
+rotation = 0.307773
 
 [node name="Particles2D" parent="Player1IKChain" index="1"]
 emitting = false
@@ -532,10 +537,15 @@ emitting = false
 [node name="DustParticles" parent="Player1IKChain" index="2"]
 amount = 15
 
-[node name="AnimationPlayer" parent="Player1IKChain" index="4"]
-playback_speed = 2.0
+[node name="Sprite" parent="Player1IKChain" index="3"]
+position = Vector2( -22.2232, -474.958 )
+rotation = -0.0185738
+scale = Vector2( 2.50176, 3.93919 )
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]
+[connection signal="area_entered" from="Attack_Collision" to="." method="_on_Attack_Collision_area_entered"]
+[connection signal="body_entered" from="Attack_Collision" to="." method="_on_Attack_Collision_body_entered"]
 [connection signal="animation_finished" from="Attack_Collision/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="timeout" from="Platform_Fall_Timer" to="." method="_on_Platform_Fall_Timer_timeout"]
 [connection signal="animation_finished" from="Player1IKChain/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
