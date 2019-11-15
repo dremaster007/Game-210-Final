@@ -14,6 +14,7 @@ var can_input = true
 # This is a String that tracks what velocity we will send it.
 # This is mostly used for animations that should have a set velocity.
 var next_velocity = null
+var attacking = false
 
 # Variables that hold our animations players. This is for ease of access.
 onready var player_anim = $Player1IKChain/AnimationPlayer
@@ -188,6 +189,7 @@ func get_input():
 
 # This function allows us to change states
 func change_state(new_state):
+	attacking = false
 	state = new_state
 	match state:
 		IDLE:
@@ -231,6 +233,7 @@ func change_state(new_state):
 			if debug_mode["show_state_prints"] == true:
 				print("Fast Falling")
 		ATTACK:
+			attacking = true
 			if !is_on_floor():
 				if !Input.is_action_pressed("up_%s" % player_number):
 					if att_direction != "left" and att_direction != "right":
@@ -282,10 +285,10 @@ func set_velocity(type):
 		"neutral_kick":
 			velocity.x = lerp(velocity.x, 0, 0.2)
 
-func _on_Area2D_body_entered(body):
+func _on_PlatformCollisionArea_body_entered(body):
 	current_platform = body
 
-func _on_Area2D_body_exited(body):
+func _on_PlatformCollisionArea_body_exited(body):
 	current_platform = null
 
 func _on_AnimationPlayer_animation_started(anim_name):
@@ -328,15 +331,39 @@ func take_damage():
 	
 
 #sets knockback directions for when the player gets hit
-func knockback(knockback_x , knockback_y):
-	velocity.x = knockback_x
-	velocity.y = knockback_y
+func knockback(type, other_fac_dir):
+	match type:
+		"side_kick":
+			if other_fac_dir == "left":
+				velocity.x = -1000
+				velocity.y = -300
+			elif other_fac_dir == "right":
+				velocity.x = 1000
+				velocity.y = -300
+		"leg_sweep":
+			if other_fac_dir == "left":
+				velocity.x = -300
+				velocity.y = -900
+			elif other_fac_dir == "right":
+				velocity.x = 300
+				velocity.y = -900
+		"neutral_kick":
+			if other_fac_dir == "left":
+				velocity.x = -400
+				velocity.y = -900
+			elif other_fac_dir == "right":
+				velocity.x = 400
+				velocity.y = -900
 
 #detects player collision with the attack collision 
 #will only react to opposing player collision and call their take_damage function
 #calls opposing players knockback function on attack collision
-func _on_Attack_Collision_body_entered(body):
-	if body.is_in_group("player") and body.player_number != player_number:
-		print(body.name)
-		body.take_damage()
-		body.knockback(knockback_dir_x, knockback_dir_y)
+func _on_Attack_Collision_area_entered(area):
+	if attacking:
+		if area.is_in_group("player_hit_box"):
+			var player_area = area.get_parent()
+			if player_area.player_number != player_number:
+				print(player_area.name)
+				player_area.take_damage()
+				player_area.knockback(next_velocity, facing_dir)
+

@@ -468,14 +468,24 @@ knockback_dir_y = -1000
 position = Vector2( 4.86324, -2.16144 )
 shape = SubResource( 1 )
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="PlayerHitBox" type="Area2D" parent="." groups=[
+"player_hit_box",
+]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerHitBox"]
+position = Vector2( 4.86324, -2.16144 )
+shape = SubResource( 1 )
+
+[node name="PlatformCollisionArea" type="Area2D" parent="."]
 collision_mask = 4
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlatformCollisionArea"]
 position = Vector2( 4.32288, -1.08072 )
 shape = SubResource( 2 )
 
-[node name="Attack_Collision" type="Area2D" parent="."]
+[node name="Attack_Collision" type="Area2D" parent="." groups=[
+"attack_collision",
+]]
 collision_layer = 8
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Attack_Collision"]
@@ -495,6 +505,7 @@ disabled = true
 wait_time = 0.5
 
 [node name="Player1IKChain" parent="." instance=ExtResource( 2 )]
+editor/display_folded = true
 scale = Vector2( -0.1, 0.1 )
 
 [node name="splatter_boi_lowerbody" parent="Player1IKChain" index="0"]
@@ -542,10 +553,9 @@ position = Vector2( -22.2232, -474.958 )
 rotation = -0.0185738
 scale = Vector2( 2.50176, 3.93919 )
 
-[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
-[connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]
+[connection signal="body_entered" from="PlatformCollisionArea" to="." method="_on_PlatformCollisionArea_body_entered"]
+[connection signal="body_exited" from="PlatformCollisionArea" to="." method="_on_PlatformCollisionArea_body_exited"]
 [connection signal="area_entered" from="Attack_Collision" to="." method="_on_Attack_Collision_area_entered"]
-[connection signal="body_entered" from="Attack_Collision" to="." method="_on_Attack_Collision_body_entered"]
 [connection signal="animation_finished" from="Attack_Collision/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="timeout" from="Platform_Fall_Timer" to="." method="_on_Platform_Fall_Timer_timeout"]
 [connection signal="animation_finished" from="Player1IKChain/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
