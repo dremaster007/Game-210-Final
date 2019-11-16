@@ -1,20 +1,22 @@
 [gd_scene load_steps=51 format=2]
 
 [ext_resource path="res://Assets/MainScenes/PickingScreen/Scripts/PickingScreen.gd" type="Script" id=1]
-[ext_resource path="res://Assets/Graphics/Sprites/DevNames/graf_tony.png" type="Texture" id=2]
-[ext_resource path="res://Assets/Graphics/Sprites/Background/splatter_3.png" type="Texture" id=3]
-[ext_resource path="res://Assets/Graphics/Sprites/DevNames/graf_zach.png" type="Texture" id=4]
-[ext_resource path="res://Assets/Graphics/Sprites/Background/splatter_2.png" type="Texture" id=5]
-[ext_resource path="res://Assets/Graphics/Sprites/DevNames/graf_colin.png" type="Texture" id=6]
-[ext_resource path="res://Assets/Graphics/Sprites/DevNames/graf_wakim.png" type="Texture" id=7]
-[ext_resource path="res://Assets/Graphics/Sprites/Background/splatter_4.png" type="Texture" id=8]
-[ext_resource path="res://Assets/Graphics/Sprites/Background/graf_pow1.png" type="Texture" id=9]
-[ext_resource path="res://Assets/Graphics/Sprites/Background/splatter_1.png" type="Texture" id=10]
-[ext_resource path="res://icon.png" type="Texture" id=11]
-[ext_resource path="res://Assets/MainScenes/PickingScreen/Scenes/PickingScreenTransition.tscn" type="PackedScene" id=12]
-
-
-
+[ext_resource path="res://Assets/MainScenes/PickingScreen/Scenes/PickingScreenPlayer.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Assets/Graphics/Sprites/DevNames/graf_tony.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Graphics/Sprites/Background/splatter_3.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Graphics/Sprites/DevNames/graf_zach.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Graphics/Sprites/Background/splatter_2.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Graphics/Sprites/DevNames/graf_colin.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Graphics/Sprites/DevNames/graf_wakim.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Graphics/Sprites/Background/splatter_4.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Graphics/Sprites/Background/graf_pow1.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Graphics/Sprites/Background/splatter_1.png" type="Texture" id=11]
+[ext_resource path="res://icon.png" type="Texture" id=12]
+[ext_resource path="res://Assets/MainScenes/PickingScreen/Scenes/PickingScreenTransition.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Assets/Graphics/Sprites/SelectionBoxes/SelectionBoxesP1.png" type="Texture" id=14]
+[ext_resource path="res://Assets/Graphics/Sprites/SelectionBoxes/SelectionBoxesP2.png" type="Texture" id=15]
+[ext_resource path="res://Assets/Graphics/Sprites/SelectionBoxes/SelectionBoxesP3.png" type="Texture" id=16]
+[ext_resource path="res://Assets/Graphics/Sprites/SelectionBoxes/SelectionBoxesP4.png" type="Texture" id=17]
 
 [sub_resource type="CubeMesh" id=1]
 size = Vector3( 20, 0.1, 20 )
@@ -50,7 +52,7 @@ size = Vector2( 2, 2 )
 render_priority = 9
 flags_transparent = true
 flags_unshaded = true
-albedo_texture = ExtResource( 2 )
+albedo_texture = ExtResource( 3 )
 
 [sub_resource type="QuadMesh" id=12]
 size = Vector2( 4, 4 )
@@ -59,49 +61,49 @@ size = Vector2( 4, 4 )
 flags_transparent = true
 flags_unshaded = true
 albedo_color = Color( 0.498039, 0, 1, 1 )
-albedo_texture = ExtResource( 3 )
+albedo_texture = ExtResource( 4 )
 
 [sub_resource type="SpatialMaterial" id=14]
 render_priority = 10
 flags_transparent = true
 flags_unshaded = true
-albedo_texture = ExtResource( 4 )
+albedo_texture = ExtResource( 5 )
 
 [sub_resource type="SpatialMaterial" id=15]
 flags_transparent = true
 flags_unshaded = true
 albedo_color = Color( 1, 1, 0, 1 )
-albedo_texture = ExtResource( 5 )
+albedo_texture = ExtResource( 6 )
 
 [sub_resource type="SpatialMaterial" id=16]
 render_priority = 10
 flags_transparent = true
 flags_unshaded = true
-albedo_texture = ExtResource( 6 )
+albedo_texture = ExtResource( 7 )
 
 [sub_resource type="SpatialMaterial" id=17]
 flags_transparent = true
 flags_unshaded = true
 albedo_color = Color( 0, 1, 0, 1 )
-albedo_texture = ExtResource( 5 )
+albedo_texture = ExtResource( 6 )
 
 [sub_resource type="SpatialMaterial" id=18]
 render_priority = 10
 flags_transparent = true
 flags_unshaded = true
-albedo_texture = ExtResource( 7 )
+albedo_texture = ExtResource( 8 )
 
 [sub_resource type="SpatialMaterial" id=19]
 flags_transparent = true
 flags_unshaded = true
 albedo_color = Color( 1, 0.498039, 0, 1 )
-albedo_texture = ExtResource( 8 )
+albedo_texture = ExtResource( 9 )
 
 [sub_resource type="SpatialMaterial" id=20]
 render_priority = 8
 flags_transparent = true
 flags_unshaded = true
-albedo_texture = ExtResource( 9 )
+albedo_texture = ExtResource( 10 )
 
 [sub_resource type="QuadMesh" id=21]
 size = Vector2( 3, 3 )
@@ -110,34 +112,34 @@ size = Vector2( 3, 3 )
 flags_transparent = true
 flags_unshaded = true
 albedo_color = Color( 0, 0, 1, 1 )
-albedo_texture = ExtResource( 10 )
+albedo_texture = ExtResource( 11 )
 
 [sub_resource type="QuadMesh" id=23]
 size = Vector2( 1.25, 1.25 )
 
 [sub_resource type="SpatialMaterial" id=24]
-albedo_texture = ExtResource( 11 )
+albedo_texture = ExtResource( 12 )
 
 [sub_resource type="SpatialMaterial" id=25]
-albedo_texture = ExtResource( 11 )
+albedo_texture = ExtResource( 12 )
 
 [sub_resource type="SpatialMaterial" id=26]
-albedo_texture = ExtResource( 11 )
+albedo_texture = ExtResource( 12 )
 
 [sub_resource type="SpatialMaterial" id=27]
-albedo_texture = ExtResource( 11 )
+albedo_texture = ExtResource( 12 )
 
 [sub_resource type="SpatialMaterial" id=28]
-albedo_texture = ExtResource( 11 )
+albedo_texture = ExtResource( 12 )
 
 [sub_resource type="SpatialMaterial" id=29]
-albedo_texture = ExtResource( 11 )
+albedo_texture = ExtResource( 12 )
 
 [sub_resource type="SpatialMaterial" id=30]
-albedo_texture = ExtResource( 11 )
+albedo_texture = ExtResource( 12 )
 
 [sub_resource type="SpatialMaterial" id=31]
-albedo_texture = ExtResource( 11 )
+albedo_texture = ExtResource( 12 )
 
 [sub_resource type="CubeMesh" id=32]
 size = Vector3( 10, 10, 0.1 )
@@ -145,32 +147,15 @@ size = Vector3( 10, 10, 0.1 )
 [sub_resource type="SpatialMaterial" id=33]
 albedo_color = Color( 1, 0.654902, 0.654902, 1 )
 
-[sub_resource type="SphereMesh" id=34]
-radius = 0.75
-height = 0.75
-is_hemisphere = true
-
-[sub_resource type="CubeMesh" id=35]
-size = Vector3( 0.75, 0.5, 0.75 )
-
-[sub_resource type="SpatialMaterial" id=36]
-albedo_texture = ExtResource( 4 )
-
-[sub_resource type="CylinderMesh" id=37]
-material = SubResource( 36 )
-top_radius = 0.75
-bottom_radius = 0.75
-
-[sub_resource type="CylinderShape" id=38]
-radius = 0.75
-
 [node name="PickingScreen" type="Spatial"]
 script = ExtResource( 1 )
+PickingScreenPlayer = ExtResource( 2 )
 
 [node name="Camera" type="Camera" parent="."]
 transform = Transform( 0.977546, 0.00350192, 0.210694, -0.00939055, 0.999593, 0.0269547, -0.210514, -0.028328, 0.97718, 2.22114, 4.11687, 5.86481 )
 
 [node name="Ground" type="Spatial" parent="."]
+editor/display_folded = true
 
 [node name="Floor" type="MeshInstance" parent="Ground"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.0321813, -1 )
@@ -196,6 +181,7 @@ mesh = SubResource( 5 )
 material/0 = SubResource( 7 )
 
 [node name="RightBuilding" type="Spatial" parent="."]
+editor/display_folded = true
 
 [node name="Back" type="MeshInstance" parent="RightBuilding"]
 transform = Transform( -4.37114e-008, 0, 1, 0, 1, 0, -1, 0, -4.37114e-008, 9, 7, -6 )
@@ -210,6 +196,7 @@ material/0 = SubResource( 7 )
 [node name="MainBuilding" type="Spatial" parent="."]
 
 [node name="GrafittiHolder" type="Spatial" parent="MainBuilding"]
+editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.44393, -0.301732 )
 
 [node name="Tony" type="MeshInstance" parent="MainBuilding/GrafittiHolder"]
@@ -262,7 +249,6 @@ mesh = SubResource( 21 )
 material/0 = SubResource( 22 )
 
 [node name="CharacterHolder" type="Spatial" parent="MainBuilding"]
-editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.669021 )
 
 [node name="Character1" type="MeshInstance" parent="MainBuilding/CharacterHolder"]
@@ -310,26 +296,29 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, -1 )
 mesh = SubResource( 32 )
 material/0 = SubResource( 33 )
 
-[node name="BackButton" type="Area" parent="MainBuilding"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.28123, 1, 0 )
+[node name="PickingScreenTransition" parent="." instance=ExtResource( 13 )]
 
-[node name="Top" type="MeshInstance" parent="MainBuilding/BackButton"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
-mesh = SubResource( 34 )
-material/0 = null
+[node name="SelectionSprites" type="Node" parent="."]
 
-[node name="Front" type="MeshInstance" parent="MainBuilding/BackButton"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.401624, 1.32813, 0 )
-mesh = SubResource( 35 )
-material/0 = null
+[node name="Player1" type="Sprite3D" parent="SelectionSprites"]
+transform = Transform( 0.4, 0, 0, 0, 0.4, 0, 0, 0, 1, -3, 4, -0.65 )
+double_sided = false
+texture = ExtResource( 14 )
 
-[node name="Bottom" type="MeshInstance" parent="MainBuilding/BackButton"]
-mesh = SubResource( 37 )
-material/0 = null
+[node name="Player2" type="Sprite3D" parent="SelectionSprites"]
+transform = Transform( 0.4, 0, 0, 0, 0.4, 0, 0, 0, 1, -3, 4, -0.65 )
+double_sided = false
+texture = ExtResource( 15 )
 
-[node name="CollisionShape" type="CollisionShape" parent="MainBuilding/BackButton"]
-shape = SubResource( 38 )
+[node name="Player3" type="Sprite3D" parent="SelectionSprites"]
+transform = Transform( 0.4, 0, 0, 0, 0.4, 0, 0, 0, 1, -3, 4, -0.65 )
+double_sided = false
+texture = ExtResource( 16 )
 
-[node name="PickingScreenTransition" parent="." instance=ExtResource( 12 )]
+[node name="Player4" type="Sprite3D" parent="SelectionSprites"]
+transform = Transform( 0.4, 0, 0, 0, 0.4, 0, 0, 0, 1, -3, 4, -0.65 )
+double_sided = false
+texture = ExtResource( 17 )
 
-[connection signal="input_event" from="MainBuilding/BackButton" to="." method="_on_BackButton_input_event"]
+[node name="PlayerCounter" type="Node" parent="."]
+

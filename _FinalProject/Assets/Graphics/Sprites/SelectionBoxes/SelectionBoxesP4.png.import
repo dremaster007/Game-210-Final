@@ -2,8 +2,8 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/splatter_1.png-39a15d7607c2ab4469db94d1f67b58de.s3tc.stex"
-path.etc2="res://.import/splatter_1.png-39a15d7607c2ab4469db94d1f67b58de.etc2.stex"
+path.s3tc="res://.import/SelectionBoxesP4.png-82afec167cd3aaa22c44dade85a70396.s3tc.stex"
+path.etc2="res://.import/SelectionBoxesP4.png-82afec167cd3aaa22c44dade85a70396.etc2.stex"
 metadata={
 "imported_formats": [ "s3tc", "etc2" ],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Graphics/Sprites/Background/splatter_1.png"
-dest_files=[ "res://.import/splatter_1.png-39a15d7607c2ab4469db94d1f67b58de.s3tc.stex", "res://.import/splatter_1.png-39a15d7607c2ab4469db94d1f67b58de.etc2.stex" ]
+source_file="res://Assets/Graphics/Sprites/SelectionBoxes/SelectionBoxesP4.png"
+dest_files=[ "res://.import/SelectionBoxesP4.png-82afec167cd3aaa22c44dade85a70396.s3tc.stex", "res://.import/SelectionBoxesP4.png-82afec167cd3aaa22c44dade85a70396.etc2.stex" ]
 
 [params]
 
@@ -25,7 +25,7 @@ flags/repeat=true
 flags/filter=true
 flags/mipmaps=true
 flags/anisotropic=false
-flags/srgb=1
+flags/srgb=2
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false

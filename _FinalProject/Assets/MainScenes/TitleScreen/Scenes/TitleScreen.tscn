@@ -6,9 +6,6 @@
 [ext_resource path="res://Assets/MainScenes/TitleScreen/Scenes/TitleTransition.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Assets/Audio/SFX/SprayCanShake.wav" type="AudioStream" id=5]
 
-
-
-
 [sub_resource type="Animation" id=1]
 resource_name = "null"
 length = 3.2
