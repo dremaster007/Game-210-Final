@@ -1,9 +1,7 @@
 [gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Assets/TestingEnvironment/Player/Player.gd" type="Script" id=1]
-[ext_resource path="res://Assets/PlayerAnimations/Player1IKChain.tscn" type="PackedScene" id=2]
-
-
+[ext_resource path="res://Assets/Graphics/Animations/PlayerAnims/Player1IKChain.tscn" type="PackedScene" id=2]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 24.2379
@@ -464,7 +462,6 @@ tracks/4/keys = {
 ]]
 collision_mask = 6
 script = ExtResource( 1 )
-knockback_dir_y = -1000
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 4.86324, -2.16144 )
@@ -554,6 +551,7 @@ amount = 15
 position = Vector2( -22.2232, -474.958 )
 rotation = -0.0185738
 scale = Vector2( 2.50176, 3.93919 )
+
 [connection signal="body_entered" from="PlatformCollisionArea" to="." method="_on_PlatformCollisionArea_body_entered"]
 [connection signal="body_exited" from="PlatformCollisionArea" to="." method="_on_PlatformCollisionArea_body_exited"]
 [connection signal="area_entered" from="Attack_Collision" to="." method="_on_Attack_Collision_area_entered"]

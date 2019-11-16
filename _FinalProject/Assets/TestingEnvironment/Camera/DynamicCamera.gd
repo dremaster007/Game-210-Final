@@ -4,7 +4,7 @@ extends Camera2D
 # scene needs to have a container called "Player_Container" with all of the players in it
 
 export (float) var zoom_offset = 0.4 # this is the leeway that the zoom will take place
-export (bool) var debug_mode = false # will draw a visual helper to see whats happengin
+export (bool) var debug_mode = false # will draw a visual helper to see whats happening
 
 var camera_rect = Rect2() # the cameras rectangle
 var viewport_rect = Rect2() # the viewports rectangle

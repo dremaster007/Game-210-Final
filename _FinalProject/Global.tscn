@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Global.gd" type="Script" id=1]
-[ext_resource path="res://Assets/MenuNavigation/TitleScreen/Scenes/TitleScreen.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Assets/MenuNavigation/PickingScreen/Scenes/PickingScreen.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Assets/MainScenes/TitleScreen/Scenes/TitleScreen.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Assets/MainScenes/PickingScreen/Scenes/PickingScreen.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Assets/TestingEnvironment/Level/Test.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Assets/Audio/OST/SprayHipHop1.wav" type="AudioStream" id=5]
 
