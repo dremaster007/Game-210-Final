@@ -14,6 +14,8 @@ var can_input = true
 # This is a String that tracks what velocity we will send it.
 # This is mostly used for animations that should have a set velocity.
 var next_velocity = null
+var slowing_velocity = false
+var slow_percent = 0
 var attacking = false
 
 # Variables that hold our animations players. This is for ease of access.
@@ -50,9 +52,6 @@ var facing_dir = "right"
 # ????
 var platform_fall_count = 0
 
-export (int) var knockback_dir_x
-export (int) var knockback_dir_y
-
 func _ready():
 	change_state(IDLE)
 
@@ -63,6 +62,11 @@ func _physics_process(delta):
 			#player_anim.play("%s_idle" % facing_dir)
 			velocity.x = 0
 		current_jumps = 0
+	
+	if slowing_velocity == false:
+		slow_velocity(0)
+	elif slowing_velocity == true:
+		slow_velocity(slow_percent)
 	
 	get_input()
 	
@@ -257,6 +261,12 @@ func change_state(new_state):
 			if debug_mode["show_state_prints"] == true:
 				print("Attack")
 		STUNNED:
+			can_input = false
+			slowing_velocity = true
+			yield(get_tree().create_timer(0.75),"timeout")
+			can_input = true
+			slowing_velocity = false
+			
 			# Mostly unused for right now
 			att_direction = "neutral"
 			if debug_mode["show_state_prints"] == true:
@@ -269,19 +279,18 @@ func set_velocity(type):
 		return
 	match type:
 		"side_kick":
-			if is_on_floor():
-				velocity.x = lerp(velocity.x, 0, 0.01)
-				if facing_dir == "left":
-					velocity.x = -300
-				elif facing_dir == "right":
-					velocity.x = 300
+			velocity.x = lerp(velocity.x, 0, 0.01)
+			if facing_dir == "left":
+				velocity.x = -300
+			elif facing_dir == "right":
+				velocity.x = 300
 		"leg_sweep":
 			if is_on_floor():
 				if facing_dir == "left":
 					velocity.x = -400
 				elif facing_dir == "right":
 					velocity.x = 400
-				velocity.x = lerp(velocity.x, 0, 0.1)
+			velocity.x = lerp(velocity.x, 0, 0.1)
 		"neutral_kick":
 			velocity.x = lerp(velocity.x, 0, 0.2)
 
@@ -311,7 +320,6 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 		next_velocity = null
 	if anim_name == "%s_neutral_kick" % facing_dir:
 		player_anim.play("%s_idle" % facing_dir)
-		print("Finished")
 		can_input = true
 		next_velocity = null
 	if anim_name == "null":
@@ -326,6 +334,11 @@ func _on_Platform_Fall_Timer_timeout():
 
 #player's state changes to STUNNED when hit and will handle player damage
 func take_damage():
+	if player_number == 1:
+		$HitSound.pitch_scale = 1.5
+	if player_number == 2:
+		$HitSound.pitch_scale = 0.5
+	$HitSound.play()
 	change_state(STUNNED)
 #	print("hit %s" % player_number)
 	
@@ -340,13 +353,15 @@ func knockback(type, other_fac_dir):
 			elif other_fac_dir == "right":
 				velocity.x = 1000
 				velocity.y = -300
+			slow_percent = 0.08
 		"leg_sweep":
 			if other_fac_dir == "left":
-				velocity.x = -300
+				velocity.x = -800
 				velocity.y = -900
 			elif other_fac_dir == "right":
-				velocity.x = 300
+				velocity.x = 800
 				velocity.y = -900
+			slow_percent = 0.08
 		"neutral_kick":
 			if other_fac_dir == "left":
 				velocity.x = -400
@@ -354,6 +369,12 @@ func knockback(type, other_fac_dir):
 			elif other_fac_dir == "right":
 				velocity.x = 400
 				velocity.y = -900
+			slow_percent = 0.08
+	slowing_velocity = true
+
+func slow_velocity(percent):
+	velocity.x = lerp(velocity.x, 0, percent)
+	velocity.y = lerp(velocity.y, 0, percent * 0.5)
 
 #detects player collision with the attack collision 
 #will only react to opposing player collision and call their take_damage function
@@ -363,7 +384,6 @@ func _on_Attack_Collision_area_entered(area):
 		if area.is_in_group("player_hit_box"):
 			var player_area = area.get_parent()
 			if player_area.player_number != player_number:
-				print(player_area.name)
 				player_area.take_damage()
 				player_area.knockback(next_velocity, facing_dir)
 

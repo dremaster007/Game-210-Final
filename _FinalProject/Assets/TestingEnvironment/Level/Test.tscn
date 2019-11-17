@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Assets/TestingEnvironment/Level/Test.gd" type="Script" id=1]
 [ext_resource path="res://Assets/TestingEnvironment/Camera/DynamicCamera.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Assets/TestingEnvironment/Level/OneWayPlatform.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Assets/TestingEnvironment/Player/Player.tscn" type="PackedScene" id=4]
+[ext_resource path="res://icon.png" type="Texture" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 572.865, 33.739 )
@@ -24,6 +25,7 @@ shape = SubResource( 1 )
 
 [node name="DynamicCamera" parent="." instance=ExtResource( 2 )]
 current = true
+zoom_offset = 0.2
 
 [node name="OneWayPlatform" parent="." instance=ExtResource( 3 )]
 position = Vector2( -276.947, 89.3445 )
@@ -52,4 +54,34 @@ position = Vector2( 0, 7.73121 )
 
 [node name="Player2" parent="Player_Container" instance=ExtResource( 4 )]
 position = Vector2( 98, 0 )
+
+[node name="Sprite" type="Sprite" parent="."]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( -527.569, 85.9184 )
+scale = Vector2( 1, 6.84 )
+texture = ExtResource( 5 )
+
+[node name="Sprite2" type="Sprite" parent="."]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 533.599, 91.9478 )
+scale = Vector2( 1, 6.84 )
+texture = ExtResource( 5 )
+
+[node name="Sprite3" type="Sprite" parent="."]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( -1.50732, 274.336 )
+scale = Vector2( 18.16, 1.32 )
+texture = ExtResource( 5 )
+
+[node name="Sprite4" type="Sprite" parent="."]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( -277.351, 88.9331 )
+scale = Vector2( 4.68, 0.280001 )
+texture = ExtResource( 5 )
+
+[node name="Sprite5" type="Sprite" parent="."]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 298.453, 88.9331 )
+scale = Vector2( 4.68, 0.280001 )
+texture = ExtResource( 5 )
 
