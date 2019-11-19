@@ -81,10 +81,13 @@ func get_input():
 		
 		if select:
 			locked_in = true
+			Picking_Screen.players_ready += 1
+			Picking_Screen.select_character(player_number, selected_num)
 		#----------------------------------------------------------
 	if back:
 		if locked_in == true:
 			locked_in = false
+			Picking_Screen.players_ready -= 1
 		elif locked_in == false:
 			Global.change_scene("title_screen")
 	

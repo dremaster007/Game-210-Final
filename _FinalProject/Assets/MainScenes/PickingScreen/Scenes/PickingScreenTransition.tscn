@@ -3,10 +3,6 @@
 [ext_resource path="res://Assets/MainScenes/PickingScreen/Scripts/PickingScreenTransition.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Graphics/Animations/MenuAnims/coming_into_picking_screen.tres" type="Animation" id=2]
 
-
-
-
-
 [node name="PickingScreenTransition" type="CanvasLayer"]
 script = ExtResource( 1 )
 
@@ -34,5 +30,6 @@ margin_bottom = 1080.0
 color = Color( 0, 0, 0, 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-playback_speed = 0.5
+playback_speed = 1.5
 anims/come_into_picking_screen = ExtResource( 2 )
+

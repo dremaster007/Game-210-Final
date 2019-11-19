@@ -194,6 +194,7 @@ mesh = SubResource( 5 )
 material/0 = SubResource( 7 )
 
 [node name="MainBuilding" type="Spatial" parent="."]
+editor/display_folded = true
 
 [node name="GrafittiHolder" type="Spatial" parent="MainBuilding"]
 editor/display_folded = true
@@ -249,6 +250,7 @@ mesh = SubResource( 21 )
 material/0 = SubResource( 22 )
 
 [node name="CharacterHolder" type="Spatial" parent="MainBuilding"]
+editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.669021 )
 
 [node name="Character1" type="MeshInstance" parent="MainBuilding/CharacterHolder"]
@@ -321,4 +323,8 @@ double_sided = false
 texture = ExtResource( 17 )
 
 [node name="PlayerCounter" type="Node" parent="."]
+
+[node name="SelectionSpriteTweens" type="Node" parent="."]
+
+[node name="Tween" type="Tween" parent="SelectionSpriteTweens"]
 
