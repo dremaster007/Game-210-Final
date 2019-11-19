@@ -55,6 +55,17 @@ var platform_fall_count = 0
 func _ready():
 	change_state(IDLE)
 
+func load_textures():
+	match player_number:
+		1:
+			$PlayerIndicator.texture = load("res://Assets/Graphics/Sprites/SelectionBoxes/SelectionBoxesP1.png")
+		2:
+			$PlayerIndicator.texture = load("res://Assets/Graphics/Sprites/SelectionBoxes/SelectionBoxesP2.png")
+		3:
+			$PlayerIndicator.texture = load("res://Assets/Graphics/Sprites/SelectionBoxes/SelectionBoxesP3.png")
+		4:
+			$PlayerIndicator.texture = load("res://Assets/Graphics/Sprites/SelectionBoxes/SelectionBoxesP4.png")
+
 func _physics_process(delta):
 	# If we are standing still...
 	if is_on_floor():
@@ -341,7 +352,6 @@ func take_damage():
 	$HitSound.play()
 	change_state(STUNNED)
 #	print("hit %s" % player_number)
-	
 
 #sets knockback directions for when the player gets hit
 func knockback(type, other_fac_dir):

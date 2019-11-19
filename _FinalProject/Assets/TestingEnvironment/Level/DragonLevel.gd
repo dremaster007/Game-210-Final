@@ -9,3 +9,4 @@ func _ready():
 		var z = $Player_Container.get_child(y)
 		number_of_players += 1
 		z.player_number = number_of_players
+		z.load_textures()
