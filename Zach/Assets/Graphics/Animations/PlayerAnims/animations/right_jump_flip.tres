@@ -415,7 +415,7 @@ tracks/33/keys = {
 } ]
 }
 tracks/34/type = "value"
-tracks/34/path = NodePath("AnimationPlayer:playback_speed")
+tracks/34/path = NodePath("Particles2D:emitting")
 tracks/34/interp = 1
 tracks/34/loop_wrap = true
 tracks/34/imported = false
@@ -423,19 +423,6 @@ tracks/34/enabled = true
 tracks/34/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 1.0 ]
-}
-tracks/35/type = "value"
-tracks/35/path = NodePath("Particles2D:emitting")
-tracks/35/interp = 1
-tracks/35/loop_wrap = true
-tracks/35/imported = false
-tracks/35/enabled = true
-tracks/35/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ false ]
 }
-

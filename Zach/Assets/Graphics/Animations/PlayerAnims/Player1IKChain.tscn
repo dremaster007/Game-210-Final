@@ -29,7 +29,6 @@
 [ext_resource path="res://Assets/Graphics/Animations/PlayerAnims/animations/right_side_kick.tres" type="Animation" id=27]
 [ext_resource path="res://Assets/Graphics/Animations/PlayerAnims/animations/right_walking.tres" type="Animation" id=28]
 
-
 [sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0, 0.414815, 0.896296 )
 colors = PoolColorArray( 1, 1, 1, 0.521569, 1, 0.920074, 0.789063, 0.294118, 1, 0.976471, 0.933333, 0.635294 )
@@ -91,7 +90,7 @@ offset = Vector2( -9.60779, -99.6175 )
 [node name="splatter_boi_head" type="Sprite" parent="splatter_boi_lowerbody/splatter_boi_upperbody"]
 editor/display_folded = true
 position = Vector2( -11.1607, -167.384 )
-rotation = 0.107191
+rotation = 0.238029
 texture = ExtResource( 4 )
 offset = Vector2( -23.5762, -139.338 )
 __meta__ = {
@@ -258,4 +257,3 @@ anims/right_leg_sweep = ExtResource( 25 )
 anims/right_neutral_kick = ExtResource( 26 )
 anims/right_side_kick = ExtResource( 27 )
 anims/right_walking = ExtResource( 28 )
-
