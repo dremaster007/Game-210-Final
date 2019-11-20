@@ -2,8 +2,8 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/splatter_4.png-ac168d8959e48f6c1ba3d7019afeb69b.s3tc.stex"
-path.etc2="res://.import/splatter_4.png-ac168d8959e48f6c1ba3d7019afeb69b.etc2.stex"
+path.s3tc="res://.import/SidewalkTexture.png-9629057b380223c3d91fff8ae23db7e6.s3tc.stex"
+path.etc2="res://.import/SidewalkTexture.png-9629057b380223c3d91fff8ae23db7e6.etc2.stex"
 metadata={
 "imported_formats": [ "s3tc", "etc2" ],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/TestingEnvironment/SplatterPlacement/SplatterPlacement/SpriteAssets/splatter_4.png"
-dest_files=[ "res://.import/splatter_4.png-ac168d8959e48f6c1ba3d7019afeb69b.s3tc.stex", "res://.import/splatter_4.png-ac168d8959e48f6c1ba3d7019afeb69b.etc2.stex" ]
+source_file="res://Assets/Graphics/Sprites/Background/SidewalkTexture.png"
+dest_files=[ "res://.import/SidewalkTexture.png-9629057b380223c3d91fff8ae23db7e6.s3tc.stex", "res://.import/SidewalkTexture.png-9629057b380223c3d91fff8ae23db7e6.etc2.stex" ]
 
 [params]
 
