@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/splatter_boi_upperbody.png-e257392429999c2f81c925841a43bf56.stex"
+path="res://.import/splatter_boi_rightlowerarm.png-88796340f592403780328bc2ddc35864.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Graphics/Sprites/Character1Pieces/splatter_boi_upperbody.png"
-dest_files=[ "res://.import/splatter_boi_upperbody.png-e257392429999c2f81c925841a43bf56.stex" ]
+source_file="res://Assets/Graphics/Sprites/CharacterPieces/Char1Pieces/splatter_boi_rightlowerarm.png"
+dest_files=[ "res://.import/splatter_boi_rightlowerarm.png-88796340f592403780328bc2ddc35864.stex" ]
 
 [params]
 
