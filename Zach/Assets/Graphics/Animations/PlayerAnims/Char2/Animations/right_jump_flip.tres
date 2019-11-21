@@ -107,10 +107,10 @@ tracks/8/loop_wrap = true
 tracks/8/imported = false
 tracks/8/enabled = true
 tracks/8/keys = {
-"times": PoolRealArray( 0, 0.14, 0.36, 0.5, 0.7 ),
+"times": PoolRealArray( 0, 0.14, 0.36, 0.52, 0.7 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 0, 0, 0, 0, 0 ]
+"values": [ 1, 1, 1, 1, 1 ]
 }
 tracks/9/type = "value"
 tracks/9/path = NodePath("splatter_boi_lowerbody/splatter_boi_upperbody/splatter_boi_rightupperarm:position")
@@ -326,7 +326,7 @@ tracks/26/keys = {
 "times": PoolRealArray( 0, 0.14, 0.36, 0.5, 0.7 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 0, 0, 0, 0, 0 ]
+"values": [ -1, -1, -1, -1, -1 ]
 }
 tracks/27/type = "value"
 tracks/27/path = NodePath("splatter_boi_lowerbody/splatter_boi_leftupperleg:position")
@@ -398,7 +398,7 @@ tracks/32/keys = {
 "times": PoolRealArray( 0, 0.14, 0.36, 0.5, 0.7 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 0, 0, 0, 0, 0 ]
+"values": [ -1, -1, -1, -1, -1 ]
 }
 tracks/33/type = "method"
 tracks/33/path = NodePath(".")
@@ -438,4 +438,15 @@ tracks/35/keys = {
 "update": 1,
 "values": [ false ]
 }
-
+tracks/36/type = "value"
+tracks/36/path = NodePath(".:scale")
+tracks/36/interp = 1
+tracks/36/loop_wrap = true
+tracks/36/imported = false
+tracks/36/enabled = true
+tracks/36/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0.1, 0.1 ) ]
+}

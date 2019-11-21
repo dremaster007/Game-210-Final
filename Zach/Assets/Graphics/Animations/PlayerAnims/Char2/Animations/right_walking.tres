@@ -4,6 +4,7 @@
 resource_name = "right_walking"
 length = 0.8
 loop = true
+step = 0.01
 tracks/0/type = "value"
 tracks/0/path = NodePath("splatter_boi_lowerbody/splatter_boi_upperbody:rotation_degrees")
 tracks/0/interp = 1
