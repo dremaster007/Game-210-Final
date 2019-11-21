@@ -19,25 +19,32 @@ var player4 = null
 
 var player_array = [] # array that will be populated with objects of players
 
+var Global = null
+
 func _ready():
 	set_process(false) # stop process
+	Global = find_parent("Global")
+
+func cam_start():
 	yield(get_tree().create_timer(0.05), "timeout") # wait for main scene to catch up
-	number_of_players = get_parent().number_of_players # set the number of players we have
+	number_of_players = Global.number_of_players # set the number of players we have
 	for player in number_of_players: # loop over the number of players we have
 		match player + 1: # set the player variables to the corresponding variables
 			0:
 				return
 			1:
-				player1 = get_parent().get_node("Player_Container/Player")
+				player1 = find_parent("DragonLevel").find_node("Player_Container").get_child(player)
+				#player1 = get_parent().get_node("Player_Container/Player")
 				player_array.append(player1)
 			2:
-				player2 = get_parent().get_node("Player_Container/Player2")
+				player2 = find_parent("DragonLevel").find_node("Player_Container").get_child(player)
+				#player2 = get_parent().get_node("Player_Container/Player2")
 				player_array.append(player2)
 			3:
-				player3 = get_parent().get_node("Player_Container/Player3")
+				player3 = find_parent("DragonLevel").find_node("Player_Container").get_child(player)
 				player_array.append(player3)
 			4:
-				player4 = get_parent().get_node("Player_Container/Player4")
+				player4 = find_parent("DragonLevel").find_node("Player_Container").get_child(player)
 				player_array.append(player4)
 	viewport_rect = get_viewport_rect() # set the viewport rect 
 	set_process(true) # set process true
