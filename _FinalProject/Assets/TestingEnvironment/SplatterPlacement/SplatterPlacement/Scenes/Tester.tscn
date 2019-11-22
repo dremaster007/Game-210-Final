@@ -4,7 +4,6 @@
 [ext_resource path="res://Assets/TestingEnvironment/SplatterPlacement/SplatterPlacement/Scenes/Splatter.tscn" type="PackedScene" id=2]
 [ext_resource path="res://icon.png" type="Texture" id=3]
 
-
 [node name="Tester" type="Node2D"]
 script = ExtResource( 1 )
 Paint = ExtResource( 2 )
