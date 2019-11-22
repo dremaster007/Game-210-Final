@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=2]
+[gd_scene load_steps=44 format=2]
 
 [ext_resource path="res://Assets/Graphics/Animations/PlayerAnims/Char2/Player2IKChain.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Graphics/Sprites/CharacterPieces/Char2Pieces/splatter_girl_lower_body.png" type="Texture" id=2]
@@ -25,8 +25,9 @@
 [ext_resource path="res://Assets/Graphics/Animations/PlayerAnims/Char2/Animations/right_jump_flip.tres" type="Animation" id=23]
 [ext_resource path="res://Assets/Graphics/Animations/PlayerAnims/Char2/Animations/right_leg_sweep.tres" type="Animation" id=24]
 [ext_resource path="res://Assets/Graphics/Animations/PlayerAnims/Char2/Animations/right_neutral_kick.tres" type="Animation" id=25]
-[ext_resource path="res://Assets/Graphics/Animations/PlayerAnims/Char2/Animations/right_walking.tres" type="Animation" id=26]
-[ext_resource path="res://Assets/Graphics/Sprites/firecracker.png" type="Texture" id=27]
+[ext_resource path="res://Assets/Graphics/Animations/PlayerAnims/Char2/Animations/right_side_kick.tres" type="Animation" id=26]
+[ext_resource path="res://Assets/Graphics/Animations/PlayerAnims/Char2/Animations/right_walking.tres" type="Animation" id=27]
+[ext_resource path="res://Assets/Graphics/Sprites/firecracker.png" type="Texture" id=28]
 
 [sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0, 0.414815, 0.896296 )
@@ -251,6 +252,7 @@ __meta__ = {
 [node name="splatter_boi_leftupperleg" type="Sprite" parent="splatter_boi_lowerbody"]
 position = Vector2( 26.1517, 73.1853 )
 rotation = -0.244624
+scale = Vector2( 1, 0.996762 )
 z_index = -3
 texture = ExtResource( 11 )
 offset = Vector2( -1.70878, 58.3463 )
@@ -304,7 +306,7 @@ scale = Vector2( 7.72486, 9.66765 )
 texture = ExtResource( 14 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-playback_speed = 2.0
+playback_speed = 0.75
 anims/left_idle = ExtResource( 15 )
 anims/left_jump = ExtResource( 16 )
 anims/left_jump_flip = ExtResource( 17 )
@@ -316,7 +318,8 @@ anims/right_jump = ExtResource( 22 )
 anims/right_jump_flip = ExtResource( 23 )
 anims/right_leg_sweep = ExtResource( 24 )
 anims/right_neutral_kick = ExtResource( 25 )
-anims/right_walking = ExtResource( 26 )
+anims/right_side_kick = ExtResource( 26 )
+anims/right_walking = ExtResource( 27 )
 
 [node name="neutral_kick" type="Node2D" parent="."]
 editor/display_folded = true
@@ -325,7 +328,7 @@ visible = false
 [node name="Sprite" type="Sprite" parent="neutral_kick"]
 position = Vector2( 180.311, -271.959 )
 rotation = -0.0647681
-texture = ExtResource( 27 )
+texture = ExtResource( 28 )
 
 [node name="Particles2D2" type="Particles2D" parent="neutral_kick/Sprite"]
 position = Vector2( 0.3302, -65.0933 )
@@ -338,7 +341,7 @@ process_material = SubResource( 12 )
 [node name="Sprite2" type="Sprite" parent="neutral_kick"]
 position = Vector2( -34.2524, -316.05 )
 rotation = 0.30112
-texture = ExtResource( 27 )
+texture = ExtResource( 28 )
 
 [node name="Particles2D3" type="Particles2D" parent="neutral_kick/Sprite2"]
 position = Vector2( 0.3302, -65.0933 )
@@ -349,13 +352,15 @@ lifetime = 0.6
 process_material = SubResource( 12 )
 
 [node name="leg_sweep" type="Node2D" parent="."]
+editor/display_folded = true
+visible = false
 
 [node name="firecrackerHolder" type="Node2D" parent="leg_sweep"]
 visible = false
 
 [node name="Sprite" type="Sprite" parent="leg_sweep/firecrackerHolder"]
 rotation = 0.734194
-texture = ExtResource( 27 )
+texture = ExtResource( 28 )
 
 [node name="Particles2D" type="Particles2D" parent="leg_sweep/firecrackerHolder/Sprite"]
 position = Vector2( 0.642409, 0.759061 )
@@ -366,7 +371,7 @@ process_material = SubResource( 15 )
 
 [node name="Sprite2" type="Sprite" parent="leg_sweep/firecrackerHolder"]
 rotation = -0.311526
-texture = ExtResource( 27 )
+texture = ExtResource( 28 )
 
 [node name="Particles2D2" type="Particles2D" parent="leg_sweep/firecrackerHolder/Sprite2"]
 position = Vector2( -0.334777, 0.936369 )
@@ -378,7 +383,7 @@ process_material = SubResource( 15 )
 
 [node name="Sprite3" type="Sprite" parent="leg_sweep/firecrackerHolder"]
 rotation = -2.00491
-texture = ExtResource( 27 )
+texture = ExtResource( 28 )
 
 [node name="Particles2D3" type="Particles2D" parent="leg_sweep/firecrackerHolder/Sprite3"]
 position = Vector2( -0.8884, -0.446774 )
@@ -390,7 +395,7 @@ process_material = SubResource( 15 )
 
 [node name="Sprite4" type="Sprite" parent="leg_sweep/firecrackerHolder"]
 rotation = -3.25952
-texture = ExtResource( 27 )
+texture = ExtResource( 28 )
 
 [node name="Particles2D4" type="Particles2D" parent="leg_sweep/firecrackerHolder/Sprite4"]
 position = Vector2( 0.148386, -0.983282 )
@@ -402,7 +407,7 @@ process_material = SubResource( 15 )
 
 [node name="Sprite5" type="Sprite" parent="leg_sweep/firecrackerHolder"]
 rotation = -4.77438
-texture = ExtResource( 27 )
+texture = ExtResource( 28 )
 
 [node name="Particles2D5" type="Particles2D" parent="leg_sweep/firecrackerHolder/Sprite5"]
 position = Vector2( 0.990041, 0.0931674 )

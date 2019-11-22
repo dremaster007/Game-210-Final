@@ -3,7 +3,7 @@
 [resource]
 resource_name = "right_side_kick"
 length = 0.5
-step = 0.05
+step = 0.01
 tracks/0/type = "value"
 tracks/0/path = NodePath("splatter_boi_lowerbody:position")
 tracks/0/interp = 1
