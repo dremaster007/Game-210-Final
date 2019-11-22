@@ -1,8 +1,9 @@
 [gd_resource type="Animation" format=2]
 
 [resource]
-resource_name = "left_jump"
-length = 0.2
+resource_name = "right_side_kick"
+length = 0.5
+step = 0.05
 tracks/0/type = "value"
 tracks/0/path = NodePath("splatter_boi_lowerbody:position")
 tracks/0/interp = 1
@@ -10,10 +11,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.25, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( -5.37954, 26.9547 ), Vector2( 0, 0 ), Vector2( 0, 0 ) ]
+"values": [ Vector2( 0, 0 ), Vector2( -32.7735, 62.1641 ), Vector2( -33.2419, -207.018 ), Vector2( -33.2419, -207.018 ), Vector2( -52.7294, 38.3424 ), Vector2( 0, 0 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("splatter_boi_lowerbody:rotation_degrees")
@@ -22,10 +23,10 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.25, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ 0.0, 0.0, 0.0 ]
+"values": [ 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("splatter_boi_lowerbody:z_index")
@@ -34,10 +35,10 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.25, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 0, 0, 0 ]
+"values": [ -2, -2, -2, -2, -2, -2 ]
 }
 tracks/3/type = "value"
 tracks/3/path = NodePath("splatter_boi_lowerbody/splatter_boi_upperbody:position")
@@ -46,10 +47,10 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.25, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 7.8, 28 ), Vector2( 7.8, 28 ), Vector2( 7.8, 28 ) ]
+"values": [ Vector2( -3.35925, 20.5212 ), Vector2( -3.35925, 20.5212 ), Vector2( -3.35925, 20.5212 ), Vector2( -3.35925, 20.5212 ), Vector2( -3.35925, 20.5212 ), Vector2( -3.35925, 20.5212 ) ]
 }
 tracks/4/type = "value"
 tracks/4/path = NodePath("splatter_boi_lowerbody/splatter_boi_upperbody:rotation_degrees")
@@ -58,10 +59,10 @@ tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.25, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ 0.0, 0.0, 0.0 ]
+"values": [ 0.0, 20.3214, -2.33116, -2.33116, -2.33116, 0.0 ]
 }
 tracks/5/type = "value"
 tracks/5/path = NodePath("splatter_boi_lowerbody/splatter_boi_upperbody:z_index")
@@ -70,10 +71,10 @@ tracks/5/loop_wrap = true
 tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.25, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 1, 1, 1 ]
+"values": [ -1, -1, -1, -1, -1, -1 ]
 }
 tracks/6/type = "value"
 tracks/6/path = NodePath("splatter_boi_lowerbody/splatter_boi_upperbody/splatter_boi_head:position")
@@ -82,10 +83,10 @@ tracks/6/loop_wrap = true
 tracks/6/imported = false
 tracks/6/enabled = true
 tracks/6/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.25, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( -11.1607, -167.384 ), Vector2( -11.1607, -167.384 ), Vector2( -11.0887, -169.642 ) ]
+"values": [ Vector2( 4.70965, -170.036 ), Vector2( 4.70965, -170.036 ), Vector2( 4.45269, -170.804 ), Vector2( 4.45269, -170.804 ), Vector2( 4.45269, -170.804 ), Vector2( 4.70965, -170.036 ) ]
 }
 tracks/7/type = "value"
 tracks/7/path = NodePath("splatter_boi_lowerbody/splatter_boi_upperbody/splatter_boi_head:rotation_degrees")
@@ -94,10 +95,10 @@ tracks/7/loop_wrap = true
 tracks/7/imported = false
 tracks/7/enabled = true
 tracks/7/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.25, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ 12.317, -31.5904, -25.6135 ]
+"values": [ 3.98382, -19.8337, -0.914704, -0.914704, -0.914704, 3.98382 ]
 }
 tracks/8/type = "value"
 tracks/8/path = NodePath("splatter_boi_lowerbody/splatter_boi_upperbody/splatter_boi_head:z_index")
@@ -106,10 +107,10 @@ tracks/8/loop_wrap = true
 tracks/8/imported = false
 tracks/8/enabled = true
 tracks/8/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.25, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 1, 1, 1 ]
+"values": [ 0, 0, 0, 0, 0, 0 ]
 }
 tracks/9/type = "value"
 tracks/9/path = NodePath("splatter_boi_lowerbody/splatter_boi_upperbody/splatter_boi_rightupperarm:position")
@@ -118,10 +119,10 @@ tracks/9/loop_wrap = true
 tracks/9/imported = false
 tracks/9/enabled = true
 tracks/9/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.25, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 97.7749, -109.061 ), Vector2( 97.7749, -109.061 ), Vector2( 97.7749, -109.061 ) ]
+"values": [ Vector2( 67.1354, -118.389 ), Vector2( 67.1354, -118.389 ), Vector2( 67.1354, -118.389 ), Vector2( 67.1354, -118.389 ), Vector2( 67.1354, -118.389 ), Vector2( 67.1354, -118.389 ) ]
 }
 tracks/10/type = "value"
 tracks/10/path = NodePath("splatter_boi_lowerbody/splatter_boi_upperbody/splatter_boi_rightupperarm:rotation_degrees")
@@ -130,10 +131,10 @@ tracks/10/loop_wrap = true
 tracks/10/imported = false
 tracks/10/enabled = true
 tracks/10/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.25, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ 5.32289, -27.8973, -61.9886 ]
+"values": [ 5.0, 5.0, -31.6354, -31.6354, -7.85338, 5.0 ]
 }
 tracks/11/type = "value"
 tracks/11/path = NodePath("splatter_boi_lowerbody/splatter_boi_upperbody/splatter_boi_rightupperarm:z_index")
@@ -142,10 +143,10 @@ tracks/11/loop_wrap = true
 tracks/11/imported = false
 tracks/11/enabled = true
 tracks/11/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.25, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ -1, -1, -1 ]
+"values": [ -10, -10, -10, -10, -10, -10 ]
 }
 tracks/12/type = "value"
 tracks/12/path = NodePath("splatter_boi_lowerbody/splatter_boi_upperbody/splatter_boi_rightupperarm/splatter_boi_rightlowerarm:position")
@@ -154,10 +155,10 @@ tracks/12/loop_wrap = true
 tracks/12/imported = false
 tracks/12/enabled = true
 tracks/12/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.25, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 51.7791, 122.635 ), Vector2( 51.7791, 122.635 ), Vector2( 51.7791, 122.635 ) ]
+"values": [ Vector2( 48.0532, 101.204 ), Vector2( 48.0532, 101.204 ), Vector2( 48.0532, 101.204 ), Vector2( 48.0532, 101.204 ), Vector2( 48.0532, 101.204 ), Vector2( 48.0532, 101.204 ) ]
 }
 tracks/13/type = "value"
 tracks/13/path = NodePath("splatter_boi_lowerbody/splatter_boi_upperbody/splatter_boi_rightupperarm/splatter_boi_rightlowerarm:rotation_degrees")
@@ -166,10 +167,10 @@ tracks/13/loop_wrap = true
 tracks/13/imported = false
 tracks/13/enabled = true
 tracks/13/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.25, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ 21.219, 64.7639 ]
+"values": [ -10.8762, -10.8762, 42.9954, 42.9954, 19.7111, -10.8762 ]
 }
 tracks/14/type = "value"
 tracks/14/path = NodePath("splatter_boi_lowerbody/splatter_boi_upperbody/splatter_boi_rightupperarm/splatter_boi_rightlowerarm:z_index")
@@ -178,10 +179,10 @@ tracks/14/loop_wrap = true
 tracks/14/imported = false
 tracks/14/enabled = true
 tracks/14/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.25, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 1, 1, 1 ]
+"values": [ -9, -9, -9, -9, -9, -9 ]
 }
 tracks/15/type = "value"
 tracks/15/path = NodePath("splatter_boi_lowerbody/splatter_boi_upperbody/splatter_boi_leftupperarm:position")
@@ -190,10 +191,10 @@ tracks/15/loop_wrap = true
 tracks/15/imported = false
 tracks/15/enabled = true
 tracks/15/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.25, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( -104.156, -115.894 ), Vector2( -104.156, -115.894 ), Vector2( -104.156, -115.894 ) ]
+"values": [ Vector2( -92.4528, -125.494 ), Vector2( -92.4528, -125.494 ), Vector2( -92.4528, -125.494 ), Vector2( -92.4528, -125.494 ), Vector2( -92.4528, -125.494 ), Vector2( -92.4528, -125.494 ) ]
 }
 tracks/16/type = "value"
 tracks/16/path = NodePath("splatter_boi_lowerbody/splatter_boi_upperbody/splatter_boi_leftupperarm:rotation_degrees")
@@ -202,10 +203,10 @@ tracks/16/loop_wrap = true
 tracks/16/imported = false
 tracks/16/enabled = true
 tracks/16/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.25, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ -12.308, 37.7401, 41.6995 ]
+"values": [ -9.63306, -17.8014, -91.7547, 14.9569, 14.9569, -9.63306 ]
 }
 tracks/17/type = "value"
 tracks/17/path = NodePath("splatter_boi_lowerbody/splatter_boi_upperbody/splatter_boi_leftupperarm:z_index")
@@ -214,10 +215,10 @@ tracks/17/loop_wrap = true
 tracks/17/imported = false
 tracks/17/enabled = true
 tracks/17/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.25, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 0, 0, 0 ]
+"values": [ 0, 0, 0, 0, 0, 0 ]
 }
 tracks/18/type = "value"
 tracks/18/path = NodePath("splatter_boi_lowerbody/splatter_boi_upperbody/splatter_boi_leftupperarm/splatter_boi_leftlowerarm:position")
@@ -226,10 +227,10 @@ tracks/18/loop_wrap = true
 tracks/18/imported = false
 tracks/18/enabled = true
 tracks/18/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.25, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( -73.8233, 113.564 ), Vector2( -73.8233, 113.564 ), Vector2( -73.8233, 113.564 ) ]
+"values": [ Vector2( -51.3503, 107.602 ), Vector2( -51.3503, 107.602 ), Vector2( -51.3503, 107.602 ), Vector2( -51.3503, 107.602 ), Vector2( -51.3503, 107.602 ), Vector2( -51.3503, 107.602 ) ]
 }
 tracks/19/type = "value"
 tracks/19/path = NodePath("splatter_boi_lowerbody/splatter_boi_upperbody/splatter_boi_leftupperarm/splatter_boi_leftlowerarm:rotation_degrees")
@@ -238,10 +239,10 @@ tracks/19/loop_wrap = true
 tracks/19/imported = false
 tracks/19/enabled = true
 tracks/19/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.25, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ -16.3419, -47.6445, -27.0457 ]
+"values": [ -6.57409, -46.1836, 5.78114, -104.845, -64.363, -6.57409 ]
 }
 tracks/20/type = "value"
 tracks/20/path = NodePath("splatter_boi_lowerbody/splatter_boi_upperbody/splatter_boi_leftupperarm/splatter_boi_leftlowerarm:z_index")
@@ -250,10 +251,10 @@ tracks/20/loop_wrap = true
 tracks/20/imported = false
 tracks/20/enabled = true
 tracks/20/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.25, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 0, 0, 0 ]
+"values": [ 0, 0, 0, 0, 0, 0 ]
 }
 tracks/21/type = "value"
 tracks/21/path = NodePath("splatter_boi_lowerbody/splatter_boi_rightupperleg:position")
@@ -262,10 +263,10 @@ tracks/21/loop_wrap = true
 tracks/21/imported = false
 tracks/21/enabled = true
 tracks/21/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.25, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( -36.1761, 108.528 ), Vector2( -36.1761, 108.528 ), Vector2( -36.1761, 108.528 ) ]
+"values": [ Vector2( -40.6904, 71.3425 ), Vector2( -40.6904, 71.3425 ), Vector2( -39.0456, 70.5845 ), Vector2( -39.0456, 70.5845 ), Vector2( -39.0456, 70.5845 ), Vector2( -40.6904, 71.3425 ) ]
 }
 tracks/22/type = "value"
 tracks/22/path = NodePath("splatter_boi_lowerbody/splatter_boi_rightupperleg:rotation_degrees")
@@ -274,10 +275,10 @@ tracks/22/loop_wrap = true
 tracks/22/imported = false
 tracks/22/enabled = true
 tracks/22/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.25, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ 1.82604, 39.9719, 51.7655 ]
+"values": [ 4.33347, -41.1161, -25.1518, -33.6749, 39.6571, 4.33347 ]
 }
 tracks/23/type = "value"
 tracks/23/path = NodePath("splatter_boi_lowerbody/splatter_boi_rightupperleg:z_index")
@@ -286,10 +287,10 @@ tracks/23/loop_wrap = true
 tracks/23/imported = false
 tracks/23/enabled = true
 tracks/23/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.25, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ -2, -2, -2 ]
+"values": [ -2, -2, -2, -2, -2, -2 ]
 }
 tracks/24/type = "value"
 tracks/24/path = NodePath("splatter_boi_lowerbody/splatter_boi_rightupperleg/splatter_boi_rightlowerleg:position")
@@ -298,10 +299,10 @@ tracks/24/loop_wrap = true
 tracks/24/imported = false
 tracks/24/enabled = true
 tracks/24/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.25, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 12.8672, 109.655 ), Vector2( 12.8672, 109.655 ), Vector2( 12.8672, 109.655 ) ]
+"values": [ Vector2( 8.12758, 136.254 ), Vector2( 8.12758, 136.254 ), Vector2( 8.12758, 136.254 ), Vector2( 8.12758, 136.254 ), Vector2( 8.12758, 136.254 ), Vector2( 8.12758, 136.254 ) ]
 }
 tracks/25/type = "value"
 tracks/25/path = NodePath("splatter_boi_lowerbody/splatter_boi_rightupperleg/splatter_boi_rightlowerleg:rotation_degrees")
@@ -310,10 +311,10 @@ tracks/25/loop_wrap = true
 tracks/25/imported = false
 tracks/25/enabled = true
 tracks/25/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.25, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ 41.429, 24.8859, 41.9031 ]
+"values": [ 1.79886, 96.237, 55.0048, 63.3051, 35.4818, 1.79886 ]
 }
 tracks/26/type = "value"
 tracks/26/path = NodePath("splatter_boi_lowerbody/splatter_boi_rightupperleg/splatter_boi_rightlowerleg:z_index")
@@ -322,10 +323,10 @@ tracks/26/loop_wrap = true
 tracks/26/imported = false
 tracks/26/enabled = true
 tracks/26/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.25, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ -1, -1, -1 ]
+"values": [ -1, -1, -1, -1, -1, -1 ]
 }
 tracks/27/type = "value"
 tracks/27/path = NodePath("splatter_boi_lowerbody/splatter_boi_leftupperleg:position")
@@ -334,10 +335,10 @@ tracks/27/loop_wrap = true
 tracks/27/imported = false
 tracks/27/enabled = true
 tracks/27/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.25, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 38.0542, 102.058 ), Vector2( 38.0542, 102.058 ), Vector2( 38.0542, 102.058 ) ]
+"values": [ Vector2( 26.1517, 73.1853 ), Vector2( 26.1517, 73.1853 ), Vector2( 26.5586, 73.4404 ), Vector2( 26.5586, 73.4404 ), Vector2( 26.5586, 73.4404 ), Vector2( 26.1517, 73.1853 ) ]
 }
 tracks/28/type = "value"
 tracks/28/path = NodePath("splatter_boi_lowerbody/splatter_boi_leftupperleg:rotation_degrees")
@@ -346,10 +347,10 @@ tracks/28/loop_wrap = true
 tracks/28/imported = false
 tracks/28/enabled = true
 tracks/28/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.25, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ -28.3691, -44.246, -68.519 ]
+"values": [ -14.0159, -61.6656, -57.9136, -49.3669, -49.3669, -14.0159 ]
 }
 tracks/29/type = "value"
 tracks/29/path = NodePath("splatter_boi_lowerbody/splatter_boi_leftupperleg:z_index")
@@ -358,10 +359,10 @@ tracks/29/loop_wrap = true
 tracks/29/imported = false
 tracks/29/enabled = true
 tracks/29/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.25, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ -3, -3, -3 ]
+"values": [ -3, -3, -3, -3, -3, -3 ]
 }
 tracks/30/type = "value"
 tracks/30/path = NodePath("splatter_boi_lowerbody/splatter_boi_leftupperleg/splatter_boi_leftlowerleg:position")
@@ -370,10 +371,10 @@ tracks/30/loop_wrap = true
 tracks/30/imported = false
 tracks/30/enabled = true
 tracks/30/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.25, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( -23.2888, 123.181 ), Vector2( -23.2888, 123.181 ), Vector2( -23.2888, 123.181 ) ]
+"values": [ Vector2( -17.94, 132.932 ), Vector2( -17.94, 132.932 ), Vector2( -17.94, 132.932 ), Vector2( -17.94, 132.932 ), Vector2( -17.94, 132.932 ), Vector2( -17.94, 132.932 ) ]
 }
 tracks/31/type = "value"
 tracks/31/path = NodePath("splatter_boi_lowerbody/splatter_boi_leftupperleg/splatter_boi_leftlowerleg:rotation_degrees")
@@ -382,10 +383,10 @@ tracks/31/loop_wrap = true
 tracks/31/imported = false
 tracks/31/enabled = true
 tracks/31/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.25, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ 48.6716, 63.2716, 122.742 ]
+"values": [ 12.7407, 97.8383, 94.9656, 86.6721, 112.986, 12.7407 ]
 }
 tracks/32/type = "value"
 tracks/32/path = NodePath("splatter_boi_lowerbody/splatter_boi_leftupperleg/splatter_boi_leftlowerleg:z_index")
@@ -394,10 +395,10 @@ tracks/32/loop_wrap = true
 tracks/32/imported = false
 tracks/32/enabled = true
 tracks/32/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.25, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ -1, -1, -1 ]
+"values": [ -1, -1, -1, -1, -1, -1 ]
 }
 tracks/33/type = "value"
 tracks/33/path = NodePath("AnimationPlayer:playback_speed")
@@ -409,30 +410,6 @@ tracks/33/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ 1.0 ]
-}
-tracks/34/type = "value"
-tracks/34/path = NodePath("Particles2D:emitting")
-tracks/34/interp = 1
-tracks/34/loop_wrap = true
-tracks/34/imported = false
-tracks/34/enabled = true
-tracks/34/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
-}
-tracks/35/type = "value"
-tracks/35/path = NodePath(".:scale")
-tracks/35/interp = 1
-tracks/35/loop_wrap = true
-tracks/35/imported = false
-tracks/35/enabled = true
-tracks/35/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( -0.1, 0.1 ) ]
+"values": [ 0.75 ]
 }
 
