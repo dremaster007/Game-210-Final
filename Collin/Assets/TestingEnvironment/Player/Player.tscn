@@ -559,7 +559,6 @@ scale = Vector2( 1.17587, 2.01794 )
 
 [node name="HitSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
-
 [connection signal="body_entered" from="PlatformCollisionArea" to="." method="_on_PlatformCollisionArea_body_entered"]
 [connection signal="body_exited" from="PlatformCollisionArea" to="." method="_on_PlatformCollisionArea_body_exited"]
 [connection signal="area_entered" from="Attack_Collision" to="." method="_on_Attack_Collision_area_entered"]

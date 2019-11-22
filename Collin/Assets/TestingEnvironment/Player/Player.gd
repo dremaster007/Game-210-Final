@@ -52,8 +52,15 @@ var facing_dir = "right"
 # ????
 var platform_fall_count = 0
 
+var ultimate_fill = 0
+var ultimate_max = 100
+var can_ultimate = false
+
+var Global = null
+
 func _ready():
 	change_state(IDLE)
+	Global = find_parent("Global")
 
 func load_textures():
 	match player_number:
@@ -117,6 +124,7 @@ func get_input():
 	var down_released = Input.is_action_just_released("down_%s" % player_number)
 	var jump = Input.is_action_just_pressed("jump_%s" % player_number)
 	var attack = Input.is_action_just_pressed("attack_%s" % player_number)
+	var ultimate = Input.is_action_just_pressed("ultimate_%s" % player_number)
 	#------------------------------------------------------------
 	
 	#----------------------------------------------------
@@ -201,6 +209,9 @@ func get_input():
 	# If we attack...
 	if attack:
 		change_state(ATTACK)
+	
+	if ultimate:
+		activate_ultimate()
 
 # This function allows us to change states
 func change_state(new_state):
@@ -396,4 +407,35 @@ func _on_Attack_Collision_area_entered(area):
 			if player_area.player_number != player_number:
 				player_area.take_damage()
 				player_area.knockback(next_velocity, facing_dir)
+				ultimate_charge(10)
+
+func ultimate_charge(charge_amount):
+	ultimate_fill += charge_amount
+	if ultimate_fill >= ultimate_max:
+		can_ultimate = true
+
+func activate_ultimate():
+	match Global.player_picks["player_%s" % player_number]:
+		0:
+			print("1")
+			# Leave paint where the player walks for a limited amount of time.
+			# create a bool that is false by default called paint_trail.
+			# set it to true when ultimate is used.
+			# Add a timer to player scene that will have its time set depending on the type of ultimate.
+			# Start timer once ultimate is in use.
+			# When in use call a function in process/physics process that will - 
+			# - leave paint splatter on or around the players current position for a limited time. 
+			# End ultimate once timer runs out of time. 
+		1:
+			print("2")
+			# Paint Can Bomb that leaves a large splat of paint where it explodes. 
+			# Create a Paint Can scene with a large Area2D around it. 
+			# Add a Timer to the Paint Can scene with 2? seconds of wait time. 
+			# Add script to Paint Can scene.
+			# When Timer expires call explode function. 
+			# On explosion leave a large splatter of paint on the background (Sprite or Paritcle effect). 
+			# When player activates ultimate spawn Paint Can at set position2D - 
+			# - and give it a velocity depending on the direction the player is facing. 
+		2:
+			print("3")
 
