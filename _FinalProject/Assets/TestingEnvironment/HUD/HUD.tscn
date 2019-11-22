@@ -129,3 +129,4 @@ value = 100.0
 texture_progress = ExtResource( 3 )
 fill_mode = 4
 tint_progress = Color( 1, 1, 0, 1 )
+

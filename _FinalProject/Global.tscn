@@ -1,19 +1,22 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Global.gd" type="Script" id=1]
 [ext_resource path="res://Assets/MainScenes/TitleScreen/Scenes/TitleScreen.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Assets/MainScenes/PickingScreen/Scenes/PickingScreen.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Assets/TestingEnvironment/Level/DragonLevel.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Assets/Audio/OST/SprayHipHop1.wav" type="AudioStream" id=5]
+[ext_resource path="res://Assets/TestingEnvironment/HUD/HUD.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Assets/Audio/OST/SprayHipHop1.wav" type="AudioStream" id=6]
 
 [node name="Global" type="Node"]
 script = ExtResource( 1 )
 Title_Screen = ExtResource( 2 )
 Picking_Screen = ExtResource( 3 )
 Play_Screen = ExtResource( 4 )
+HUD = ExtResource( 5 )
 
 [node name="Scenes" type="Node" parent="."]
 
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 5 )
+stream = ExtResource( 6 )
 autoplay = true
+

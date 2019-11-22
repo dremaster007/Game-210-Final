@@ -3,6 +3,7 @@ extends Node
 export (PackedScene) var Title_Screen
 export (PackedScene) var Picking_Screen
 export (PackedScene) var Play_Screen
+export (PackedScene) var HUD
 
 var number_of_players = 1
 
@@ -41,6 +42,7 @@ func _process(delta):
 					child._on_PlayButton_pressed()
 
 func change_scene(next_scene):
+	var add_hud = false
 	for scene in $Scenes.get_children():
 		print(scene.name, " was removed")
 		scene.queue_free()
