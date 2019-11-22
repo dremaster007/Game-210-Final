@@ -5,8 +5,25 @@ onready var countdown_sprites = ["res://Assets/Graphics/Sprites/SelectionBoxes/S
 								"res://Assets/Graphics/Sprites/SelectionBoxes/SelectionBoxesP1.png",
 								"res://Assets/Graphics/Sprites/SelectionBoxes/SplatterBoiCharacterSelect.png"]
 
+var ultimate_bars = {"red": $BottomLeft/UltimateProgress/RedUltProgress,
+					"blue": $BottomLeft/UltimateProgress/BlueUltProgress,
+					"green": $BottomLeft/UltimateProgress/GreenUltProgress,
+					"yellow": $BottomLeft/UltimateProgress/YellowUltProgress}
+
+var painted_bars = {"red": $BottomLeft/AmountPaintedBars/RedProgress,
+					"blue": $BottomLeft/AmountPaintedBars/BlueProgress,
+					"green": $BottomLeft/AmountPaintedBars/GreenProgress,
+					"yellow": $BottomLeft/AmountPaintedBars/YellowProgress}
+
 func _ready():
 	countdown()
+
+func updated_hud(type, color, value):
+	match type:
+		"ultimate":
+			ultimate_bars[color].value = value
+		"paint":
+			painted_bars[color].value = value
 
 func countdown():
 	$CountdownSprite.show()
