@@ -3,7 +3,7 @@
 [resource]
 resource_name = "left_leg_sweep"
 length = 1.2
-step = 0.01
+step = 0.05
 tracks/0/type = "value"
 tracks/0/path = NodePath("splatter_boi_lowerbody:position")
 tracks/0/interp = 1
@@ -401,7 +401,7 @@ tracks/32/keys = {
 "values": [ -1, -1, -1, -1, -1, -1 ]
 }
 tracks/33/type = "value"
-tracks/33/path = NodePath("firecrackerHolder:visible")
+tracks/33/path = NodePath("leg_sweep/firecrackerHolder:visible")
 tracks/33/interp = 1
 tracks/33/loop_wrap = true
 tracks/33/imported = false
@@ -413,43 +413,43 @@ tracks/33/keys = {
 "values": [ false, true, false ]
 }
 tracks/34/type = "value"
-tracks/34/path = NodePath("firecrackerHolder:position")
+tracks/34/path = NodePath("leg_sweep/firecrackerHolder:position")
 tracks/34/interp = 1
 tracks/34/loop_wrap = true
 tracks/34/imported = false
 tracks/34/enabled = true
 tracks/34/keys = {
-"times": PoolRealArray( 0.3, 0.4, 0.87, 1, 1.1 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0.3, 0.87, 1, 1.1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( -12.3413, 103.59 ), Vector2( 158.851, 122.605 ), Vector2( 177.704, 216.08 ), Vector2( 177.704, 216.08 ), Vector2( 0, 0 ) ]
+"values": [ Vector2( -12.3413, 103.59 ), Vector2( 177.704, 216.08 ), Vector2( 177.704, 216.08 ), Vector2( 0, 0 ) ]
 }
 tracks/35/type = "value"
-tracks/35/path = NodePath("firecrackerHolder:rotation_degrees")
+tracks/35/path = NodePath("leg_sweep/firecrackerHolder:rotation_degrees")
 tracks/35/interp = 1
 tracks/35/loop_wrap = true
 tracks/35/imported = false
 tracks/35/enabled = true
 tracks/35/keys = {
-"times": PoolRealArray( 0.3, 0.4 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0.3 ),
+"transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ 0.0, 0.0 ]
+"values": [ 0.0 ]
 }
 tracks/36/type = "value"
-tracks/36/path = NodePath("firecrackerHolder:z_index")
+tracks/36/path = NodePath("leg_sweep/firecrackerHolder:z_index")
 tracks/36/interp = 1
 tracks/36/loop_wrap = true
 tracks/36/imported = false
 tracks/36/enabled = true
 tracks/36/keys = {
-"times": PoolRealArray( 0.3, 0.4 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0.3 ),
+"transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 0, 0 ]
+"values": [ 0 ]
 }
 tracks/37/type = "value"
-tracks/37/path = NodePath("firecrackerHolder/Sprite:position")
+tracks/37/path = NodePath("leg_sweep/firecrackerHolder/Sprite:position")
 tracks/37/interp = 1
 tracks/37/loop_wrap = true
 tracks/37/imported = false
@@ -461,7 +461,7 @@ tracks/37/keys = {
 "values": [ Vector2( 89.7169, 15.7458 ), Vector2( 317.863, 194.243 ), Vector2( 317.863, 194.243 ), Vector2( 0, 0 ) ]
 }
 tracks/38/type = "value"
-tracks/38/path = NodePath("firecrackerHolder/Sprite:rotation_degrees")
+tracks/38/path = NodePath("leg_sweep/firecrackerHolder/Sprite:rotation_degrees")
 tracks/38/interp = 1
 tracks/38/loop_wrap = true
 tracks/38/imported = false
@@ -473,7 +473,7 @@ tracks/38/keys = {
 "values": [ 42.0662, 42.0662, 42.0662, 42.0662 ]
 }
 tracks/39/type = "value"
-tracks/39/path = NodePath("firecrackerHolder/Sprite2:position")
+tracks/39/path = NodePath("leg_sweep/firecrackerHolder/Sprite2:position")
 tracks/39/interp = 1
 tracks/39/loop_wrap = true
 tracks/39/imported = false
@@ -485,7 +485,7 @@ tracks/39/keys = {
 "values": [ Vector2( 58.4716, 71.8276 ), Vector2( 129.115, 166.137 ), Vector2( 129.115, 166.137 ), Vector2( 0, 0 ) ]
 }
 tracks/40/type = "value"
-tracks/40/path = NodePath("firecrackerHolder/Sprite2:rotation_degrees")
+tracks/40/path = NodePath("leg_sweep/firecrackerHolder/Sprite2:rotation_degrees")
 tracks/40/interp = 1
 tracks/40/loop_wrap = true
 tracks/40/imported = false
@@ -497,7 +497,7 @@ tracks/40/keys = {
 "values": [ -17.8491, -17.8491, -17.8491, -17.8491 ]
 }
 tracks/41/type = "value"
-tracks/41/path = NodePath("firecrackerHolder/Sprite3:position")
+tracks/41/path = NodePath("leg_sweep/firecrackerHolder/Sprite3:position")
 tracks/41/interp = 1
 tracks/41/loop_wrap = true
 tracks/41/imported = false
@@ -509,7 +509,7 @@ tracks/41/keys = {
 "values": [ Vector2( 56.4333, 20.2093 ), Vector2( 280.842, 200.429 ), Vector2( 280.842, 200.429 ), Vector2( 0, 0 ) ]
 }
 tracks/42/type = "value"
-tracks/42/path = NodePath("firecrackerHolder/Sprite3:rotation_degrees")
+tracks/42/path = NodePath("leg_sweep/firecrackerHolder/Sprite3:rotation_degrees")
 tracks/42/interp = 1
 tracks/42/loop_wrap = true
 tracks/42/imported = false
@@ -521,7 +521,7 @@ tracks/42/keys = {
 "values": [ -114.873, -114.873, -114.873, -114.873 ]
 }
 tracks/43/type = "value"
-tracks/43/path = NodePath("firecrackerHolder/Sprite4:position")
+tracks/43/path = NodePath("leg_sweep/firecrackerHolder/Sprite4:position")
 tracks/43/interp = 1
 tracks/43/loop_wrap = true
 tracks/43/imported = false
@@ -533,7 +533,7 @@ tracks/43/keys = {
 "values": [ Vector2( 21.6851, 70.656 ), Vector2( 81.0001, 173.811 ), Vector2( 81.0001, 173.811 ), Vector2( 0, 0 ) ]
 }
 tracks/44/type = "value"
-tracks/44/path = NodePath("firecrackerHolder/Sprite4:rotation_degrees")
+tracks/44/path = NodePath("leg_sweep/firecrackerHolder/Sprite4:rotation_degrees")
 tracks/44/interp = 1
 tracks/44/loop_wrap = true
 tracks/44/imported = false
@@ -545,7 +545,7 @@ tracks/44/keys = {
 "values": [ -186.757, -186.757, -186.757 ]
 }
 tracks/45/type = "value"
-tracks/45/path = NodePath("firecrackerHolder/Sprite5:position")
+tracks/45/path = NodePath("leg_sweep/firecrackerHolder/Sprite5:position")
 tracks/45/interp = 1
 tracks/45/loop_wrap = true
 tracks/45/imported = false
@@ -557,7 +557,7 @@ tracks/45/keys = {
 "values": [ Vector2( 103.026, 60.3583 ), Vector2( 200.088, 192.333 ), Vector2( 200.088, 192.333 ), Vector2( 0, 0 ) ]
 }
 tracks/46/type = "value"
-tracks/46/path = NodePath("firecrackerHolder/Sprite5:rotation_degrees")
+tracks/46/path = NodePath("leg_sweep/firecrackerHolder/Sprite5:rotation_degrees")
 tracks/46/interp = 1
 tracks/46/loop_wrap = true
 tracks/46/imported = false
@@ -593,4 +593,76 @@ tracks/48/keys = {
 "args": [  ],
 "method": "play_firecracker_explosion"
 } ]
+}
+tracks/49/type = "value"
+tracks/49/path = NodePath(".:scale")
+tracks/49/interp = 1
+tracks/49/loop_wrap = true
+tracks/49/imported = false
+tracks/49/enabled = true
+tracks/49/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -0.1, 0.1 ) ]
+}
+tracks/50/type = "value"
+tracks/50/path = NodePath("leg_sweep/firecrackerHolder/Sprite/Particles2D:emitting")
+tracks/50/interp = 1
+tracks/50/loop_wrap = true
+tracks/50/imported = false
+tracks/50/enabled = true
+tracks/50/keys = {
+"times": PoolRealArray( 0.35, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/51/type = "value"
+tracks/51/path = NodePath("leg_sweep/firecrackerHolder/Sprite2/Particles2D2:emitting")
+tracks/51/interp = 1
+tracks/51/loop_wrap = true
+tracks/51/imported = false
+tracks/51/enabled = true
+tracks/51/keys = {
+"times": PoolRealArray( 0.35, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/52/type = "value"
+tracks/52/path = NodePath("leg_sweep/firecrackerHolder/Sprite3/Particles2D3:emitting")
+tracks/52/interp = 1
+tracks/52/loop_wrap = true
+tracks/52/imported = false
+tracks/52/enabled = true
+tracks/52/keys = {
+"times": PoolRealArray( 0.35, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/53/type = "value"
+tracks/53/path = NodePath("leg_sweep/firecrackerHolder/Sprite4/Particles2D4:emitting")
+tracks/53/interp = 1
+tracks/53/loop_wrap = true
+tracks/53/imported = false
+tracks/53/enabled = true
+tracks/53/keys = {
+"times": PoolRealArray( 0.35, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/54/type = "value"
+tracks/54/path = NodePath("leg_sweep/firecrackerHolder/Sprite5/Particles2D5:emitting")
+tracks/54/interp = 1
+tracks/54/loop_wrap = true
+tracks/54/imported = false
+tracks/54/enabled = true
+tracks/54/keys = {
+"times": PoolRealArray( 0.35, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
 }
