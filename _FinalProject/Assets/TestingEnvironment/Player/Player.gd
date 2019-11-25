@@ -25,6 +25,8 @@ onready var hitbox_anim = $Attack_Collision/AnimationPlayer
 # This allows us to track each player by an ID
 export (int) var player_number
 
+var player_color = ""
+
 var velocity = Vector2()
 
 # These are our states that we could be in.
@@ -405,6 +407,7 @@ func _on_Attack_Collision_area_entered(area):
 		if area.is_in_group("player_hit_box"):
 			var player_area = area.get_parent()
 			if player_area.player_number != player_number:
+				find_parent("DragonLevel").place_paint(player_color, player_area.position)
 				player_area.take_damage()
 				player_area.knockback(next_velocity, facing_dir)
 				ultimate_charge(10)

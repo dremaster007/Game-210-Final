@@ -1,6 +1,14 @@
 extends Node2D
 
 export (PackedScene) var Player
+export (PackedScene) var Paint
+
+var player_color = ["red","blue","green","yellow"]
+
+var red_score
+var blue_score
+var green_score
+var yellow_score
 
 var Global = null
 
@@ -12,6 +20,7 @@ func _ready():
 		# We set their number starting at one and going up each time until the number
 		# of player's has been reached
 		i.player_number = number + 1
+		i.player_color = player_color[number]
 		if i.player_number == 2 or i.player_number == 4:
 			i.facing_dir = "left"
 		i.position = get_node("SpawnPoints/Spawn%s" %(number + 1)).position
@@ -29,3 +38,57 @@ func start():
 	yield(get_tree().create_timer(4),"timeout")
 	for child in $Player_Container.get_children():
 		child.can_input = true
+
+func place_paint(color, pos):
+	var color_vals
+	match color:
+		"red":
+			color_vals = Color(1,0,0,1)
+			var p = Paint.instance()
+			p.start(color_vals, "red")
+			p.position = pos
+			find_node("PaintContainer").add_child(p)
+		"blue":
+			color_vals = Color(0,0,1,1)
+			var p = Paint.instance()
+			p.start(color_vals, "blue")
+			p.position = pos
+			find_node("PaintContainer").add_child(p)
+		"green":
+			color_vals = Color(0,1,0,1)
+			var p = Paint.instance()
+			p.start(color_vals, "green")
+			p.position = pos
+			find_node("PaintContainer").add_child(p)
+		"yellow":
+			color_vals = Color(0,1,1,1)
+			var p = Paint.instance()
+			p.start(color_vals, "yellow")
+			p.position = pos
+			find_node("PaintContainer").add_child(p)
+	count_score()
+
+func count_score():
+	var red_counter = 0
+	var blue_counter = 0
+	var green_counter = 0
+	var yellow_counter = 0
+	if find_node("PaintContainer").get_child_count() == 0:
+		return
+	for node in find_node("PaintContainer").get_children():
+		if node.type == "red":
+			red_counter += node.score_value
+		elif node.type == "blue":
+			blue_counter += node.score_value
+		elif node.type == "green":
+			green_counter += node.score_value
+		elif node.type == "yellow":
+			yellow_counter += node.score_value
+	red_score = red_counter
+	blue_score = blue_counter
+	green_score = green_counter
+	yellow_score = yellow_counter
+	print("The red score is: ", red_score)
+	print("The blue score is: ", blue_score)
+	print("The green score is: ", green_score)
+	print("The yellow score is: ", yellow_score)

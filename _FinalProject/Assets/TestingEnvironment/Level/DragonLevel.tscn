@@ -1,12 +1,13 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Assets/TestingEnvironment/Level/DragonLevel.gd" type="Script" id=1]
 [ext_resource path="res://Assets/TestingEnvironment/Player/Player.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Assets/Graphics/Sprites/LevelArt/BrickDragonExtraSmall.png" type="Texture" id=3]
-[ext_resource path="res://Assets/TestingEnvironment/Camera/DynamicCamera.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Assets/TestingEnvironment/Level/OneWayPlatform.tscn" type="PackedScene" id=5]
-[ext_resource path="res://icon.png" type="Texture" id=6]
-[ext_resource path="res://Assets/TestingEnvironment/HUD/HUD.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Assets/TestingEnvironment/SplatterPlacement/SplatterPlacement/Scenes/Splatter.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Assets/Graphics/Sprites/LevelArt/BrickDragonExtraSmall.png" type="Texture" id=4]
+[ext_resource path="res://Assets/TestingEnvironment/Camera/DynamicCamera.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Assets/TestingEnvironment/Level/OneWayPlatform.tscn" type="PackedScene" id=6]
+[ext_resource path="res://icon.png" type="Texture" id=7]
+[ext_resource path="res://Assets/TestingEnvironment/HUD/HUD.tscn" type="PackedScene" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 572.865, 33.739 )
@@ -20,6 +21,7 @@ extents = Vector2( 17.5989, 191.406 )
 [node name="DragonLevel" type="Node2D"]
 script = ExtResource( 1 )
 Player = ExtResource( 2 )
+Paint = ExtResource( 3 )
 
 [node name="BackgroundSprites" type="Node2D" parent="."]
 
@@ -27,7 +29,7 @@ Player = ExtResource( 2 )
 position = Vector2( -2.40405, -169.379 )
 scale = Vector2( 0.5, 0.5 )
 z_index = -1000
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 editor/display_folded = true
@@ -37,30 +39,30 @@ position = Vector2( 0, 224 )
 position = Vector2( -1.63391, 51.9413 )
 shape = SubResource( 1 )
 
-[node name="DynamicCamera" parent="." instance=ExtResource( 4 )]
+[node name="DynamicCamera" parent="." instance=ExtResource( 5 )]
 current = true
 zoom_offset = 0.2
 
 [node name="OneWayPlatforms" type="Node2D" parent="."]
 editor/display_folded = true
 
-[node name="OneWayPlatform" parent="OneWayPlatforms" instance=ExtResource( 5 )]
+[node name="OneWayPlatform" parent="OneWayPlatforms" instance=ExtResource( 6 )]
 position = Vector2( -276.947, 89.3445 )
 
-[node name="OneWayPlatform3" parent="OneWayPlatforms" instance=ExtResource( 5 )]
+[node name="OneWayPlatform3" parent="OneWayPlatforms" instance=ExtResource( 6 )]
 position = Vector2( -290.895, -150.553 )
 
-[node name="OneWayPlatform4" parent="OneWayPlatforms" instance=ExtResource( 5 )]
+[node name="OneWayPlatform4" parent="OneWayPlatforms" instance=ExtResource( 6 )]
 position = Vector2( 292.113, -142.185 )
 
-[node name="OneWayPlatform6" parent="OneWayPlatforms" instance=ExtResource( 5 )]
+[node name="OneWayPlatform6" parent="OneWayPlatforms" instance=ExtResource( 6 )]
 editor/display_folded = true
 position = Vector2( 0, -370.925 )
 
 [node name="CollisionShape2D" parent="OneWayPlatforms/OneWayPlatform6" index="0"]
 shape = SubResource( 2 )
 
-[node name="OneWayPlatform2" parent="OneWayPlatforms" instance=ExtResource( 5 )]
+[node name="OneWayPlatform2" parent="OneWayPlatforms" instance=ExtResource( 6 )]
 position = Vector2( 294.172, 89.0205 )
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
@@ -85,31 +87,31 @@ shape = SubResource( 3 )
 modulate = Color( 0, 0, 0, 1 )
 position = Vector2( -527.569, 85.9184 )
 scale = Vector2( 1, 6.84 )
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="RightWall" type="Sprite" parent="."]
 modulate = Color( 0, 0, 0, 1 )
 position = Vector2( 533.599, 91.9478 )
 scale = Vector2( 1, 6.84 )
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="Floor" type="Sprite" parent="."]
 modulate = Color( 0, 0, 0, 1 )
 position = Vector2( -1.50732, 277.916 )
 scale = Vector2( 18.16, 1.02913 )
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="LeftBotPlat" type="Sprite" parent="."]
 modulate = Color( 0, 0, 0, 1 )
 position = Vector2( -277.351, 88.9331 )
 scale = Vector2( 4.68, 0.280001 )
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="RightBotPlat" type="Sprite" parent="."]
 modulate = Color( 0, 0, 0, 1 )
 position = Vector2( 298.453, 88.9331 )
 scale = Vector2( 4.68, 0.280001 )
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="SpawnPoints" type="Node" parent="."]
 
@@ -125,7 +127,9 @@ position = Vector2( -279.443, -7.40247 )
 [node name="Spawn4" type="Position2D" parent="SpawnPoints"]
 position = Vector2( 292.398, -7.40247 )
 
-[node name="HUD" parent="." instance=ExtResource( 7 )]
+[node name="HUD" parent="." instance=ExtResource( 8 )]
+
+[node name="PaintContainer" type="Node" parent="."]
 
 
 [editable path="OneWayPlatforms/OneWayPlatform6"]

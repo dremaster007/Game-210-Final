@@ -9,9 +9,9 @@ func _process(delta):
 	get_input()
 
 func get_input():
-	if Input.is_action_just_pressed("left_click"):
+	if Input.is_action_just_pressed("test1"):
 		place_sprite("red", get_global_mouse_position())
-	elif Input.is_action_just_pressed("right_click"):
+	elif Input.is_action_just_pressed("test2"):
 		place_sprite("blue", get_global_mouse_position())
 
 func place_sprite(color, mouse_pos):

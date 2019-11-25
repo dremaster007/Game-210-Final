@@ -10,8 +10,9 @@ Paint = ExtResource( 2 )
 
 [node name="BG" type="Sprite" parent="."]
 modulate = Color( 0, 0, 0, 1 )
-position = Vector2( 514.917, 322.426 )
-scale = Vector2( 19.1417, 13.1264 )
+position = Vector2( 964.597, 545.411 )
+scale = Vector2( 33.1942, 20.0947 )
 texture = ExtResource( 3 )
 
 [node name="Container" type="Node2D" parent="."]
+
