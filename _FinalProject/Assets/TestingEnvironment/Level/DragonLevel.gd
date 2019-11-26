@@ -21,11 +21,12 @@ func _ready():
 		# of player's has been reached
 		i.player_number = number + 1
 		i.player_color = player_color[number]
+		#HERE
 		if i.player_number == 2 or i.player_number == 4:
 			i.facing_dir = "left"
 		i.position = get_node("SpawnPoints/Spawn%s" %(number + 1)).position
 		# We load in the player textures above their head
-		i.load_textures()
+		i.load_textures(Global.player_picks["player_%s" % i.player_number])
 		$Player_Container.add_child(i)
 	# Then we allow the camera to start tracking them.
 	$DynamicCamera.cam_start()
@@ -73,22 +74,33 @@ func count_score():
 	var blue_counter = 0
 	var green_counter = 0
 	var yellow_counter = 0
+	
+	var color = ""
 	if find_node("PaintContainer").get_child_count() == 0:
 		return
 	for node in find_node("PaintContainer").get_children():
-		if node.type == "red":
-			red_counter += node.score_value
-		elif node.type == "blue":
-			blue_counter += node.score_value
-		elif node.type == "green":
-			green_counter += node.score_value
-		elif node.type == "yellow":
-			yellow_counter += node.score_value
+		match node.type:
+			"red":
+				red_counter += node.score_value
+			"blue":
+				blue_counter += node.score_value
+			"green":
+				green_counter += node.score_value
+			"yellow":
+				yellow_counter += node.score_value
 	red_score = red_counter
 	blue_score = blue_counter
 	green_score = green_counter
 	yellow_score = yellow_counter
-	print("The red score is: ", red_score)
-	print("The blue score is: ", blue_score)
-	print("The green score is: ", green_score)
-	print("The yellow score is: ", yellow_score)
+	
+	$HUD.max_paint_value = red_score + blue_score + green_score + yellow_score
+	
+	$HUD.update_hud("paint", "red", red_score)
+	$HUD.update_hud("paint", "blue", blue_score)
+	$HUD.update_hud("paint", "green", green_score)
+	$HUD.update_hud("paint", "yellow", yellow_score)
+	
+	#print("The red score is: ", red_score)
+	#print("The blue score is: ", blue_score)
+	#print("The green score is: ", green_score)
+	#print("The yellow score is: ", yellow_score)

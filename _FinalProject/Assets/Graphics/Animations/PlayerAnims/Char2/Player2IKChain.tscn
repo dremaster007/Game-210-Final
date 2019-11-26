@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=44 format=2]
 
 [ext_resource path="res://Assets/Graphics/Animations/PlayerAnims/Char2/Player2IKChain.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Graphics/Sprites/CharacterPieces/Char2Pieces/splatter_girl_lower_body.png" type="Texture" id=2]
@@ -14,7 +14,20 @@
 [ext_resource path="res://Assets/Graphics/Sprites/CharacterPieces/Char2Pieces/splatter_girl_left_lowerleg.png" type="Texture" id=12]
 [ext_resource path="res://Assets/Graphics/Sprites/smoke_effect.png" type="Texture" id=13]
 [ext_resource path="res://Assets/Graphics/Sprites/swipe.png" type="Texture" id=14]
-[ext_resource path="res://Assets/Graphics/Animations/PlayerAnims/Char2/Animations/right_idle.tres" type="Animation" id=15]
+[ext_resource path="res://Assets/Graphics/Animations/PlayerAnims/Char2/Animations/left_idle.tres" type="Animation" id=15]
+[ext_resource path="res://Assets/Graphics/Animations/PlayerAnims/Char2/Animations/left_jump.tres" type="Animation" id=16]
+[ext_resource path="res://Assets/Graphics/Animations/PlayerAnims/Char2/Animations/left_jump_flip.tres" type="Animation" id=17]
+[ext_resource path="res://Assets/Graphics/Animations/PlayerAnims/Char2/Animations/left_leg_sweep.tres" type="Animation" id=18]
+[ext_resource path="res://Assets/Graphics/Animations/PlayerAnims/Char2/Animations/left_neutral_kick.tres" type="Animation" id=19]
+[ext_resource path="res://Assets/Graphics/Animations/PlayerAnims/Char2/Animations/left_walking.tres" type="Animation" id=20]
+[ext_resource path="res://Assets/Graphics/Animations/PlayerAnims/Char2/Animations/right_idle.tres" type="Animation" id=21]
+[ext_resource path="res://Assets/Graphics/Animations/PlayerAnims/Char2/Animations/right_jump.tres" type="Animation" id=22]
+[ext_resource path="res://Assets/Graphics/Animations/PlayerAnims/Char2/Animations/right_jump_flip.tres" type="Animation" id=23]
+[ext_resource path="res://Assets/Graphics/Animations/PlayerAnims/Char2/Animations/right_leg_sweep.tres" type="Animation" id=24]
+[ext_resource path="res://Assets/Graphics/Animations/PlayerAnims/Char2/Animations/right_neutral_kick.tres" type="Animation" id=25]
+[ext_resource path="res://Assets/Graphics/Animations/PlayerAnims/Char2/Animations/right_side_kick.tres" type="Animation" id=26]
+[ext_resource path="res://Assets/Graphics/Animations/PlayerAnims/Char2/Animations/right_walking.tres" type="Animation" id=27]
+[ext_resource path="res://Assets/Graphics/Sprites/firecracker.png" type="Texture" id=28]
 
 [sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0, 0.414815, 0.896296 )
@@ -57,1646 +70,214 @@ scale = 0.3
 scale_random = 0.8
 color_ramp = SubResource( 5 )
 
-[sub_resource type="Animation" id=7]
-resource_name = "BASE(Remove later)"
-length = 0.1
-tracks/0/type = "value"
-tracks/0/path = NodePath("splatter_boi_lowerbody:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ ExtResource( 2 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("splatter_boi_lowerbody:offset")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( -7.21486, 43.781 ) ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("splatter_boi_lowerbody:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 0, 0 ) ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("splatter_boi_lowerbody:rotation_degrees")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 0.0 ]
-}
-tracks/4/type = "value"
-tracks/4/path = NodePath("splatter_boi_lowerbody:scale")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 1, 1 ) ]
-}
-tracks/5/type = "value"
-tracks/5/path = NodePath("splatter_boi_lowerbody:z_index")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ 0 ]
-}
-tracks/6/type = "value"
-tracks/6/path = NodePath("splatter_boi_lowerbody:visible")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
-}
-tracks/7/type = "value"
-tracks/7/path = NodePath("splatter_boi_lowerbody:show_behind_parent")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
-}
-tracks/8/type = "value"
-tracks/8/path = NodePath("splatter_boi_lowerbody/splatter_boi_upperbody:texture")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ ExtResource( 3 ) ]
-}
-tracks/9/type = "value"
-tracks/9/path = NodePath("splatter_boi_lowerbody/splatter_boi_upperbody:offset")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( -3.63039, -87.8905 ) ]
-}
-tracks/10/type = "value"
-tracks/10/path = NodePath("splatter_boi_lowerbody/splatter_boi_upperbody:position")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( -3.35925, 20.5212 ) ]
-}
-tracks/11/type = "value"
-tracks/11/path = NodePath("splatter_boi_lowerbody/splatter_boi_upperbody:rotation_degrees")
-tracks/11/interp = 1
-tracks/11/loop_wrap = true
-tracks/11/imported = false
-tracks/11/enabled = true
-tracks/11/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 0.0 ]
-}
-tracks/12/type = "value"
-tracks/12/path = NodePath("splatter_boi_lowerbody/splatter_boi_upperbody:scale")
-tracks/12/interp = 1
-tracks/12/loop_wrap = true
-tracks/12/imported = false
-tracks/12/enabled = true
-tracks/12/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 1, 1 ) ]
-}
-tracks/13/type = "value"
-tracks/13/path = NodePath("splatter_boi_lowerbody/splatter_boi_upperbody:z_index")
-tracks/13/interp = 1
-tracks/13/loop_wrap = true
-tracks/13/imported = false
-tracks/13/enabled = true
-tracks/13/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ 1 ]
-}
-tracks/14/type = "value"
-tracks/14/path = NodePath("splatter_boi_lowerbody/splatter_boi_upperbody:visible")
-tracks/14/interp = 1
-tracks/14/loop_wrap = true
-tracks/14/imported = false
-tracks/14/enabled = true
-tracks/14/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
-}
-tracks/15/type = "value"
-tracks/15/path = NodePath("splatter_boi_lowerbody/splatter_boi_upperbody:show_behind_parent")
-tracks/15/interp = 1
-tracks/15/loop_wrap = true
-tracks/15/imported = false
-tracks/15/enabled = true
-tracks/15/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
-}
-tracks/16/type = "value"
-tracks/16/path = NodePath("splatter_boi_lowerbody/splatter_boi_upperbody/splatter_boi_head:texture")
-tracks/16/interp = 1
-tracks/16/loop_wrap = true
-tracks/16/imported = false
-tracks/16/enabled = true
-tracks/16/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ ExtResource( 4 ) ]
-}
-tracks/17/type = "value"
-tracks/17/path = NodePath("splatter_boi_lowerbody/splatter_boi_upperbody/splatter_boi_head:offset")
-tracks/17/interp = 1
-tracks/17/loop_wrap = true
-tracks/17/imported = false
-tracks/17/enabled = true
-tracks/17/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 31.7066, -60.5058 ) ]
-}
-tracks/18/type = "value"
-tracks/18/path = NodePath("splatter_boi_lowerbody/splatter_boi_upperbody/splatter_boi_head:position")
-tracks/18/interp = 1
-tracks/18/loop_wrap = true
-tracks/18/imported = false
-tracks/18/enabled = true
-tracks/18/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 4.70965, -170.036 ) ]
-}
-tracks/19/type = "value"
-tracks/19/path = NodePath("splatter_boi_lowerbody/splatter_boi_upperbody/splatter_boi_head:rotation_degrees")
-tracks/19/interp = 1
-tracks/19/loop_wrap = true
-tracks/19/imported = false
-tracks/19/enabled = true
-tracks/19/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 3.98382 ]
-}
-tracks/20/type = "value"
-tracks/20/path = NodePath("splatter_boi_lowerbody/splatter_boi_upperbody/splatter_boi_head:scale")
-tracks/20/interp = 1
-tracks/20/loop_wrap = true
-tracks/20/imported = false
-tracks/20/enabled = true
-tracks/20/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 1, 1 ) ]
-}
-tracks/21/type = "value"
-tracks/21/path = NodePath("splatter_boi_lowerbody/splatter_boi_upperbody/splatter_boi_head:z_index")
-tracks/21/interp = 1
-tracks/21/loop_wrap = true
-tracks/21/imported = false
-tracks/21/enabled = true
-tracks/21/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ 0 ]
-}
-tracks/22/type = "value"
-tracks/22/path = NodePath("splatter_boi_lowerbody/splatter_boi_upperbody/splatter_boi_head:visible")
-tracks/22/interp = 1
-tracks/22/loop_wrap = true
-tracks/22/imported = false
-tracks/22/enabled = true
-tracks/22/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
-}
-tracks/23/type = "value"
-tracks/23/path = NodePath("splatter_boi_lowerbody/splatter_boi_upperbody/splatter_boi_head:show_behind_parent")
-tracks/23/interp = 1
-tracks/23/loop_wrap = true
-tracks/23/imported = false
-tracks/23/enabled = true
-tracks/23/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
-}
-tracks/24/type = "value"
-tracks/24/path = NodePath("splatter_boi_lowerbody/splatter_boi_upperbody/splatter_boi_rightupperarm:texture")
-tracks/24/interp = 1
-tracks/24/loop_wrap = true
-tracks/24/imported = false
-tracks/24/enabled = true
-tracks/24/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ ExtResource( 5 ) ]
-}
-tracks/25/type = "value"
-tracks/25/path = NodePath("splatter_boi_lowerbody/splatter_boi_upperbody/splatter_boi_rightupperarm:offset")
-tracks/25/interp = 1
-tracks/25/loop_wrap = true
-tracks/25/imported = false
-tracks/25/enabled = true
-tracks/25/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 24.5026, 57.3533 ) ]
-}
-tracks/26/type = "value"
-tracks/26/path = NodePath("splatter_boi_lowerbody/splatter_boi_upperbody/splatter_boi_rightupperarm:position")
-tracks/26/interp = 1
-tracks/26/loop_wrap = true
-tracks/26/imported = false
-tracks/26/enabled = true
-tracks/26/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 67.1354, -118.389 ) ]
-}
-tracks/27/type = "value"
-tracks/27/path = NodePath("splatter_boi_lowerbody/splatter_boi_upperbody/splatter_boi_rightupperarm:rotation_degrees")
-tracks/27/interp = 1
-tracks/27/loop_wrap = true
-tracks/27/imported = false
-tracks/27/enabled = true
-tracks/27/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ -355.836 ]
-}
-tracks/28/type = "value"
-tracks/28/path = NodePath("splatter_boi_lowerbody/splatter_boi_upperbody/splatter_boi_rightupperarm:scale")
-tracks/28/interp = 1
-tracks/28/loop_wrap = true
-tracks/28/imported = false
-tracks/28/enabled = true
-tracks/28/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 1, 1 ) ]
-}
-tracks/29/type = "value"
-tracks/29/path = NodePath("splatter_boi_lowerbody/splatter_boi_upperbody/splatter_boi_rightupperarm:z_index")
-tracks/29/interp = 1
-tracks/29/loop_wrap = true
-tracks/29/imported = false
-tracks/29/enabled = true
-tracks/29/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ -1 ]
-}
-tracks/30/type = "value"
-tracks/30/path = NodePath("splatter_boi_lowerbody/splatter_boi_upperbody/splatter_boi_rightupperarm:visible")
-tracks/30/interp = 1
-tracks/30/loop_wrap = true
-tracks/30/imported = false
-tracks/30/enabled = true
-tracks/30/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
-}
-tracks/31/type = "value"
-tracks/31/path = NodePath("splatter_boi_lowerbody/splatter_boi_upperbody/splatter_boi_rightupperarm:show_behind_parent")
-tracks/31/interp = 1
-tracks/31/loop_wrap = true
-tracks/31/imported = false
-tracks/31/enabled = true
-tracks/31/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
-}
-tracks/32/type = "value"
-tracks/32/path = NodePath("splatter_boi_lowerbody/splatter_boi_upperbody/splatter_boi_rightupperarm/splatter_boi_rightlowerarm:texture")
-tracks/32/interp = 1
-tracks/32/loop_wrap = true
-tracks/32/imported = false
-tracks/32/enabled = true
-tracks/32/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ ExtResource( 6 ) ]
-}
-tracks/33/type = "value"
-tracks/33/path = NodePath("splatter_boi_lowerbody/splatter_boi_upperbody/splatter_boi_rightupperarm/splatter_boi_rightlowerarm:offset")
-tracks/33/interp = 1
-tracks/33/loop_wrap = true
-tracks/33/imported = false
-tracks/33/enabled = true
-tracks/33/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( -0.745546, 98.4968 ) ]
-}
-tracks/34/type = "value"
-tracks/34/path = NodePath("splatter_boi_lowerbody/splatter_boi_upperbody/splatter_boi_rightupperarm/splatter_boi_rightlowerarm:position")
-tracks/34/interp = 1
-tracks/34/loop_wrap = true
-tracks/34/imported = false
-tracks/34/enabled = true
-tracks/34/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 48.0532, 101.204 ) ]
-}
-tracks/35/type = "value"
-tracks/35/path = NodePath("splatter_boi_lowerbody/splatter_boi_upperbody/splatter_boi_rightupperarm/splatter_boi_rightlowerarm:rotation_degrees")
-tracks/35/interp = 1
-tracks/35/loop_wrap = true
-tracks/35/imported = false
-tracks/35/enabled = true
-tracks/35/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ -10.8762 ]
-}
-tracks/36/type = "value"
-tracks/36/path = NodePath("splatter_boi_lowerbody/splatter_boi_upperbody/splatter_boi_rightupperarm/splatter_boi_rightlowerarm:scale")
-tracks/36/interp = 1
-tracks/36/loop_wrap = true
-tracks/36/imported = false
-tracks/36/enabled = true
-tracks/36/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 1, 1 ) ]
-}
-tracks/37/type = "value"
-tracks/37/path = NodePath("splatter_boi_lowerbody/splatter_boi_upperbody/splatter_boi_rightupperarm/splatter_boi_rightlowerarm:z_index")
-tracks/37/interp = 1
-tracks/37/loop_wrap = true
-tracks/37/imported = false
-tracks/37/enabled = true
-tracks/37/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ 1 ]
-}
-tracks/38/type = "value"
-tracks/38/path = NodePath("splatter_boi_lowerbody/splatter_boi_upperbody/splatter_boi_rightupperarm/splatter_boi_rightlowerarm:z_as_relative")
-tracks/38/interp = 1
-tracks/38/loop_wrap = true
-tracks/38/imported = false
-tracks/38/enabled = true
-tracks/38/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
-}
-tracks/39/type = "value"
-tracks/39/path = NodePath("splatter_boi_lowerbody/splatter_boi_upperbody/splatter_boi_rightupperarm/splatter_boi_rightlowerarm:visible")
-tracks/39/interp = 1
-tracks/39/loop_wrap = true
-tracks/39/imported = false
-tracks/39/enabled = true
-tracks/39/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
-}
-tracks/40/type = "value"
-tracks/40/path = NodePath("splatter_boi_lowerbody/splatter_boi_upperbody/splatter_boi_rightupperarm/splatter_boi_rightlowerarm:show_behind_parent")
-tracks/40/interp = 1
-tracks/40/loop_wrap = true
-tracks/40/imported = false
-tracks/40/enabled = true
-tracks/40/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
-}
-tracks/41/type = "value"
-tracks/41/path = NodePath("splatter_boi_lowerbody/splatter_boi_upperbody/splatter_boi_leftupperarm:texture")
-tracks/41/interp = 1
-tracks/41/loop_wrap = true
-tracks/41/imported = false
-tracks/41/enabled = true
-tracks/41/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ ExtResource( 7 ) ]
-}
-tracks/42/type = "value"
-tracks/42/path = NodePath("splatter_boi_lowerbody/splatter_boi_upperbody/splatter_boi_leftupperarm:offset")
-tracks/42/interp = 1
-tracks/42/loop_wrap = true
-tracks/42/imported = false
-tracks/42/enabled = true
-tracks/42/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( -24.7974, 51.6564 ) ]
-}
-tracks/43/type = "value"
-tracks/43/path = NodePath("splatter_boi_lowerbody/splatter_boi_upperbody/splatter_boi_leftupperarm:position")
-tracks/43/interp = 1
-tracks/43/loop_wrap = true
-tracks/43/imported = false
-tracks/43/enabled = true
-tracks/43/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( -92.4528, -125.494 ) ]
-}
-tracks/44/type = "value"
-tracks/44/path = NodePath("splatter_boi_lowerbody/splatter_boi_upperbody/splatter_boi_leftupperarm:rotation_degrees")
-tracks/44/interp = 1
-tracks/44/loop_wrap = true
-tracks/44/imported = false
-tracks/44/enabled = true
-tracks/44/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ -9.63306 ]
-}
-tracks/45/type = "value"
-tracks/45/path = NodePath("splatter_boi_lowerbody/splatter_boi_upperbody/splatter_boi_leftupperarm:scale")
-tracks/45/interp = 1
-tracks/45/loop_wrap = true
-tracks/45/imported = false
-tracks/45/enabled = true
-tracks/45/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 1, 1 ) ]
-}
-tracks/46/type = "value"
-tracks/46/path = NodePath("splatter_boi_lowerbody/splatter_boi_upperbody/splatter_boi_leftupperarm:z_index")
-tracks/46/interp = 1
-tracks/46/loop_wrap = true
-tracks/46/imported = false
-tracks/46/enabled = true
-tracks/46/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ 0 ]
-}
-tracks/47/type = "value"
-tracks/47/path = NodePath("splatter_boi_lowerbody/splatter_boi_upperbody/splatter_boi_leftupperarm:z_as_relative")
-tracks/47/interp = 1
-tracks/47/loop_wrap = true
-tracks/47/imported = false
-tracks/47/enabled = true
-tracks/47/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
-}
-tracks/48/type = "value"
-tracks/48/path = NodePath("splatter_boi_lowerbody/splatter_boi_upperbody/splatter_boi_leftupperarm:visible")
-tracks/48/interp = 1
-tracks/48/loop_wrap = true
-tracks/48/imported = false
-tracks/48/enabled = true
-tracks/48/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
-}
-tracks/49/type = "value"
-tracks/49/path = NodePath("splatter_boi_lowerbody/splatter_boi_upperbody/splatter_boi_leftupperarm:show_behind_parent")
-tracks/49/interp = 1
-tracks/49/loop_wrap = true
-tracks/49/imported = false
-tracks/49/enabled = true
-tracks/49/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
-}
-tracks/50/type = "value"
-tracks/50/path = NodePath("splatter_boi_lowerbody/splatter_boi_upperbody/splatter_boi_leftupperarm/splatter_boi_leftlowerarm:texture")
-tracks/50/interp = 1
-tracks/50/loop_wrap = true
-tracks/50/imported = false
-tracks/50/enabled = true
-tracks/50/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ ExtResource( 8 ) ]
-}
-tracks/51/type = "value"
-tracks/51/path = NodePath("splatter_boi_lowerbody/splatter_boi_upperbody/splatter_boi_leftupperarm/splatter_boi_leftlowerarm:offset")
-tracks/51/interp = 1
-tracks/51/loop_wrap = true
-tracks/51/imported = false
-tracks/51/enabled = true
-tracks/51/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 9.89324, 93.3021 ) ]
-}
-tracks/52/type = "value"
-tracks/52/path = NodePath("splatter_boi_lowerbody/splatter_boi_upperbody/splatter_boi_leftupperarm/splatter_boi_leftlowerarm:position")
-tracks/52/interp = 1
-tracks/52/loop_wrap = true
-tracks/52/imported = false
-tracks/52/enabled = true
-tracks/52/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( -51.3503, 107.602 ) ]
-}
-tracks/53/type = "value"
-tracks/53/path = NodePath("splatter_boi_lowerbody/splatter_boi_upperbody/splatter_boi_leftupperarm/splatter_boi_leftlowerarm:rotation_degrees")
-tracks/53/interp = 1
-tracks/53/loop_wrap = true
-tracks/53/imported = false
-tracks/53/enabled = true
-tracks/53/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ -6.57409 ]
-}
-tracks/54/type = "value"
-tracks/54/path = NodePath("splatter_boi_lowerbody/splatter_boi_upperbody/splatter_boi_leftupperarm/splatter_boi_leftlowerarm:scale")
-tracks/54/interp = 1
-tracks/54/loop_wrap = true
-tracks/54/imported = false
-tracks/54/enabled = true
-tracks/54/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 1, 1 ) ]
-}
-tracks/55/type = "value"
-tracks/55/path = NodePath("splatter_boi_lowerbody/splatter_boi_upperbody/splatter_boi_leftupperarm/splatter_boi_leftlowerarm:z_index")
-tracks/55/interp = 1
-tracks/55/loop_wrap = true
-tracks/55/imported = false
-tracks/55/enabled = true
-tracks/55/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ 0 ]
-}
-tracks/56/type = "value"
-tracks/56/path = NodePath("splatter_boi_lowerbody/splatter_boi_upperbody/splatter_boi_leftupperarm/splatter_boi_leftlowerarm:z_as_relative")
-tracks/56/interp = 1
-tracks/56/loop_wrap = true
-tracks/56/imported = false
-tracks/56/enabled = true
-tracks/56/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
-}
-tracks/57/type = "value"
-tracks/57/path = NodePath("splatter_boi_lowerbody/splatter_boi_upperbody/splatter_boi_leftupperarm/splatter_boi_leftlowerarm:visible")
-tracks/57/interp = 1
-tracks/57/loop_wrap = true
-tracks/57/imported = false
-tracks/57/enabled = true
-tracks/57/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
-}
-tracks/58/type = "value"
-tracks/58/path = NodePath("splatter_boi_lowerbody/splatter_boi_upperbody/splatter_boi_leftupperarm/splatter_boi_leftlowerarm:show_behind_parent")
-tracks/58/interp = 1
-tracks/58/loop_wrap = true
-tracks/58/imported = false
-tracks/58/enabled = true
-tracks/58/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
-}
-tracks/59/type = "value"
-tracks/59/path = NodePath("splatter_boi_lowerbody/splatter_boi_rightupperleg:texture")
-tracks/59/interp = 1
-tracks/59/loop_wrap = true
-tracks/59/imported = false
-tracks/59/enabled = true
-tracks/59/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ ExtResource( 9 ) ]
-}
-tracks/60/type = "value"
-tracks/60/path = NodePath("splatter_boi_lowerbody/splatter_boi_rightupperleg:offset")
-tracks/60/interp = 1
-tracks/60/loop_wrap = true
-tracks/60/imported = false
-tracks/60/enabled = true
-tracks/60/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( -2.60239, 61.8694 ) ]
-}
-tracks/61/type = "value"
-tracks/61/path = NodePath("splatter_boi_lowerbody/splatter_boi_rightupperleg:position")
-tracks/61/interp = 1
-tracks/61/loop_wrap = true
-tracks/61/imported = false
-tracks/61/enabled = true
-tracks/61/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( -40.6904, 71.3425 ) ]
-}
-tracks/62/type = "value"
-tracks/62/path = NodePath("splatter_boi_lowerbody/splatter_boi_rightupperleg:rotation_degrees")
-tracks/62/interp = 1
-tracks/62/loop_wrap = true
-tracks/62/imported = false
-tracks/62/enabled = true
-tracks/62/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 10.1557 ]
-}
-tracks/63/type = "value"
-tracks/63/path = NodePath("splatter_boi_lowerbody/splatter_boi_rightupperleg:scale")
-tracks/63/interp = 1
-tracks/63/loop_wrap = true
-tracks/63/imported = false
-tracks/63/enabled = true
-tracks/63/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 1, 1 ) ]
-}
-tracks/64/type = "value"
-tracks/64/path = NodePath("splatter_boi_lowerbody/splatter_boi_rightupperleg:z_index")
-tracks/64/interp = 1
-tracks/64/loop_wrap = true
-tracks/64/imported = false
-tracks/64/enabled = true
-tracks/64/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ -2 ]
-}
-tracks/65/type = "value"
-tracks/65/path = NodePath("splatter_boi_lowerbody/splatter_boi_rightupperleg:z_as_relative")
-tracks/65/interp = 1
-tracks/65/loop_wrap = true
-tracks/65/imported = false
-tracks/65/enabled = true
-tracks/65/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
-}
-tracks/66/type = "value"
-tracks/66/path = NodePath("splatter_boi_lowerbody/splatter_boi_rightupperleg:visible")
-tracks/66/interp = 1
-tracks/66/loop_wrap = true
-tracks/66/imported = false
-tracks/66/enabled = true
-tracks/66/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
-}
-tracks/67/type = "value"
-tracks/67/path = NodePath("splatter_boi_lowerbody/splatter_boi_rightupperleg:show_behind_parent")
-tracks/67/interp = 1
-tracks/67/loop_wrap = true
-tracks/67/imported = false
-tracks/67/enabled = true
-tracks/67/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
-}
-tracks/68/type = "value"
-tracks/68/path = NodePath("splatter_boi_lowerbody/splatter_boi_rightupperleg/splatter_boi_rightlowerleg:texture")
-tracks/68/interp = 1
-tracks/68/loop_wrap = true
-tracks/68/imported = false
-tracks/68/enabled = true
-tracks/68/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ ExtResource( 10 ) ]
-}
-tracks/69/type = "value"
-tracks/69/path = NodePath("splatter_boi_lowerbody/splatter_boi_rightupperleg/splatter_boi_rightlowerleg:offset")
-tracks/69/interp = 1
-tracks/69/loop_wrap = true
-tracks/69/imported = false
-tracks/69/enabled = true
-tracks/69/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 23.2456, 61.1124 ) ]
-}
-tracks/70/type = "value"
-tracks/70/path = NodePath("splatter_boi_lowerbody/splatter_boi_rightupperleg/splatter_boi_rightlowerleg:position")
-tracks/70/interp = 1
-tracks/70/loop_wrap = true
-tracks/70/imported = false
-tracks/70/enabled = true
-tracks/70/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 8.12758, 136.254 ) ]
-}
-tracks/71/type = "value"
-tracks/71/path = NodePath("splatter_boi_lowerbody/splatter_boi_rightupperleg/splatter_boi_rightlowerleg:rotation_degrees")
-tracks/71/interp = 1
-tracks/71/loop_wrap = true
-tracks/71/imported = false
-tracks/71/enabled = true
-tracks/71/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ -4.62668 ]
-}
-tracks/72/type = "value"
-tracks/72/path = NodePath("splatter_boi_lowerbody/splatter_boi_rightupperleg/splatter_boi_rightlowerleg:scale")
-tracks/72/interp = 1
-tracks/72/loop_wrap = true
-tracks/72/imported = false
-tracks/72/enabled = true
-tracks/72/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 1, 1 ) ]
-}
-tracks/73/type = "value"
-tracks/73/path = NodePath("splatter_boi_lowerbody/splatter_boi_rightupperleg/splatter_boi_rightlowerleg:z_index")
-tracks/73/interp = 1
-tracks/73/loop_wrap = true
-tracks/73/imported = false
-tracks/73/enabled = true
-tracks/73/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ -1 ]
-}
-tracks/74/type = "value"
-tracks/74/path = NodePath("splatter_boi_lowerbody/splatter_boi_rightupperleg/splatter_boi_rightlowerleg:z_as_relative")
-tracks/74/interp = 1
-tracks/74/loop_wrap = true
-tracks/74/imported = false
-tracks/74/enabled = true
-tracks/74/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
-}
-tracks/75/type = "value"
-tracks/75/path = NodePath("splatter_boi_lowerbody/splatter_boi_rightupperleg/splatter_boi_rightlowerleg:visible")
-tracks/75/interp = 1
-tracks/75/loop_wrap = true
-tracks/75/imported = false
-tracks/75/enabled = true
-tracks/75/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
-}
-tracks/76/type = "value"
-tracks/76/path = NodePath("splatter_boi_lowerbody/splatter_boi_rightupperleg/splatter_boi_rightlowerleg:show_behind_parent")
-tracks/76/interp = 1
-tracks/76/loop_wrap = true
-tracks/76/imported = false
-tracks/76/enabled = true
-tracks/76/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
-}
-tracks/77/type = "value"
-tracks/77/path = NodePath("splatter_boi_lowerbody/splatter_boi_leftupperleg:texture")
-tracks/77/interp = 1
-tracks/77/loop_wrap = true
-tracks/77/imported = false
-tracks/77/enabled = true
-tracks/77/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ ExtResource( 11 ) ]
-}
-tracks/78/type = "value"
-tracks/78/path = NodePath("splatter_boi_lowerbody/splatter_boi_leftupperleg:offset")
-tracks/78/interp = 1
-tracks/78/loop_wrap = true
-tracks/78/imported = false
-tracks/78/enabled = true
-tracks/78/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( -1.70878, 58.3463 ) ]
-}
-tracks/79/type = "value"
-tracks/79/path = NodePath("splatter_boi_lowerbody/splatter_boi_leftupperleg:position")
-tracks/79/interp = 1
-tracks/79/loop_wrap = true
-tracks/79/imported = false
-tracks/79/enabled = true
-tracks/79/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 26.1517, 73.1853 ) ]
-}
-tracks/80/type = "value"
-tracks/80/path = NodePath("splatter_boi_lowerbody/splatter_boi_leftupperleg:rotation_degrees")
-tracks/80/interp = 1
-tracks/80/loop_wrap = true
-tracks/80/imported = false
-tracks/80/enabled = true
-tracks/80/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ -19.6229 ]
-}
-tracks/81/type = "value"
-tracks/81/path = NodePath("splatter_boi_lowerbody/splatter_boi_leftupperleg:scale")
-tracks/81/interp = 1
-tracks/81/loop_wrap = true
-tracks/81/imported = false
-tracks/81/enabled = true
-tracks/81/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 1, 1 ) ]
-}
-tracks/82/type = "value"
-tracks/82/path = NodePath("splatter_boi_lowerbody/splatter_boi_leftupperleg:z_index")
-tracks/82/interp = 1
-tracks/82/loop_wrap = true
-tracks/82/imported = false
-tracks/82/enabled = true
-tracks/82/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ -3 ]
-}
-tracks/83/type = "value"
-tracks/83/path = NodePath("splatter_boi_lowerbody/splatter_boi_leftupperleg:z_as_relative")
-tracks/83/interp = 1
-tracks/83/loop_wrap = true
-tracks/83/imported = false
-tracks/83/enabled = true
-tracks/83/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
-}
-tracks/84/type = "value"
-tracks/84/path = NodePath("splatter_boi_lowerbody/splatter_boi_leftupperleg:visible")
-tracks/84/interp = 1
-tracks/84/loop_wrap = true
-tracks/84/imported = false
-tracks/84/enabled = true
-tracks/84/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
-}
-tracks/85/type = "value"
-tracks/85/path = NodePath("splatter_boi_lowerbody/splatter_boi_leftupperleg:show_behind_parent")
-tracks/85/interp = 1
-tracks/85/loop_wrap = true
-tracks/85/imported = false
-tracks/85/enabled = true
-tracks/85/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
-}
-tracks/86/type = "value"
-tracks/86/path = NodePath("splatter_boi_lowerbody/splatter_boi_leftupperleg/splatter_boi_leftlowerleg:texture")
-tracks/86/interp = 1
-tracks/86/loop_wrap = true
-tracks/86/imported = false
-tracks/86/enabled = true
-tracks/86/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ ExtResource( 12 ) ]
-}
-tracks/87/type = "value"
-tracks/87/path = NodePath("splatter_boi_lowerbody/splatter_boi_leftupperleg/splatter_boi_leftlowerleg:offset")
-tracks/87/interp = 1
-tracks/87/loop_wrap = true
-tracks/87/imported = false
-tracks/87/enabled = true
-tracks/87/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 18.0702, 63.3102 ) ]
-}
-tracks/88/type = "value"
-tracks/88/path = NodePath("splatter_boi_lowerbody/splatter_boi_leftupperleg/splatter_boi_leftlowerleg:position")
-tracks/88/interp = 1
-tracks/88/loop_wrap = true
-tracks/88/imported = false
-tracks/88/enabled = true
-tracks/88/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( -17.94, 132.932 ) ]
-}
-tracks/89/type = "value"
-tracks/89/path = NodePath("splatter_boi_lowerbody/splatter_boi_leftupperleg/splatter_boi_leftlowerleg:rotation_degrees")
-tracks/89/interp = 1
-tracks/89/loop_wrap = true
-tracks/89/imported = false
-tracks/89/enabled = true
-tracks/89/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 17.6341 ]
-}
-tracks/90/type = "value"
-tracks/90/path = NodePath("splatter_boi_lowerbody/splatter_boi_leftupperleg/splatter_boi_leftlowerleg:scale")
-tracks/90/interp = 1
-tracks/90/loop_wrap = true
-tracks/90/imported = false
-tracks/90/enabled = true
-tracks/90/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 1, 1 ) ]
-}
-tracks/91/type = "value"
-tracks/91/path = NodePath("splatter_boi_lowerbody/splatter_boi_leftupperleg/splatter_boi_leftlowerleg:z_index")
-tracks/91/interp = 1
-tracks/91/loop_wrap = true
-tracks/91/imported = false
-tracks/91/enabled = true
-tracks/91/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ -1 ]
-}
-tracks/92/type = "value"
-tracks/92/path = NodePath("splatter_boi_lowerbody/splatter_boi_leftupperleg/splatter_boi_leftlowerleg:z_as_relative")
-tracks/92/interp = 1
-tracks/92/loop_wrap = true
-tracks/92/imported = false
-tracks/92/enabled = true
-tracks/92/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
-}
-tracks/93/type = "value"
-tracks/93/path = NodePath("splatter_boi_lowerbody/splatter_boi_leftupperleg/splatter_boi_leftlowerleg:visible")
-tracks/93/interp = 1
-tracks/93/loop_wrap = true
-tracks/93/imported = false
-tracks/93/enabled = true
-tracks/93/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
-}
-tracks/94/type = "value"
-tracks/94/path = NodePath("splatter_boi_lowerbody/splatter_boi_leftupperleg/splatter_boi_leftlowerleg:show_behind_parent")
-tracks/94/interp = 1
-tracks/94/loop_wrap = true
-tracks/94/imported = false
-tracks/94/enabled = true
-tracks/94/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
-}
-tracks/95/type = "value"
-tracks/95/path = NodePath("Particles2D:emitting")
-tracks/95/interp = 1
-tracks/95/loop_wrap = true
-tracks/95/imported = false
-tracks/95/enabled = true
-tracks/95/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
-}
-tracks/96/type = "value"
-tracks/96/path = NodePath("Particles2D:amount")
-tracks/96/interp = 1
-tracks/96/loop_wrap = true
-tracks/96/imported = false
-tracks/96/enabled = true
-tracks/96/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ 8 ]
-}
-tracks/97/type = "value"
-tracks/97/path = NodePath("Particles2D:lifetime")
-tracks/97/interp = 1
-tracks/97/loop_wrap = true
-tracks/97/imported = false
-tracks/97/enabled = true
-tracks/97/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 0.8 ]
-}
-tracks/98/type = "value"
-tracks/98/path = NodePath("Particles2D:one_shot")
-tracks/98/interp = 1
-tracks/98/loop_wrap = true
-tracks/98/imported = false
-tracks/98/enabled = true
-tracks/98/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
-}
-tracks/99/type = "value"
-tracks/99/path = NodePath("Particles2D:speed_scale")
-tracks/99/interp = 1
-tracks/99/loop_wrap = true
-tracks/99/imported = false
-tracks/99/enabled = true
-tracks/99/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 1.0 ]
-}
-tracks/100/type = "value"
-tracks/100/path = NodePath("Particles2D:explosiveness")
-tracks/100/interp = 1
-tracks/100/loop_wrap = true
-tracks/100/imported = false
-tracks/100/enabled = true
-tracks/100/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 0.0 ]
-}
-tracks/101/type = "value"
-tracks/101/path = NodePath("Particles2D:randomness")
-tracks/101/interp = 1
-tracks/101/loop_wrap = true
-tracks/101/imported = false
-tracks/101/enabled = true
-tracks/101/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 1.0 ]
-}
-tracks/102/type = "value"
-tracks/102/path = NodePath("Particles2D:position")
-tracks/102/interp = 1
-tracks/102/loop_wrap = true
-tracks/102/imported = false
-tracks/102/enabled = true
-tracks/102/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( -16.6667, 236.667 ) ]
-}
-tracks/103/type = "value"
-tracks/103/path = NodePath("Particles2D:rotation_degrees")
-tracks/103/interp = 1
-tracks/103/loop_wrap = true
-tracks/103/imported = false
-tracks/103/enabled = true
-tracks/103/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 0.0 ]
-}
-tracks/104/type = "value"
-tracks/104/path = NodePath("Particles2D:scale")
-tracks/104/interp = 1
-tracks/104/loop_wrap = true
-tracks/104/imported = false
-tracks/104/enabled = true
-tracks/104/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 1, 1 ) ]
-}
-tracks/105/type = "value"
-tracks/105/path = NodePath("Particles2D:z_index")
-tracks/105/interp = 1
-tracks/105/loop_wrap = true
-tracks/105/imported = false
-tracks/105/enabled = true
-tracks/105/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ -10 ]
-}
-tracks/106/type = "value"
-tracks/106/path = NodePath("Particles2D:visible")
-tracks/106/interp = 1
-tracks/106/loop_wrap = true
-tracks/106/imported = false
-tracks/106/enabled = true
-tracks/106/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
-}
-tracks/107/type = "value"
-tracks/107/path = NodePath("Particles2D:show_behind_parent")
-tracks/107/interp = 1
-tracks/107/loop_wrap = true
-tracks/107/imported = false
-tracks/107/enabled = true
-tracks/107/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
-}
-tracks/108/type = "value"
-tracks/108/path = NodePath("DustParticles:emitting")
-tracks/108/interp = 1
-tracks/108/loop_wrap = true
-tracks/108/imported = false
-tracks/108/enabled = true
-tracks/108/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
-}
-tracks/109/type = "value"
-tracks/109/path = NodePath("DustParticles:amount")
-tracks/109/interp = 1
-tracks/109/loop_wrap = true
-tracks/109/imported = false
-tracks/109/enabled = true
-tracks/109/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ 30 ]
-}
-tracks/110/type = "value"
-tracks/110/path = NodePath("DustParticles:lifetime")
-tracks/110/interp = 1
-tracks/110/loop_wrap = true
-tracks/110/imported = false
-tracks/110/enabled = true
-tracks/110/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 0.2 ]
-}
-tracks/111/type = "value"
-tracks/111/path = NodePath("DustParticles:one_shot")
-tracks/111/interp = 1
-tracks/111/loop_wrap = true
-tracks/111/imported = false
-tracks/111/enabled = true
-tracks/111/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
-}
-tracks/112/type = "value"
-tracks/112/path = NodePath("DustParticles:speed_scale")
-tracks/112/interp = 1
-tracks/112/loop_wrap = true
-tracks/112/imported = false
-tracks/112/enabled = true
-tracks/112/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 1.0 ]
-}
-tracks/113/type = "value"
-tracks/113/path = NodePath("DustParticles:explosiveness")
-tracks/113/interp = 1
-tracks/113/loop_wrap = true
-tracks/113/imported = false
-tracks/113/enabled = true
-tracks/113/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 0.0 ]
-}
-tracks/114/type = "value"
-tracks/114/path = NodePath("DustParticles:randomness")
-tracks/114/interp = 1
-tracks/114/loop_wrap = true
-tracks/114/imported = false
-tracks/114/enabled = true
-tracks/114/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 0.0 ]
-}
-tracks/115/type = "value"
-tracks/115/path = NodePath("DustParticles:position")
-tracks/115/interp = 1
-tracks/115/loop_wrap = true
-tracks/115/imported = false
-tracks/115/enabled = true
-tracks/115/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 0.186127, 278.047 ) ]
-}
-tracks/116/type = "value"
-tracks/116/path = NodePath("DustParticles:rotation_degrees")
-tracks/116/interp = 1
-tracks/116/loop_wrap = true
-tracks/116/imported = false
-tracks/116/enabled = true
-tracks/116/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 2.13443e-007 ]
-}
-tracks/117/type = "value"
-tracks/117/path = NodePath("DustParticles:scale")
-tracks/117/interp = 1
-tracks/117/loop_wrap = true
-tracks/117/imported = false
-tracks/117/enabled = true
-tracks/117/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 1, 1 ) ]
-}
-tracks/118/type = "value"
-tracks/118/path = NodePath("DustParticles:z_index")
-tracks/118/interp = 1
-tracks/118/loop_wrap = true
-tracks/118/imported = false
-tracks/118/enabled = true
-tracks/118/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ 0 ]
-}
-tracks/119/type = "value"
-tracks/119/path = NodePath("DustParticles:visible")
-tracks/119/interp = 1
-tracks/119/loop_wrap = true
-tracks/119/imported = false
-tracks/119/enabled = true
-tracks/119/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
-}
-tracks/120/type = "value"
-tracks/120/path = NodePath("DustParticles:show_behind_parent")
-tracks/120/interp = 1
-tracks/120/loop_wrap = true
-tracks/120/imported = false
-tracks/120/enabled = true
-tracks/120/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
-}
-tracks/121/type = "value"
-tracks/121/path = NodePath("Sprite:texture")
-tracks/121/interp = 1
-tracks/121/loop_wrap = true
-tracks/121/imported = false
-tracks/121/enabled = true
-tracks/121/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ ExtResource( 14 ) ]
-}
-tracks/122/type = "value"
-tracks/122/path = NodePath("Sprite:position")
-tracks/122/interp = 1
-tracks/122/loop_wrap = true
-tracks/122/imported = false
-tracks/122/enabled = true
-tracks/122/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 18.8482, -411.592 ) ]
-}
-tracks/123/type = "value"
-tracks/123/path = NodePath("Sprite:rotation_degrees")
-tracks/123/interp = 1
-tracks/123/loop_wrap = true
-tracks/123/imported = false
-tracks/123/enabled = true
-tracks/123/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ -1.48069 ]
-}
-tracks/124/type = "value"
-tracks/124/path = NodePath("Sprite:scale")
-tracks/124/interp = 1
-tracks/124/loop_wrap = true
-tracks/124/imported = false
-tracks/124/enabled = true
-tracks/124/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 7.72486, 9.66765 ) ]
-}
-tracks/125/type = "value"
-tracks/125/path = NodePath("Sprite:z_index")
-tracks/125/interp = 1
-tracks/125/loop_wrap = true
-tracks/125/imported = false
-tracks/125/enabled = true
-tracks/125/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ 0 ]
-}
-tracks/126/type = "value"
-tracks/126/path = NodePath("Sprite:visible")
-tracks/126/interp = 1
-tracks/126/loop_wrap = true
-tracks/126/imported = false
-tracks/126/enabled = true
-tracks/126/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
-}
-tracks/127/type = "value"
-tracks/127/path = NodePath("Sprite:show_behind_parent")
-tracks/127/interp = 1
-tracks/127/loop_wrap = true
-tracks/127/imported = false
-tracks/127/enabled = true
-tracks/127/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
-}
+[sub_resource type="Gradient" id=7]
+offsets = PoolRealArray( 0, 0.421769, 0.809524 )
+colors = PoolColorArray( 0.992188, 0.794616, 0.120148, 1, 0.995483, 0.881241, 0.491242, 1, 1, 0.117188, 0, 1 )
+
+[sub_resource type="GradientTexture" id=8]
+gradient = SubResource( 7 )
+
+[sub_resource type="Curve" id=9]
+_data = [ Vector2( 0.0319728, 0.7904 ), 0.0, 0.0, 0, 0, Vector2( 0.944626, 0.2096 ), 1.13954, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=10]
+curve = SubResource( 9 )
+
+[sub_resource type="ParticlesMaterial" id=11]
+flag_disable_z = true
+spread = 180.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 130.0
+angular_velocity = 1.05
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 25.0
+scale_curve = SubResource( 10 )
+color_ramp = SubResource( 8 )
+
+[sub_resource type="Gradient" id=12]
+offsets = PoolRealArray( 0, 0.634146, 1 )
+colors = PoolColorArray( 1, 0.965088, 0.898438, 1, 1, 0.979523, 0.761719, 1, 1, 0.25, 0.25, 1 )
+
+[sub_resource type="GradientTexture" id=13]
+gradient = SubResource( 12 )
+
+[sub_resource type="ParticlesMaterial" id=14]
+flag_disable_z = true
+gravity = Vector3( 0, 0, 0 )
+angular_velocity = 1.05
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 1.7
+color_ramp = SubResource( 13 )
+
+[sub_resource type="ParticlesMaterial" id=15]
+emission_shape = 2
+emission_box_extents = Vector3( 400, 150, 1 )
+flag_disable_z = true
+spread = 180.0
+gravity = Vector3( 0, 98, 0 )
+initial_velocity = 50.0
+angular_velocity = 4.21907e-008
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 250.0
 
 [node name="Player2IKChain" type="Node2D"]
 rotation = -0.0318394
-scale = Vector2( 0.1, 0.1 )
+scale = Vector2( -0.1, 0.1 )
 script = ExtResource( 1 )
 
 [node name="splatter_boi_lowerbody" type="Sprite" parent="."]
+z_index = -2
+z_as_relative = false
 texture = ExtResource( 2 )
 offset = Vector2( -7.21486, 43.781 )
+__meta__ = {
+"_edit_bone_": true
+}
+
+[node name="splatter_boi_upperbody" type="Sprite" parent="splatter_boi_lowerbody"]
+position = Vector2( -3.35925, 20.5212 )
+z_index = -1
+z_as_relative = false
+texture = ExtResource( 3 )
+offset = Vector2( -3.63039, -87.8905 )
+__meta__ = {
+"_edit_bone_": true
+}
+
+[node name="splatter_boi_head" type="Sprite" parent="splatter_boi_lowerbody/splatter_boi_upperbody"]
+editor/display_folded = true
+position = Vector2( 4.70965, -170.036 )
+rotation = 0.0695308
+z_as_relative = false
+texture = ExtResource( 4 )
+offset = Vector2( 31.7066, -60.5058 )
+__meta__ = {
+"_edit_bone_": true
+}
+
+[node name="End" type="Position2D" parent="splatter_boi_lowerbody/splatter_boi_upperbody/splatter_boi_head"]
+position = Vector2( 36.4746, -165.6 )
+rotation = 0.0228967
+__meta__ = {
+"_edit_bone_": true
+}
+
+[node name="splatter_boi_rightupperarm" type="Sprite" parent="splatter_boi_lowerbody/splatter_boi_upperbody"]
+position = Vector2( 67.1354, -118.389 )
+rotation = 0.0872665
+z_index = -10
+texture = ExtResource( 5 )
+offset = Vector2( 24.5026, 57.3533 )
 __meta__ = {
 "_edit_bone_": true,
 "_edit_ik_": true
 }
 
-[node name="splatter_boi_upperbody" type="Sprite" parent="splatter_boi_lowerbody"]
-position = Vector2( -3.35925, 20.5212 )
-z_index = 1
-texture = ExtResource( 3 )
-offset = Vector2( -3.63039, -87.8905 )
-__meta__ = {
-"_edit_ik_": true
-}
-
-[node name="splatter_boi_head" type="Sprite" parent="splatter_boi_lowerbody/splatter_boi_upperbody"]
-position = Vector2( 4.70965, -170.036 )
-rotation = 0.0695308
-texture = ExtResource( 4 )
-offset = Vector2( 31.7066, -60.5058 )
-
-[node name="End" type="Position2D" parent="splatter_boi_lowerbody/splatter_boi_upperbody/splatter_boi_head"]
-position = Vector2( 36.4746, -165.6 )
-rotation = 0.0228967
-
-[node name="splatter_boi_rightupperarm" type="Sprite" parent="splatter_boi_lowerbody/splatter_boi_upperbody"]
-position = Vector2( 67.1354, -118.389 )
-rotation = -6.21051
-z_index = -1
-texture = ExtResource( 5 )
-offset = Vector2( 24.5026, 57.3533 )
-
 [node name="splatter_boi_rightlowerarm" type="Sprite" parent="splatter_boi_lowerbody/splatter_boi_upperbody/splatter_boi_rightupperarm"]
+editor/display_folded = true
 position = Vector2( 48.0532, 101.204 )
 rotation = -0.189825
-z_index = 1
+z_index = -9
 texture = ExtResource( 6 )
 offset = Vector2( -0.745546, 98.4968 )
+__meta__ = {
+"_edit_bone_": true
+}
 
 [node name="End" type="Position2D" parent="splatter_boi_lowerbody/splatter_boi_upperbody/splatter_boi_rightupperarm/splatter_boi_rightlowerarm"]
 position = Vector2( 10.2087, 160.196 )
 rotation = 0.724019
+__meta__ = {
+"_edit_bone_": true
+}
 
 [node name="splatter_boi_leftupperarm" type="Sprite" parent="splatter_boi_lowerbody/splatter_boi_upperbody"]
 position = Vector2( -92.4528, -125.494 )
 rotation = -0.168129
 texture = ExtResource( 7 )
 offset = Vector2( -24.7974, 51.6564 )
+__meta__ = {
+"_edit_bone_": true,
+"_edit_ik_": true
+}
 
 [node name="splatter_boi_leftlowerarm" type="Sprite" parent="splatter_boi_lowerbody/splatter_boi_upperbody/splatter_boi_leftupperarm"]
+editor/display_folded = true
 position = Vector2( -51.3503, 107.602 )
 rotation = -0.11474
 texture = ExtResource( 8 )
 offset = Vector2( 9.89324, 93.3021 )
+__meta__ = {
+"_edit_bone_": true
+}
 
 [node name="End" type="Position2D" parent="splatter_boi_lowerbody/splatter_boi_upperbody/splatter_boi_leftupperarm/splatter_boi_leftlowerarm"]
 position = Vector2( 6.42883, 157.479 )
 rotation = -0.359084
+__meta__ = {
+"_edit_bone_": true
+}
 
 [node name="splatter_boi_rightupperleg" type="Sprite" parent="splatter_boi_lowerbody"]
 position = Vector2( -40.6904, 71.3425 )
-rotation = 0.17725
+rotation = 0.0756333
 z_index = -2
 texture = ExtResource( 9 )
 offset = Vector2( -2.60239, 61.8694 )
+__meta__ = {
+"_edit_bone_": true,
+"_edit_ik_": true
+}
 
 [node name="splatter_boi_rightlowerleg" type="Sprite" parent="splatter_boi_lowerbody/splatter_boi_rightupperleg"]
+editor/display_folded = true
 position = Vector2( 8.12758, 136.254 )
-rotation = -0.0807508
+rotation = 0.031396
 z_index = -1
 texture = ExtResource( 10 )
 offset = Vector2( 23.2456, 61.1124 )
+__meta__ = {
+"_edit_bone_": true
+}
 
 [node name="End" type="Position2D" parent="splatter_boi_lowerbody/splatter_boi_rightupperleg/splatter_boi_rightlowerleg"]
 position = Vector2( 10.4111, 106.969 )
 rotation = -0.0157129
+__meta__ = {
+"_edit_bone_": true
+}
 
 [node name="splatter_boi_leftupperleg" type="Sprite" parent="splatter_boi_lowerbody"]
 position = Vector2( 26.1517, 73.1853 )
-rotation = -0.342484
+rotation = -0.244624
+scale = Vector2( 1, 0.996762 )
 z_index = -3
 texture = ExtResource( 11 )
 offset = Vector2( -1.70878, 58.3463 )
+__meta__ = {
+"_edit_bone_": true,
+"_edit_ik_": true
+}
 
 [node name="splatter_boi_leftlowerleg" type="Sprite" parent="splatter_boi_lowerbody/splatter_boi_leftupperleg"]
+editor/display_folded = true
 position = Vector2( -17.94, 132.932 )
-rotation = 0.307773
+rotation = 0.222367
 z_index = -1
 texture = ExtResource( 12 )
 offset = Vector2( 18.0702, 63.3102 )
+__meta__ = {
+"_edit_bone_": true
+}
 
 [node name="End" type="Position2D" parent="splatter_boi_lowerbody/splatter_boi_leftupperleg/splatter_boi_leftlowerleg"]
 position = Vector2( -1.87732, 106.918 )
+__meta__ = {
+"_edit_bone_": true
+}
 
 [node name="Particles2D" type="Particles2D" parent="."]
 position = Vector2( -16.6667, 236.667 )
@@ -1710,7 +291,7 @@ texture = ExtResource( 13 )
 
 [node name="DustParticles" type="Particles2D" parent="."]
 position = Vector2( 0.186127, 278.047 )
-rotation = 3.72529e-009
+rotation = 3.72528e-009
 emitting = false
 amount = 30
 lifetime = 0.2
@@ -1726,6 +307,120 @@ scale = Vector2( 7.72486, 9.66765 )
 texture = ExtResource( 14 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-"anims/BASE(Remove later)" = SubResource( 7 )
-anims/right_idle = ExtResource( 15 )
+playback_speed = 3.0
+anims/left_idle = ExtResource( 15 )
+anims/left_jump = ExtResource( 16 )
+anims/left_jump_flip = ExtResource( 17 )
+anims/left_leg_sweep = ExtResource( 18 )
+anims/left_neutral_kick = ExtResource( 19 )
+anims/left_walking = ExtResource( 20 )
+anims/right_idle = ExtResource( 21 )
+anims/right_jump = ExtResource( 22 )
+anims/right_jump_flip = ExtResource( 23 )
+anims/right_leg_sweep = ExtResource( 24 )
+anims/right_neutral_kick = ExtResource( 25 )
+anims/right_side_kick = ExtResource( 26 )
+anims/right_walking = ExtResource( 27 )
+
+[node name="neutral_kick" type="Node2D" parent="."]
+editor/display_folded = true
+visible = false
+
+[node name="Sprite" type="Sprite" parent="neutral_kick"]
+position = Vector2( 180.311, -271.959 )
+rotation = -0.0647681
+texture = ExtResource( 28 )
+
+[node name="Particles2D2" type="Particles2D" parent="neutral_kick/Sprite"]
+position = Vector2( 0.3302, -65.0933 )
+z_index = 1
+amount = 300
+lifetime = 0.6
+process_material = SubResource( 11 )
+
+[node name="Sprite2" type="Sprite" parent="neutral_kick"]
+position = Vector2( -34.2524, -316.05 )
+rotation = 0.30112
+texture = ExtResource( 28 )
+
+[node name="Particles2D3" type="Particles2D" parent="neutral_kick/Sprite2"]
+position = Vector2( 0.3302, -65.0933 )
+z_index = 1
+amount = 300
+lifetime = 0.6
+process_material = SubResource( 11 )
+
+[node name="leg_sweep" type="Node2D" parent="."]
+editor/display_folded = true
+visible = false
+
+[node name="firecrackerHolder" type="Node2D" parent="leg_sweep"]
+visible = false
+
+[node name="Sprite" type="Sprite" parent="leg_sweep/firecrackerHolder"]
+rotation = 0.734194
+texture = ExtResource( 28 )
+
+[node name="Particles2D" type="Particles2D" parent="leg_sweep/firecrackerHolder/Sprite"]
+position = Vector2( 0.642409, 0.759061 )
+emitting = false
+lifetime = 0.3
+local_coords = false
+process_material = SubResource( 14 )
+
+[node name="Sprite2" type="Sprite" parent="leg_sweep/firecrackerHolder"]
+rotation = -0.311526
+texture = ExtResource( 28 )
+
+[node name="Particles2D2" type="Particles2D" parent="leg_sweep/firecrackerHolder/Sprite2"]
+position = Vector2( -0.334777, 0.936369 )
+rotation = 1.04572
+emitting = false
+lifetime = 0.3
+local_coords = false
+process_material = SubResource( 14 )
+
+[node name="Sprite3" type="Sprite" parent="leg_sweep/firecrackerHolder"]
+rotation = -2.00491
+texture = ExtResource( 28 )
+
+[node name="Particles2D3" type="Particles2D" parent="leg_sweep/firecrackerHolder/Sprite3"]
+position = Vector2( -0.8884, -0.446774 )
+rotation = 2.73911
+emitting = false
+lifetime = 0.3
+local_coords = false
+process_material = SubResource( 14 )
+
+[node name="Sprite4" type="Sprite" parent="leg_sweep/firecrackerHolder"]
+rotation = -3.25952
+texture = ExtResource( 28 )
+
+[node name="Particles2D4" type="Particles2D" parent="leg_sweep/firecrackerHolder/Sprite4"]
+position = Vector2( 0.148386, -0.983282 )
+rotation = -2.28946
+emitting = false
+lifetime = 0.3
+local_coords = false
+process_material = SubResource( 14 )
+
+[node name="Sprite5" type="Sprite" parent="leg_sweep/firecrackerHolder"]
+rotation = -4.77438
+texture = ExtResource( 28 )
+
+[node name="Particles2D5" type="Particles2D" parent="leg_sweep/firecrackerHolder/Sprite5"]
+position = Vector2( 0.990041, 0.0931674 )
+rotation = -0.774614
+emitting = false
+lifetime = 0.3
+local_coords = false
+process_material = SubResource( 14 )
+
+[node name="firecrackerExplosion" type="Particles2D" parent="leg_sweep"]
+position = Vector2( 357.539, 253.811 )
+emitting = false
+amount = 6
+lifetime = 0.3
+explosiveness = 0.6
+process_material = SubResource( 15 )
 

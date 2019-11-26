@@ -1,9 +1,9 @@
 extends CanvasLayer
 
-onready var countdown_sprites = ["res://Assets/Graphics/Sprites/SelectionBoxes/SelectionBoxesP3.png",
-								"res://Assets/Graphics/Sprites/SelectionBoxes/SelectionBoxesP2.png",
-								"res://Assets/Graphics/Sprites/SelectionBoxes/SelectionBoxesP1.png",
-								"res://Assets/Graphics/Sprites/SelectionBoxes/SplatterBoiCharacterSelect.png"]
+onready var countdown_sprites = ["res://Assets/Graphics/Sprites/CountdownArt/countdown_3.png",
+								"res://Assets/Graphics/Sprites/CountdownArt/countdown_2.png",
+								"res://Assets/Graphics/Sprites/CountdownArt/countdown_1.png",
+								"res://Assets/Graphics/Sprites/CountdownArt/countdown_fight.png"]
 
 onready var ultimate_bars = {"red": $BottomLeft/UltimateProgress/RedUltProgress,
 							"blue": $BottomLeft/UltimateProgress/BlueUltProgress,
@@ -15,14 +15,18 @@ onready var painted_bars = {"red": $BottomLeft/AmountPaintedBars/RedProgress,
 							"green": $BottomLeft/AmountPaintedBars/GreenProgress,
 							"yellow": $BottomLeft/AmountPaintedBars/YellowProgress}
 
+var max_paint_value = 0
+
 func _ready():
 	for color in ultimate_bars.keys():
-		updated_hud("ultimate", color, 0)
+		update_hud("ultimate", color, 0)
 	for color in painted_bars.keys():
-		updated_hud("paint", color, 0)
+		update_hud("paint", color, 0)
 	countdown()
 
-func updated_hud(type, color, value):
+func update_hud(type, color, value):
+	for bar in $BottomLeft/AmountPaintedBars.get_children():
+		bar.max_value = max_paint_value
 	match type:
 		"ultimate":
 			ultimate_bars[color].value = value

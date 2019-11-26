@@ -19,12 +19,21 @@ var slow_percent = 0
 var attacking = false
 
 # Variables that hold our animations players. This is for ease of access.
-onready var player_anim = $Player1IKChain/AnimationPlayer
+var player_anim = null
 onready var hitbox_anim = $Attack_Collision/AnimationPlayer
+
+export (PackedScene) var IK_chain_0
+export (PackedScene) var IK_chain_1
+export (PackedScene) var IK_chain_2
+export (PackedScene) var IK_chain_3
+export (PackedScene) var IK_chain_4
+export (PackedScene) var IK_chain_5
+export (PackedScene) var IK_chain_6
+export (PackedScene) var IK_chain_7
 
 # This allows us to track each player by an ID
 export (int) var player_number
-
+var character = 0
 var player_color = ""
 
 var velocity = Vector2()
@@ -61,10 +70,35 @@ var can_ultimate = false
 var Global = null
 
 func _ready():
-	change_state(IDLE)
 	Global = find_parent("Global")
 
-func load_textures():
+func load_textures(character_num):
+	print("Player%s " % player_number, "picked character ", character_num)
+	var i = null
+	character = character_num
+	match character_num:
+		0:
+			i = IK_chain_0.instance()
+		1:
+			i = IK_chain_1.instance()
+		2:
+			i = IK_chain_2.instance()
+		3:
+			i = IK_chain_3.instance()
+		4:
+			i = IK_chain_4.instance()
+		5:
+			i = IK_chain_5.instance()
+		6:
+			i = IK_chain_6.instance()
+		7:
+			i = IK_chain_7.instance()
+	
+	player_anim = i.find_node("AnimationPlayer")
+	player_anim.connect("animation_started", self, "_on_AnimationPlayer_animation_started")
+	player_anim.connect("animation_finished", self, "_on_AnimationPlayer_animation_finished")
+	add_child(i)
+	
 	match player_number:
 		1:
 			$PlayerIndicator.texture = load("res://Assets/Graphics/Sprites/SelectionBoxes/SelectionBoxesP1.png")
@@ -74,6 +108,7 @@ func load_textures():
 			$PlayerIndicator.texture = load("res://Assets/Graphics/Sprites/SelectionBoxes/SelectionBoxesP3.png")
 		4:
 			$PlayerIndicator.texture = load("res://Assets/Graphics/Sprites/SelectionBoxes/SelectionBoxesP4.png")
+	#change_state(IDLE)
 
 func _physics_process(delta):
 	# If we are standing still...
@@ -291,7 +326,6 @@ func change_state(new_state):
 			can_input = true
 			slowing_velocity = false
 			
-			# Mostly unused for right now
 			att_direction = "neutral"
 			if debug_mode["show_state_prints"] == true:
 				print("Stunned")
@@ -303,20 +337,42 @@ func set_velocity(type):
 		return
 	match type:
 		"side_kick":
-			velocity.x = lerp(velocity.x, 0, 0.01)
-			if facing_dir == "left":
-				velocity.x = -300
-			elif facing_dir == "right":
-				velocity.x = 300
+			match character:
+				0:
+					velocity.x = lerp(velocity.x, 0, 0.01)
+					if facing_dir == "left":
+						velocity.x = -300
+					elif facing_dir == "right":
+						velocity.x = 300
+				1:
+					velocity.x = lerp(velocity.x, 0, 0.01)
+					if facing_dir == "left":
+						velocity.x = -300
+					elif facing_dir == "right":
+						velocity.x = 300
 		"leg_sweep":
-			if is_on_floor():
-				if facing_dir == "left":
-					velocity.x = -400
-				elif facing_dir == "right":
-					velocity.x = 400
-			velocity.x = lerp(velocity.x, 0, 0.1)
+			match character:
+				0:
+					if is_on_floor():
+						if facing_dir == "left":
+							velocity.x = -400
+						elif facing_dir == "right":
+							velocity.x = 400
+						velocity.x = lerp(velocity.x, 0, 0.1)
+				1:
+					if is_on_floor():
+						if facing_dir == "left":
+							velocity.x = 200
+						elif facing_dir == "right":
+							velocity.x = -200
+						velocity.x = lerp(velocity.x, 0, 0.1)
+						velocity.y = -100
 		"neutral_kick":
-			velocity.x = lerp(velocity.x, 0, 0.2)
+			match character:
+				0:
+					velocity.x = lerp(velocity.x, 0, 0.2)
+				1:
+					velocity.x = lerp(velocity.x, 0, 0.2)
 
 func _on_PlatformCollisionArea_body_entered(body):
 	current_platform = body
@@ -325,6 +381,7 @@ func _on_PlatformCollisionArea_body_exited(body):
 	current_platform = null
 
 func _on_AnimationPlayer_animation_started(anim_name):
+	print(anim_name)
 	if anim_name == "%s_side_kick" % facing_dir:
 		next_velocity = "side_kick"
 		can_input = false
@@ -336,6 +393,7 @@ func _on_AnimationPlayer_animation_started(anim_name):
 		can_input = false
 
 func _on_AnimationPlayer_animation_finished(anim_name):
+	#print(anim_name)
 	if anim_name == "%s_side_kick" % facing_dir:
 		can_input = true
 		next_velocity = null
@@ -428,7 +486,7 @@ func activate_ultimate():
 			# Start timer once ultimate is in use.
 			# When in use call a function in process/physics process that will - 
 			# - leave paint splatter on or around the players current position for a limited time. 
-			# End ultimate once timer runs out of time. 
+			# End ultimate once timer runs out of time.
 		1:
 			print("2")
 			# Paint Can Bomb that leaves a large splat of paint where it explodes. 

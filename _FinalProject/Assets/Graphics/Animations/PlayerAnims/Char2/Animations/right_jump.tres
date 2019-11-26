@@ -109,7 +109,7 @@ tracks/8/keys = {
 "times": PoolRealArray( 0, 0.1, 0.2 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
-"values": [ 0, 0, 0 ]
+"values": [ 1, 1, 1 ]
 }
 tracks/9/type = "value"
 tracks/9/path = NodePath("splatter_boi_lowerbody/splatter_boi_upperbody/splatter_boi_rightupperarm:position")
@@ -325,7 +325,7 @@ tracks/26/keys = {
 "times": PoolRealArray( 0, 0.1, 0.2 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
-"values": [ 0, 0, 0 ]
+"values": [ -1, -1, -1 ]
 }
 tracks/27/type = "value"
 tracks/27/path = NodePath("splatter_boi_lowerbody/splatter_boi_leftupperleg:position")
@@ -397,7 +397,7 @@ tracks/32/keys = {
 "times": PoolRealArray( 0, 0.1, 0.2 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
-"values": [ 0, 0, 0 ]
+"values": [ -1, -1, -1 ]
 }
 tracks/33/type = "value"
 tracks/33/path = NodePath("AnimationPlayer:playback_speed")
@@ -423,4 +423,15 @@ tracks/34/keys = {
 "update": 1,
 "values": [ false ]
 }
-
+tracks/35/type = "value"
+tracks/35/path = NodePath(".:scale")
+tracks/35/interp = 1
+tracks/35/loop_wrap = true
+tracks/35/imported = false
+tracks/35/enabled = true
+tracks/35/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0.1, 0.1 ) ]
+}

@@ -1,8 +1,9 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Assets/TestingEnvironment/Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Graphics/Animations/PlayerAnims/Char1/Player1IKChain.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Assets/Audio/SFX/PaintSplat.wav" type="AudioStream" id=3]
+[ext_resource path="res://Assets/Graphics/Animations/PlayerAnims/Char2/Player2IKChain.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Assets/Audio/SFX/PaintSplat.wav" type="AudioStream" id=4]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 24.2379
@@ -12,7 +13,7 @@ height = 27.3579
 extents = Vector2( 18.2939, 40.6186 )
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 0, 0 )
+extents = Vector2( 22.4211, 15.7895 )
 
 [sub_resource type="Animation" id=4]
 resource_name = "down_air_attack"
@@ -467,6 +468,14 @@ tracks/4/keys = {
 ]]
 collision_mask = 6
 script = ExtResource( 1 )
+IK_chain_0 = ExtResource( 2 )
+IK_chain_1 = ExtResource( 3 )
+IK_chain_2 = ExtResource( 2 )
+IK_chain_3 = ExtResource( 2 )
+IK_chain_4 = ExtResource( 2 )
+IK_chain_5 = ExtResource( 2 )
+IK_chain_6 = ExtResource( 2 )
+IK_chain_7 = ExtResource( 2 )
 
 [node name="PlayerIndicator" type="Sprite" parent="."]
 position = Vector2( -1.43051e-005, -71.2496 )
@@ -506,66 +515,17 @@ anims/null = SubResource( 9 )
 anims/right_attack = SubResource( 10 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Attack_Collision"]
+position = Vector2( 4.21051, 62.1053 )
 shape = SubResource( 3 )
-disabled = true
 
 [node name="Platform_Fall_Timer" type="Timer" parent="."]
 wait_time = 0.5
 
-[node name="Player1IKChain" parent="." instance=ExtResource( 2 )]
-scale = Vector2( -0.1, 0.1 )
-
-[node name="splatter_boi_lowerbody" parent="Player1IKChain" index="0"]
-position = Vector2( 0, 0 )
-
-[node name="splatter_boi_upperbody" parent="Player1IKChain/splatter_boi_lowerbody" index="0"]
-position = Vector2( 7.8, 28 )
-rotation = 0.0
-
-[node name="splatter_boi_head" parent="Player1IKChain/splatter_boi_lowerbody/splatter_boi_upperbody" index="0"]
-rotation = -0.000962373
-
-[node name="splatter_boi_rightupperarm" parent="Player1IKChain/splatter_boi_lowerbody/splatter_boi_upperbody" index="1"]
-rotation = -6.21051
-
-[node name="splatter_boi_rightlowerarm" parent="Player1IKChain/splatter_boi_lowerbody/splatter_boi_upperbody/splatter_boi_rightupperarm" index="0"]
-rotation = -0.189825
-
-[node name="splatter_boi_leftupperarm" parent="Player1IKChain/splatter_boi_lowerbody/splatter_boi_upperbody" index="2"]
-rotation = -0.214815
-
-[node name="splatter_boi_leftlowerarm" parent="Player1IKChain/splatter_boi_lowerbody/splatter_boi_upperbody/splatter_boi_leftupperarm" index="0"]
-rotation = 0.220627
-
-[node name="splatter_boi_rightupperleg" parent="Player1IKChain/splatter_boi_lowerbody" index="1"]
-rotation = 0.17725
-
-[node name="splatter_boi_rightlowerleg" parent="Player1IKChain/splatter_boi_lowerbody/splatter_boi_rightupperleg" index="0"]
-rotation = -0.0807508
-
-[node name="splatter_boi_leftupperleg" parent="Player1IKChain/splatter_boi_lowerbody" index="2"]
-rotation = -0.342484
-
-[node name="splatter_boi_leftlowerleg" parent="Player1IKChain/splatter_boi_lowerbody/splatter_boi_leftupperleg" index="0"]
-rotation = 0.307773
-
-[node name="Particles2D" parent="Player1IKChain" index="1"]
-emitting = false
-
-[node name="Sprite" parent="Player1IKChain" index="3"]
-position = Vector2( 213.64, -19.9832 )
-rotation = -0.0473813
-scale = Vector2( 1.17587, 2.01794 )
-
 [node name="HitSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 3 )
+stream = ExtResource( 4 )
 
 [connection signal="body_entered" from="PlatformCollisionArea" to="." method="_on_PlatformCollisionArea_body_entered"]
 [connection signal="body_exited" from="PlatformCollisionArea" to="." method="_on_PlatformCollisionArea_body_exited"]
 [connection signal="area_entered" from="Attack_Collision" to="." method="_on_Attack_Collision_area_entered"]
 [connection signal="animation_finished" from="Attack_Collision/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="timeout" from="Platform_Fall_Timer" to="." method="_on_Platform_Fall_Timer_timeout"]
-[connection signal="animation_finished" from="Player1IKChain/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
-[connection signal="animation_started" from="Player1IKChain/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_started"]
-
-[editable path="Player1IKChain"]
