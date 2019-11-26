@@ -138,22 +138,28 @@ albedo_texture = ExtResource( 17 )
 albedo_texture = ExtResource( 18 )
 
 [sub_resource type="SpatialMaterial" id=28]
-albedo_texture = ExtResource( 18 )
+flags_unshaded = true
+albedo_texture = ExtResource( 17 )
 
 [sub_resource type="SpatialMaterial" id=29]
-albedo_texture = ExtResource( 18 )
+flags_unshaded = true
+albedo_texture = ExtResource( 17 )
 
 [sub_resource type="SpatialMaterial" id=30]
-albedo_texture = ExtResource( 18 )
+flags_unshaded = true
+albedo_texture = ExtResource( 17 )
 
 [sub_resource type="SpatialMaterial" id=31]
-albedo_texture = ExtResource( 18 )
+flags_unshaded = true
+albedo_texture = ExtResource( 17 )
 
 [sub_resource type="SpatialMaterial" id=32]
-albedo_texture = ExtResource( 18 )
+flags_unshaded = true
+albedo_texture = ExtResource( 17 )
 
 [sub_resource type="SpatialMaterial" id=33]
-albedo_texture = ExtResource( 18 )
+flags_unshaded = true
+albedo_texture = ExtResource( 17 )
 
 [sub_resource type="CubeMesh" id=34]
 size = Vector3( 10, 10, 0.1 )
