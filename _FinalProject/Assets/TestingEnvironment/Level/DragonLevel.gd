@@ -10,6 +10,11 @@ var blue_score
 var green_score
 var yellow_score
 
+var red_ult
+var blue_ult
+var green_ult
+var yellow_ult
+
 var Global = null
 
 func _ready():
@@ -68,6 +73,9 @@ func place_paint(color, pos):
 			p.position = pos
 			find_node("PaintContainer").add_child(p)
 	count_score()
+
+func update_ult(color, value):
+	$HUD.update_hud("ultimate", color, value)
 
 func count_score():
 	var red_counter = 0

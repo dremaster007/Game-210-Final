@@ -1,5 +1,7 @@
 extends CanvasLayer
 
+onready var timer_sprites = []
+
 onready var countdown_sprites = ["res://Assets/Graphics/Sprites/CountdownArt/countdown_3.png",
 								"res://Assets/Graphics/Sprites/CountdownArt/countdown_2.png",
 								"res://Assets/Graphics/Sprites/CountdownArt/countdown_1.png",
@@ -17,7 +19,10 @@ onready var painted_bars = {"red": $BottomLeft/AmountPaintedBars/RedProgress,
 
 var max_paint_value = 0
 
+var game_time = 0
+
 func _ready():
+	$PlayTimerText.hide()
 	for color in ultimate_bars.keys():
 		update_hud("ultimate", color, 0)
 	for color in painted_bars.keys():
@@ -44,3 +49,11 @@ func countdown():
 	$CountdownSprite.texture = load(countdown_sprites[3])
 	yield(get_tree().create_timer(0.5),"timeout")
 	$CountdownSprite.hide()
+	game_time = 12
+	$PlayTimerText.text = str(game_time)
+	$PlayTimerText.show()
+	$PlayTimer.start()
+
+func _on_PlayTimer_timeout():
+	game_time -= 1
+	$PlayTimerText.text = str(game_time)

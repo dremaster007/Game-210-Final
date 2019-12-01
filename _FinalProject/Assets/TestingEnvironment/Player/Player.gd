@@ -67,10 +67,14 @@ var ultimate_fill = 0
 var ultimate_max = 100
 var can_ultimate = false
 
+var bomb_pos = Vector2()
+
 var Global = null
+var Level = null
 
 func _ready():
 	Global = find_parent("Global")
+	Level = find_parent("DragonLevel")
 
 func load_textures(character_num):
 	print("Player%s " % player_number, "picked character ", character_num)
@@ -248,7 +252,8 @@ func get_input():
 		change_state(ATTACK)
 	
 	if ultimate:
-		activate_ultimate()
+		if can_ultimate:
+			activate_ultimate()
 
 # This function allows us to change states
 func change_state(new_state):
@@ -472,13 +477,20 @@ func _on_Attack_Collision_area_entered(area):
 
 func ultimate_charge(charge_amount):
 	ultimate_fill += charge_amount
+	Level.update_ult(player_color, ultimate_fill)
 	if ultimate_fill >= ultimate_max:
 		can_ultimate = true
 
 func activate_ultimate():
+	can_ultimate = false
+	ultimate_fill = 0
+	ultimate_charge(0)
 	match Global.player_picks["player_%s" % player_number]:
 		0:
-			print("1")
+			$UltDuration.wait_time = 5
+			$UltDuration.start()
+			$UltTimer.wait_time = 0.2
+			$UltTimer.start()
 			# Leave paint where the player walks for a limited amount of time.
 			# create a bool that is false by default called paint_trail.
 			# set it to true when ultimate is used.
@@ -488,6 +500,11 @@ func activate_ultimate():
 			# - leave paint splatter on or around the players current position for a limited time. 
 			# End ultimate once timer runs out of time.
 		1:
+			bomb_pos = position
+			$UltDuration.wait_time = 5
+			$UltDuration.start()
+			$UltTimer.wait_time = 5
+			$UltTimer.start()
 			print("2")
 			# Paint Can Bomb that leaves a large splat of paint where it explodes. 
 			# Create a Paint Can scene with a large Area2D around it. 
@@ -500,3 +517,18 @@ func activate_ultimate():
 		2:
 			print("3")
 
+func ultimate_active():
+	match Global.player_picks["player_%s" % player_number]:
+		0:
+			Level.place_paint(player_color, Vector2(position.x, position.y))
+		1:
+			for i in 50:
+				Level.place_paint(player_color, Vector2(bomb_pos.x + rand_range(-200, 200), bomb_pos.y + rand_range(-200, 200)))
+
+# This is for ults that last a set amount of time
+func _on_UltDuration_timeout():
+	$UltTimer.stop()
+
+# This is for ults that have to be checked every x seconds
+func _on_UltTimer_timeout():
+	ultimate_active()
