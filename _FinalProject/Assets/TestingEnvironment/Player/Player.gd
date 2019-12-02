@@ -214,6 +214,7 @@ func get_input():
 	
 	# If we hold down...
 	if down:
+		set_collision_mask_bit(2, false)
 #		if state == JUMP or state == FALLING or state == FAST_FALLING:
 #			att_direction = "down"
 		if state != FAST_FALLING:
@@ -226,16 +227,17 @@ func get_input():
 	
 	# If we jsut press down...
 	if down_just_pressed:
-		platform_fall_count += 1
 		$Platform_Fall_Timer.start()
 		# Fall through the platform if it is a one way platform
-		if current_platform != null and platform_fall_count >= 2:
+		if current_platform != null:
 			if current_platform.is_in_group("one_way_platform"):
+				yield(get_tree().create_timer(0.1),"timeout")
 				current_platform = null
 				position.y += 1
 	
 	# If we just release down...
 	if down_released:
+		set_collision_mask_bit(2, true)
 		att_direction = "neutral"
 		platform_fall = false
 		if !is_on_floor():
