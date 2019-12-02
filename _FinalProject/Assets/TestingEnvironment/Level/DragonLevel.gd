@@ -112,3 +112,17 @@ func count_score():
 	#print("The blue score is: ", blue_score)
 	#print("The green score is: ", green_score)
 	#print("The yellow score is: ", yellow_score)
+
+func game_over():
+	for child in $Player_Container.get_children():
+		child.can_input = false
+		child.velocity = Vector2()
+	Global.player_score["player_1"] = red_score
+	Global.player_score["player_2"] = blue_score
+	Global.player_score["player_3"] = green_score
+	Global.player_score["player_4"] = yellow_score
+	
+	print(Global.player_score["player_1"])
+	print(Global.player_score["player_2"])
+	print(Global.player_score["player_3"])
+	print(Global.player_score["player_4"])

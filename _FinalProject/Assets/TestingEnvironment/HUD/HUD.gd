@@ -21,7 +21,12 @@ var max_paint_value = 0
 
 var game_time = 0
 
+var Global = null
+var Level = null
+
 func _ready():
+	Global = find_parent("Global")
+	Level = find_parent("DragonLevel")
 	$PlayTimerText.hide()
 	for color in ultimate_bars.keys():
 		update_hud("ultimate", color, 0)
@@ -49,11 +54,17 @@ func countdown():
 	$CountdownSprite.texture = load(countdown_sprites[3])
 	yield(get_tree().create_timer(0.5),"timeout")
 	$CountdownSprite.hide()
-	game_time = 12
+	game_time = 5
 	$PlayTimerText.text = str(game_time)
 	$PlayTimerText.show()
 	$PlayTimer.start()
 
 func _on_PlayTimer_timeout():
-	game_time -= 1
-	$PlayTimerText.text = str(game_time)
+	if game_time == 0:
+		$PlayTimer.stop()
+		Level.game_over()
+		yield(get_tree().create_timer(3),"timeout")
+		Global.change_scene("picking_screen")
+	else:
+		game_time -= 1
+		$PlayTimerText.text = str(game_time)

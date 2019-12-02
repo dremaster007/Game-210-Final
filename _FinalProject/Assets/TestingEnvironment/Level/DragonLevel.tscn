@@ -34,6 +34,7 @@ spread = 0.0
 gravity = Vector3( 0, -200, 0 )
 initial_velocity = 40.0
 initial_velocity_random = 1.0
+angular_velocity = 10.0
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 scale = 0.05
@@ -82,7 +83,6 @@ texture = ExtResource( 8 )
 [node name="Particles2D" type="Particles2D" parent="."]
 position = Vector2( 483.861, -33.8865 )
 rotation = -0.154571
-scale = Vector2( 1, 1 )
 amount = 100
 process_material = SubResource( 5 )
 texture = ExtResource( 9 )

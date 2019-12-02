@@ -3,11 +3,13 @@ extends Node
 export (PackedScene) var Title_Screen
 export (PackedScene) var Picking_Screen
 export (PackedScene) var Play_Screen
-export (PackedScene) var HUD
+export (PackedScene) var Game_Over_Screen
 
 var number_of_players = 1
 
 var player_picks = {"player_1": 0, "player_2": 0, "player_3": 0, "player_4": 0}
+
+var player_score = {"player_1": 0, "player_2": 0, "player_3": 0, "player_4": 0}
 
 func _ready():
 	OS.window_fullscreen = true
@@ -21,12 +23,11 @@ func _joy_connection_changed(device_id, is_connected):
 
 func get_joypads():
 	# This is where we can set amount of players by default!
-	number_of_players = 1
+	number_of_players = 2
 	var joypads = Input.get_connected_joypads()
 	if joypads != []:
 		for item in joypads:
 			number_of_players += 1
-	print(find_node("Scenes").get_child(0))
 	
 	if find_node("Scenes").find_node("PickingScreen") != null:
 		find_node("PickingScreen").get_players()
@@ -43,7 +44,6 @@ func _process(delta):
 					child._on_PlayButton_pressed()
 
 func change_scene(next_scene):
-	var add_hud = false
 	for scene in $Scenes.get_children():
 		print(scene.name, " was removed")
 		scene.queue_free()
@@ -55,6 +55,8 @@ func change_scene(next_scene):
 			next_scene = Picking_Screen
 		"game_screen":
 			next_scene = Play_Screen
+		"game_over_screen":
+			next_scene = Game_Over_Screen
 	
 	var i = next_scene.instance()
 	$Scenes.add_child(i)
