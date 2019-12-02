@@ -39,10 +39,14 @@ func get_players():
 	for player in $PlayerCounter.get_children():
 		player.queue_free()
 	
+	for sprite in $SelectionSprites.get_children():
+		sprite.hide()
+	
 	for player_num in Global.number_of_players:
 		var i = PickingScreenPlayer.instance()
 		i.player_number = player_num + 1
 		$PlayerCounter.add_child(i)
+		get_node("SelectionSprites/Player%s" % i.player_number).show()
 		cycle_characters(i.player_number, selected_number)
 
 func select_character(player_number, select_num):
