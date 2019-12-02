@@ -449,7 +449,6 @@ material/0 = SubResource( 35 )
 [node name="PickingScreenTransition" parent="." instance=ExtResource( 21 )]
 
 [node name="SelectionSprites" type="Node" parent="."]
-editor/display_folded = true
 
 [node name="Player1" type="Sprite3D" parent="SelectionSprites"]
 transform = Transform( 0.4, 0, 0, 0, 0.4, 0, 0, 0, 1, -3, 4, -0.65 )
@@ -477,3 +476,4 @@ texture = ExtResource( 25 )
 editor/display_folded = true
 
 [node name="Tween" type="Tween" parent="SelectionSpriteTweens"]
+
