@@ -56,6 +56,7 @@ Player = ExtResource( 2 )
 Paint = ExtResource( 3 )
 
 [node name="BackgroundSprites" type="Node2D" parent="."]
+editor/display_folded = true
 position = Vector2( -15, -320 )
 scale = Vector2( 0.7, 0.505 )
 
@@ -65,12 +66,10 @@ z_index = -200
 texture = ExtResource( 4 )
 
 [node name="Extras" type="Sprite" parent="BackgroundSprites"]
-scale = Vector2( 1, 1 )
-z_index = -102
+z_index = -99
 texture = ExtResource( 5 )
 
 [node name="MainBuilding" type="Sprite" parent="BackgroundSprites"]
-scale = Vector2( 1, 1 )
 z_index = -100
 texture = ExtResource( 6 )
 
@@ -82,12 +81,14 @@ texture = ExtResource( 7 )
 
 [node name="Railings" type="Sprite" parent="BackgroundSprites"]
 position = Vector2( -25.9664, 89.983 )
+scale = Vector2( 1, 1 )
 z_index = 5
 texture = ExtResource( 8 )
 
-[node name="Particles2D" type="Particles2D" parent="."]
-position = Vector2( 483.861, -33.8865 )
-rotation = -0.154571
+[node name="fire particles" type="Particles2D" parent="BackgroundSprites"]
+position = Vector2( 712.659, 566.561 )
+rotation = -0.212712
+scale = Vector2( 1.44409, 1.96891 )
 amount = 100
 process_material = SubResource( 5 )
 texture = ExtResource( 9 )
@@ -160,6 +161,8 @@ position = Vector2( 292.398, -7.40247 )
 
 [node name="PaintContainer" type="Node" parent="."]
 
+[node name="CameraTween" type="Tween" parent="."]
+[connection signal="tween_all_completed" from="CameraTween" to="." method="_on_CameraTween_tween_all_completed"]
 
 [editable path="OneWayPlatforms/OneWayPlatform4"]
 

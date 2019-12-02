@@ -17,6 +17,8 @@ var yellow_ult
 
 var Global = null
 
+var dynamic_camera_start = false
+
 func _ready():
 	Global = find_parent("Global")
 	# For each number of players, we have to actually spawn in a player character 
@@ -34,7 +36,9 @@ func _ready():
 		i.load_textures(Global.player_picks["player_%s" % i.player_number])
 		$Player_Container.add_child(i)
 	# Then we allow the camera to start tracking them.
-	$DynamicCamera.cam_start()
+	$CameraTween.interpolate_property($DynamicCamera, "position", Vector2(0, -325), Vector2(0, 0), 3, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
+	$CameraTween.interpolate_property($DynamicCamera, "zoom", Vector2(1.3, 1.3), Vector2(0.5, 0.5), 3, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
+	$CameraTween.start()
 	start()
 
 func start():
@@ -42,6 +46,7 @@ func start():
 		child.can_input = false
 	$HUD.countdown()
 	yield(get_tree().create_timer(4),"timeout")
+	$DynamicCamera.cam_start()
 	for child in $Player_Container.get_children():
 		child.can_input = true
 
@@ -126,3 +131,6 @@ func game_over():
 	print(Global.player_score["player_2"])
 	print(Global.player_score["player_3"])
 	print(Global.player_score["player_4"])
+
+func _on_CameraTween_tween_all_completed():
+	dynamic_camera_start = true

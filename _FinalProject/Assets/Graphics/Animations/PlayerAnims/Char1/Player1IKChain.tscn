@@ -76,6 +76,7 @@ scale = Vector2( 0.1, 0.1 )
 script = ExtResource( 1 )
 
 [node name="splatter_boi_lowerbody" type="Sprite" parent="."]
+rotation = 6.28319
 texture = ExtResource( 2 )
 offset = Vector2( 1.40692, 48.4413 )
 
@@ -88,7 +89,7 @@ offset = Vector2( -9.60779, -99.6175 )
 [node name="splatter_boi_head" type="Sprite" parent="splatter_boi_lowerbody/splatter_boi_upperbody"]
 editor/display_folded = true
 position = Vector2( -11.1607, -167.384 )
-rotation = -0.000962373
+rotation = 0.0640143
 texture = ExtResource( 4 )
 offset = Vector2( -23.5762, -139.338 )
 __meta__ = {
@@ -105,8 +106,8 @@ __meta__ = {
 
 [node name="splatter_boi_rightupperarm" type="Sprite" parent="splatter_boi_lowerbody/splatter_boi_upperbody"]
 position = Vector2( 97.7749, -109.061 )
-rotation = -6.21051
-z_index = -1
+rotation = -5.54425
+z_index = -4
 texture = ExtResource( 5 )
 offset = Vector2( 9.41809, 55.3831 )
 __meta__ = {
@@ -117,8 +118,7 @@ __meta__ = {
 [node name="splatter_boi_rightlowerarm" type="Sprite" parent="splatter_boi_lowerbody/splatter_boi_upperbody/splatter_boi_rightupperarm"]
 editor/display_folded = true
 position = Vector2( 51.7791, 122.635 )
-rotation = -0.189825
-z_index = 1
+rotation = -1.09336
 texture = ExtResource( 6 )
 offset = Vector2( -28.5833, 98.1208 )
 __meta__ = {
@@ -161,7 +161,7 @@ __meta__ = {
 
 [node name="splatter_boi_rightupperleg" type="Sprite" parent="splatter_boi_lowerbody"]
 position = Vector2( -36.1761, 108.528 )
-rotation = 0.17725
+rotation = 0.0559593
 z_index = -2
 texture = ExtResource( 9 )
 offset = Vector2( 5.21301, 46.8873 )
@@ -173,7 +173,7 @@ __meta__ = {
 [node name="splatter_boi_rightlowerleg" type="Sprite" parent="splatter_boi_lowerbody/splatter_boi_rightupperleg"]
 editor/display_folded = true
 position = Vector2( 12.8672, 109.655 )
-rotation = -0.0807508
+rotation = 0.539946
 texture = ExtResource( 10 )
 offset = Vector2( 33.9658, 61.6724 )
 __meta__ = {
@@ -189,7 +189,7 @@ __meta__ = {
 
 [node name="splatter_boi_leftupperleg" type="Sprite" parent="splatter_boi_lowerbody"]
 position = Vector2( 38.0542, 102.058 )
-rotation = -0.342484
+rotation = -0.611069
 z_index = -3
 texture = ExtResource( 11 )
 offset = Vector2( -6.4436, 55.3226 )
@@ -201,7 +201,7 @@ __meta__ = {
 [node name="splatter_boi_leftlowerleg" type="Sprite" parent="splatter_boi_lowerbody/splatter_boi_leftupperleg"]
 editor/display_folded = true
 position = Vector2( -23.2888, 123.181 )
-rotation = 0.307773
+rotation = 1.29773
 texture = ExtResource( 12 )
 offset = Vector2( 22.9964, 64.2264 )
 __meta__ = {
@@ -242,6 +242,7 @@ scale = Vector2( 7.72486, 9.66765 )
 texture = ExtResource( 14 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+playback_speed = 1.25
 anims/left_idle = ExtResource( 15 )
 anims/left_jump = ExtResource( 16 )
 anims/left_jump_flip = ExtResource( 17 )
@@ -256,4 +257,3 @@ anims/right_leg_sweep = ExtResource( 25 )
 anims/right_neutral_kick = ExtResource( 26 )
 anims/right_side_kick = ExtResource( 27 )
 anims/right_walking = ExtResource( 28 )
-

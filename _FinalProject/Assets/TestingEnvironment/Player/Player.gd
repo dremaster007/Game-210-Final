@@ -350,9 +350,9 @@ func set_velocity(type):
 				1:
 					velocity.x = lerp(velocity.x, 0, 0.01)
 					if facing_dir == "left":
-						velocity.x = -300
+						velocity.x = 200
 					elif facing_dir == "right":
-						velocity.x = 300
+						velocity.x = -200
 		"leg_sweep":
 			match character:
 				0:

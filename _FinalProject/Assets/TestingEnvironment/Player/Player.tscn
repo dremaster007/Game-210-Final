@@ -525,7 +525,6 @@ stream = ExtResource( 4 )
 
 [node name="UltDuration" type="Timer" parent="."]
 one_shot = true
-
 [connection signal="body_entered" from="PlatformCollisionArea" to="." method="_on_PlatformCollisionArea_body_entered"]
 [connection signal="body_exited" from="PlatformCollisionArea" to="." method="_on_PlatformCollisionArea_body_exited"]
 [connection signal="area_entered" from="Attack_Collision" to="." method="_on_Attack_Collision_area_entered"]
