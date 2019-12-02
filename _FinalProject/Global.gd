@@ -21,7 +21,7 @@ func _joy_connection_changed(device_id, is_connected):
 
 func get_joypads():
 	# This is where we can set amount of players by default!
-	number_of_players = 1
+	number_of_players = 2
 	var joypads = Input.get_connected_joypads()
 	if joypads != []:
 		for item in joypads:

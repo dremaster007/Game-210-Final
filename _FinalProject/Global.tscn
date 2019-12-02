@@ -19,4 +19,3 @@ HUD = ExtResource( 5 )
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )
 autoplay = true
-
