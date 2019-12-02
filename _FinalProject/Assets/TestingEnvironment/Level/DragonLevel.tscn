@@ -1,13 +1,17 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Assets/TestingEnvironment/Level/DragonLevel.gd" type="Script" id=1]
 [ext_resource path="res://Assets/TestingEnvironment/Player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Assets/TestingEnvironment/SplatterPlacement/SplatterPlacement/Scenes/Splatter.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Assets/Graphics/Sprites/Background/splatter_1.png" type="Texture" id=4]
-[ext_resource path="res://Assets/Graphics/Sprites/Background/MainLevelSmall_png.png" type="Texture" id=5]
-[ext_resource path="res://Assets/TestingEnvironment/Camera/DynamicCamera.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Assets/TestingEnvironment/Level/OneWayPlatform.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Assets/TestingEnvironment/HUD/HUD.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Assets/Graphics/Sprites/Background/level1_sky.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Graphics/Sprites/Background/level1_extra.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Graphics/Sprites/Background/level1_paintable_area.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Graphics/Sprites/Background/level1_sidewalk.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Graphics/Sprites/Background/level1_windows.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Graphics/Sprites/Background/splatter_1.png" type="Texture" id=9]
+[ext_resource path="res://Assets/TestingEnvironment/Camera/DynamicCamera.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Assets/TestingEnvironment/Level/OneWayPlatform.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Assets/TestingEnvironment/HUD/HUD.tscn" type="PackedScene" id=12]
 
 [sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0, 0.222222, 0.42963, 0.555556, 1 )
@@ -30,7 +34,6 @@ spread = 0.0
 gravity = Vector3( 0, -200, 0 )
 initial_velocity = 40.0
 initial_velocity_random = 1.0
-angular_velocity = 0.0
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 scale = 0.05
@@ -41,7 +44,7 @@ color_ramp = SubResource( 2 )
 extents = Vector2( 572.865, 33.739 )
 
 [sub_resource type="RectangleShape2D" id=7]
-extents = Vector2( 361.583, 5 )
+extents = Vector2( 334.481, 5 )
 
 [sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 17.5989, 1105.55 )
@@ -51,20 +54,38 @@ script = ExtResource( 1 )
 Player = ExtResource( 2 )
 Paint = ExtResource( 3 )
 
-[node name="Particles2D" type="Particles2D" parent="."]
-position = Vector2( 517.942, -15.7099 )
-rotation = -0.154571
-amount = 100
-process_material = SubResource( 5 )
+[node name="BackgroundSprites" type="Node2D" parent="."]
+position = Vector2( -15, -320 )
+scale = Vector2( 0.7, 0.505 )
+
+[node name="Sky" type="Sprite" parent="BackgroundSprites"]
+z_index = -200
 texture = ExtResource( 4 )
 
-[node name="BackgroundSprites" type="Node2D" parent="."]
-
-[node name="Sprite" type="Sprite" parent="BackgroundSprites"]
-position = Vector2( -27.1053, -320.69 )
-scale = Vector2( 0.699583, 0.505142 )
-z_index = -1000
+[node name="Extras" type="Sprite" parent="BackgroundSprites"]
+z_index = -102
 texture = ExtResource( 5 )
+
+[node name="MainBuilding" type="Sprite" parent="BackgroundSprites"]
+z_index = -100
+texture = ExtResource( 6 )
+
+[node name="SideWalk" type="Sprite" parent="BackgroundSprites"]
+z_index = -49
+texture = ExtResource( 7 )
+
+[node name="Railings" type="Sprite" parent="BackgroundSprites"]
+position = Vector2( -25.9664, 89.983 )
+z_index = 5
+texture = ExtResource( 8 )
+
+[node name="Particles2D" type="Particles2D" parent="."]
+position = Vector2( 483.861, -33.8865 )
+rotation = -0.154571
+scale = Vector2( 1, 1 )
+amount = 100
+process_material = SubResource( 5 )
+texture = ExtResource( 9 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 editor/display_folded = true
@@ -74,36 +95,30 @@ position = Vector2( -4.78333, 192.909 )
 position = Vector2( -1.63391, 51.9413 )
 shape = SubResource( 6 )
 
-[node name="DynamicCamera" parent="." instance=ExtResource( 6 )]
+[node name="DynamicCamera" parent="." instance=ExtResource( 10 )]
 current = true
 zoom_offset = 0.2
 
 [node name="OneWayPlatforms" type="Node2D" parent="."]
 editor/display_folded = true
 
-[node name="OneWayPlatform" parent="OneWayPlatforms" instance=ExtResource( 7 )]
-position = Vector2( -218.947, -39.6554 )
+[node name="OneWayPlatform" parent="OneWayPlatforms" instance=ExtResource( 11 )]
+position = Vector2( -215.078, 53.972 )
 
-[node name="OneWayPlatform3" parent="OneWayPlatforms" instance=ExtResource( 7 )]
-position = Vector2( -214.895, -276.553 )
+[node name="OneWayPlatform3" parent="OneWayPlatforms" instance=ExtResource( 11 )]
+position = Vector2( -217.216, -178.283 )
 
-[node name="OneWayPlatform4" parent="OneWayPlatforms" instance=ExtResource( 7 )]
-editor/display_folded = true
-position = Vector2( 212.779, -273.879 )
+[node name="OneWayPlatform4" parent="OneWayPlatforms" instance=ExtResource( 11 )]
+position = Vector2( 181.054, -177.93 )
 
-[node name="CollisionShape2D" parent="OneWayPlatforms/OneWayPlatform4" index="0"]
-position = Vector2( -3, 0 )
-
-[node name="OneWayPlatform6" parent="OneWayPlatforms" instance=ExtResource( 7 )]
-editor/display_folded = true
-position = Vector2( -6.15173, -512.412 )
+[node name="OneWayPlatform6" parent="OneWayPlatforms" instance=ExtResource( 11 )]
+position = Vector2( -23.1749, -411.821 )
 
 [node name="CollisionShape2D" parent="OneWayPlatforms/OneWayPlatform6" index="0"]
-position = Vector2( -3.17334, 0 )
 shape = SubResource( 7 )
 
-[node name="OneWayPlatform2" parent="OneWayPlatforms" instance=ExtResource( 7 )]
-position = Vector2( 217.172, -38.9794 )
+[node name="OneWayPlatform2" parent="OneWayPlatforms" instance=ExtResource( 11 )]
+position = Vector2( 190.09, 52.3267 )
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
 position = Vector2( -108.486, -37.035 )
@@ -113,7 +128,6 @@ position = Vector2( -397.883, 57.3692 )
 shape = SubResource( 8 )
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="."]
-editor/display_folded = true
 position = Vector2( -172.707, -39.6668 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
@@ -137,9 +151,10 @@ position = Vector2( -279.443, -7.40247 )
 [node name="Spawn4" type="Position2D" parent="SpawnPoints"]
 position = Vector2( 292.398, -7.40247 )
 
-[node name="HUD" parent="." instance=ExtResource( 8 )]
+[node name="HUD" parent="." instance=ExtResource( 12 )]
 
 [node name="PaintContainer" type="Node" parent="."]
+
 
 [editable path="OneWayPlatforms/OneWayPlatform4"]
 

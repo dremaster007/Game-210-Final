@@ -518,9 +518,6 @@ anims/right_attack = SubResource( 10 )
 position = Vector2( 4.21051, 62.1053 )
 shape = SubResource( 3 )
 
-[node name="Platform_Fall_Timer" type="Timer" parent="."]
-wait_time = 0.5
-
 [node name="HitSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
 
@@ -533,6 +530,5 @@ one_shot = true
 [connection signal="body_exited" from="PlatformCollisionArea" to="." method="_on_PlatformCollisionArea_body_exited"]
 [connection signal="area_entered" from="Attack_Collision" to="." method="_on_Attack_Collision_area_entered"]
 [connection signal="animation_finished" from="Attack_Collision/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
-[connection signal="timeout" from="Platform_Fall_Timer" to="." method="_on_Platform_Fall_Timer_timeout"]
 [connection signal="timeout" from="UltTimer" to="." method="_on_UltTimer_timeout"]
 [connection signal="timeout" from="UltDuration" to="." method="_on_UltDuration_timeout"]

@@ -60,8 +60,6 @@ var state
 var att_direction = ""
 # This is which direction we are facing
 var facing_dir = "right"
-# ????
-var platform_fall_count = 0
 
 var ultimate_fill = 0
 var ultimate_max = 100
@@ -227,7 +225,6 @@ func get_input():
 	
 	# If we jsut press down...
 	if down_just_pressed:
-		$Platform_Fall_Timer.start()
 		# Fall through the platform if it is a one way platform
 		if current_platform != null:
 			if current_platform.is_in_group("one_way_platform"):
@@ -297,8 +294,7 @@ func change_state(new_state):
 			if debug_mode["show_state_prints"] == true:
 				print("Falling")
 		FAST_FALLING:
-			if platform_fall_count >= 2:
-				platform_fall = true
+			platform_fall = true
 			att_direction = "down"
 			if debug_mode["show_state_prints"] == true:
 				print("Fast Falling")
@@ -417,9 +413,6 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 		hitbox_anim.play("null")
 		if att_direction != "down":
 			att_direction = "neutral"
-
-func _on_Platform_Fall_Timer_timeout():
-	platform_fall_count = 0
 
 #player's state changes to STUNNED when hit and will handle player damage
 func take_damage():

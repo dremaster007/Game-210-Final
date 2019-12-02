@@ -1,7 +1,7 @@
 [gd_scene load_steps=2 format=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 150, 5 )
+extents = Vector2( 136.269, 5 )
 
 [node name="OneWayPlatform" type="StaticBody2D" groups=[
 "one_way_platform",
