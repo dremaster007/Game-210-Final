@@ -154,4 +154,5 @@ texture_under = ExtResource( 7 )
 texture_over = ExtResource( 14 )
 texture_progress = ExtResource( 15 )
 fill_mode = 4
+
 [connection signal="timeout" from="PlayTimer" to="." method="_on_PlayTimer_timeout"]

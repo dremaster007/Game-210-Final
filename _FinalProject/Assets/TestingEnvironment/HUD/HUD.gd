@@ -1,5 +1,6 @@
 extends CanvasLayer
 
+# Will be used when we have sprites
 onready var timer_sprites = []
 
 onready var countdown_sprites = ["res://Assets/Graphics/Sprites/CountdownArt/countdown_3.png",
@@ -27,7 +28,33 @@ var Level = null
 func _ready():
 	Global = find_parent("Global")
 	Level = find_parent("DragonLevel")
+	game_setup()
+
+func game_setup():
+	# Here we hide all the bars so that we can only show the ones 
+	# that have players attached to them
+	for bar in painted_bars.values():
+		bar.hide()
+	for bar in ultimate_bars.values():
+		bar.hide()
+	
+	for num in Global.number_of_players:
+		var color = ""
+		match num:
+			0:
+				color = "red"
+			1:
+				color = "blue"
+			2:
+				color = "green"
+			3:
+				color = "yellow"
+		painted_bars[color].show()
+		ultimate_bars[color].show()
+	
 	$PlayTimerText.hide()
+	
+	# For each color in our bars, we set their values to 0
 	for color in ultimate_bars.keys():
 		update_hud("ultimate", color, 0)
 	for color in painted_bars.keys():
@@ -35,7 +62,7 @@ func _ready():
 	countdown()
 
 func update_hud(type, color, value):
-	for bar in $BottomLeft/AmountPaintedBars.get_children():
+	for bar in painted_bars.values():
 		bar.max_value = max_paint_value
 	match type:
 		"ultimate":
