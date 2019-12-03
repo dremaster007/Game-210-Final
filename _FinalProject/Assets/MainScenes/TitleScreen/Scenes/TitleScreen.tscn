@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Assets/MainScenes/TitleScreen/Scripts/TitleScreen.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Graphics/Sprites/Background/BrickBackground.png" type="Texture" id=2]
-[ext_resource path="res://Assets/Graphics/Sprites/Background/PlayButton.png" type="Texture" id=3]
-[ext_resource path="res://Assets/MainScenes/TitleScreen/Scenes/TitleTransition.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Assets/Audio/SFX/SprayCanShake.wav" type="AudioStream" id=5]
+[ext_resource path="res://Assets/Graphics/Sprites/Background/Title.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Graphics/Sprites/Background/PlayButton.png" type="Texture" id=4]
+[ext_resource path="res://Assets/MainScenes/TitleScreen/Scenes/TitleTransition.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Assets/Audio/SFX/SprayCanShake.wav" type="AudioStream" id=6]
 
 [sub_resource type="Animation" id=1]
 resource_name = "null"
@@ -415,16 +416,21 @@ position = Vector2( 968.35, 547.666 )
 scale = Vector2( 0.494612, 0.417136 )
 texture = ExtResource( 2 )
 
+[node name="Title" type="Sprite" parent="."]
+position = Vector2( 990.606, 357.764 )
+scale = Vector2( 1.43427, 1.43427 )
+texture = ExtResource( 3 )
+
 [node name="PlayButton" type="TextureButton" parent="."]
-margin_left = 540.133
-margin_top = 272.04
-margin_right = 1410.13
-margin_bottom = 822.04
+margin_left = 644.114
+margin_top = 628.482
+margin_right = 1355.11
+margin_bottom = 1077.48
 mouse_default_cursor_shape = 2
-texture_normal = ExtResource( 3 )
+texture_normal = ExtResource( 4 )
 expand = true
 
-[node name="TitleTransition" parent="." instance=ExtResource( 4 )]
+[node name="TitleTransition" parent="." instance=ExtResource( 5 )]
 editor/display_folded = true
 
 [node name="Sprite" parent="TitleTransition" index="0"]
@@ -456,9 +462,8 @@ autoplay = "null"
 anims/null = SubResource( 1 )
 
 [node name="PlayButtonSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 5 )
+stream = ExtResource( 6 )
 volume_db = 2.0
-
 [connection signal="pressed" from="PlayButton" to="." method="_on_PlayButton_pressed"]
 [connection signal="transition_finished" from="TitleTransition" to="." method="_on_TitleTransition_transition_finished"]
 
