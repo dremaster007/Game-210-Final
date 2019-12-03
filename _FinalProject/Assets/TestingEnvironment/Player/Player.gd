@@ -5,6 +5,8 @@ const ACCELERATION = 100
 const MAX_SPEED = 450
 const JUMP_HEIGHT = -700
 
+#onready var Paint_Can_Bomb = 'res://Assets/TestingEnvironment/SplatterPlacement/PaintCanGrenade.tscn'
+
 # This is a dictionary that holds our debug states
 var debug_mode = {"show_state_prints": false, "show_collision_shapes": false}
 
@@ -350,9 +352,11 @@ func set_velocity(type):
 				1:
 					velocity.x = lerp(velocity.x, 0, 0.01)
 					if facing_dir == "left":
-						velocity.x = 200
+						velocity.x = 75
+						#velocity.x = 200
 					elif facing_dir == "right":
-						velocity.x = -200
+						velocity.x = -75
+						#velocity.x = -200
 		"leg_sweep":
 			match character:
 				0:
@@ -365,11 +369,14 @@ func set_velocity(type):
 				1:
 					if is_on_floor():
 						if facing_dir == "left":
-							velocity.x = 200
+							velocity.x = 350
+							#velocity.x = 200
 						elif facing_dir == "right":
-							velocity.x = -200
+							velocity.x = -350
+							#velocity.x = -200
 						velocity.x = lerp(velocity.x, 0, 0.1)
-						velocity.y = -100
+						velocity.y = -700
+						#velocity.y = -100
 		"neutral_kick":
 			match character:
 				0:
@@ -500,6 +507,8 @@ func activate_ultimate():
 			$UltDuration.start()
 			$UltTimer.wait_time = 5
 			$UltTimer.start()
+			#var pcb = Paint_Can_Bomb.instance()
+			#add_child(pcb)
 			print("2")
 			# Paint Can Bomb that leaves a large splat of paint where it explodes. 
 			# Create a Paint Can scene with a large Area2D around it. 
