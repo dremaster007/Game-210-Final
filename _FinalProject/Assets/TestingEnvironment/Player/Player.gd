@@ -105,13 +105,13 @@ func load_textures(character_num):
 	
 	match player_number:
 		1:
-			$PlayerIndicator.texture = load("res://Assets/Graphics/Sprites/SelectionBoxes/SelectionBoxesP1.png")
+			$PlayerIndicator.texture = load("res://Assets/Graphics/Sprites/UIArt/Indicators/red_ind.png")
 		2:
-			$PlayerIndicator.texture = load("res://Assets/Graphics/Sprites/SelectionBoxes/SelectionBoxesP2.png")
+			$PlayerIndicator.texture = load("res://Assets/Graphics/Sprites/UIArt/Indicators/blue_ind.png")
 		3:
-			$PlayerIndicator.texture = load("res://Assets/Graphics/Sprites/SelectionBoxes/SelectionBoxesP3.png")
+			$PlayerIndicator.texture = load("res://Assets/Graphics/Sprites/UIArt/Indicators/green_ind.png")
 		4:
-			$PlayerIndicator.texture = load("res://Assets/Graphics/Sprites/SelectionBoxes/SelectionBoxesP4.png")
+			$PlayerIndicator.texture = load("res://Assets/Graphics/Sprites/UIArt/Indicators/yellow_ind.png")
 	#change_state(IDLE)
 
 func _physics_process(delta):
