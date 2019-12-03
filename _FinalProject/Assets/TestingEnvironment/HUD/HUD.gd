@@ -44,6 +44,7 @@ func update_hud(type, color, value):
 			painted_bars[color].value = value
 
 func countdown():
+	$CountdownSprite.scale = Vector2(1, 1)
 	$CountdownSprite.show()
 	$CountdownSprite.texture = load(countdown_sprites[0])
 	yield(get_tree().create_timer(1),"timeout")
@@ -51,6 +52,7 @@ func countdown():
 	yield(get_tree().create_timer(1),"timeout")
 	$CountdownSprite.texture = load(countdown_sprites[2])
 	yield(get_tree().create_timer(1),"timeout")
+	$CountdownSprite.scale = Vector2(1.5, 1.5)
 	$CountdownSprite.texture = load(countdown_sprites[3])
 	yield(get_tree().create_timer(0.5),"timeout")
 	$CountdownSprite.hide()
