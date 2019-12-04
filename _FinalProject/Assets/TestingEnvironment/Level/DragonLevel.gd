@@ -43,6 +43,7 @@ func _ready():
 
 func start():
 	for child in $Player_Container.get_children():
+		child.set_process(true)
 		child.can_input = false
 	$HUD.countdown()
 	yield(get_tree().create_timer(4),"timeout")
@@ -122,6 +123,7 @@ func game_over():
 	for child in $Player_Container.get_children():
 		child.can_input = false
 		child.velocity = Vector2()
+		child.set_process(false)
 	Global.player_score["player_1"] = red_score
 	Global.player_score["player_2"] = blue_score
 	Global.player_score["player_3"] = green_score

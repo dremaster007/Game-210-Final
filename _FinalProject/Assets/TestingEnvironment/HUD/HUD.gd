@@ -83,7 +83,7 @@ func countdown():
 	$CountdownSprite.texture = load(countdown_sprites[3])
 	yield(get_tree().create_timer(0.5),"timeout")
 	$CountdownSprite.hide()
-	game_time = 60
+	game_time = 15
 	$PlayTimerText.text = str(game_time)
 	$PlayTimerText.show()
 	$PlayTimer.start()

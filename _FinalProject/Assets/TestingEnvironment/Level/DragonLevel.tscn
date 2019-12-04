@@ -81,7 +81,6 @@ texture = ExtResource( 7 )
 
 [node name="Railings" type="Sprite" parent="BackgroundSprites"]
 position = Vector2( -25.9664, 89.983 )
-scale = Vector2( 1, 1 )
 z_index = 5
 texture = ExtResource( 8 )
 
@@ -162,7 +161,7 @@ position = Vector2( 292.398, -7.40247 )
 [node name="PaintContainer" type="Node" parent="."]
 
 [node name="CameraTween" type="Tween" parent="."]
-[connection signal="tween_all_completed" from="CameraTween" to="." method="_on_CameraTween_tween_all_completed"]
+
 
 [editable path="OneWayPlatforms/OneWayPlatform4"]
 
