@@ -75,6 +75,7 @@ var Level = null
 func _ready():
 	Global = find_parent("Global")
 	Level = find_parent("DragonLevel")
+	hitbox_anim.play("null")
 
 func load_textures(character_num):
 	print("Player%s " % player_number, "picked character ", character_num)
@@ -102,6 +103,7 @@ func load_textures(character_num):
 	player_anim.connect("animation_started", self, "_on_AnimationPlayer_animation_started")
 	player_anim.connect("animation_finished", self, "_on_AnimationPlayer_animation_finished")
 	add_child(i)
+	player_anim.play("%s_idle" % facing_dir)
 	
 	match player_number:
 		1:
@@ -265,6 +267,8 @@ func change_state(new_state):
 			platform_fall = false
 			att_direction = "neutral"
 			hitbox_anim.play("null")
+			# WE NEED THIS COMMENT LATER
+			#Global.player_picks("Player_%s" % player_number)
 			player_anim.play("%s_idle" % facing_dir)
 			if debug_mode["show_state_prints"] == true:
 				print("idle")
@@ -287,6 +291,7 @@ func change_state(new_state):
 			if debug_mode["show_state_prints"] == true:
 				print("jump")
 		FALLING:
+			player_anim.play("%s_falling" % facing_dir)
 			if velocity.x > EPSILON:
 				att_direction = "right"
 			elif velocity.x < EPSILON:
@@ -296,6 +301,7 @@ func change_state(new_state):
 			if debug_mode["show_state_prints"] == true:
 				print("Falling")
 		FAST_FALLING:
+			player_anim.play("%s_falling" % facing_dir)
 			platform_fall = true
 			att_direction = "down"
 			if debug_mode["show_state_prints"] == true:
@@ -311,16 +317,20 @@ func change_state(new_state):
 			# then left/right attacks.
 			if att_direction == "down":
 				if velocity.y > EPSILON:
-					hitbox_anim.play("%s_air_attack" % att_direction)
+					hitbox_anim.play(str(character) + "_%s_air_attack" % att_direction)
+					#hitbox_anim.play("%s_air_attack" % att_direction)
 				else:
-					hitbox_anim.play("down_ground_%s_attack" % facing_dir)
+					hitbox_anim.play(str(character) + "_down_ground_%s_attack" % facing_dir)
+					#hitbox_anim.play("down_ground_%s_attack" % facing_dir)
 				player_anim.play("%s_leg_sweep" % facing_dir)
 			elif att_direction == "neutral":
-				hitbox_anim.play("%s_attack" % att_direction)
+				hitbox_anim.play(str(character) + "_%s_attack" % att_direction)
+				#hitbox_anim.play("%s_attack" % att_direction)
 				player_anim.play("%s_neutral_kick" % facing_dir)
 			elif Input.is_action_pressed("left_%s" % player_number) or Input.is_action_pressed("right_%s" % player_number):
 				player_anim.play("%s_side_kick" % facing_dir)
-				hitbox_anim.play("%s_attack" % att_direction)
+				hitbox_anim.play(str(character) + "_%s_attack" % att_direction)
+				#hitbox_anim.play("%s_attack" % att_direction)
 			
 			if debug_mode["show_state_prints"] == true:
 				print("Attack")
@@ -385,7 +395,6 @@ func _on_PlatformCollisionArea_body_exited(body):
 	current_platform = null
 
 func _on_AnimationPlayer_animation_started(anim_name):
-	print(anim_name)
 	if anim_name == "%s_side_kick" % facing_dir:
 		next_velocity = "side_kick"
 		can_input = false
@@ -397,7 +406,6 @@ func _on_AnimationPlayer_animation_started(anim_name):
 		can_input = false
 
 func _on_AnimationPlayer_animation_finished(anim_name):
-	#print(anim_name)
 	if anim_name == "%s_side_kick" % facing_dir:
 		can_input = true
 		next_velocity = null
@@ -530,3 +538,7 @@ func _on_UltDuration_timeout():
 # This is for ults that have to be checked every x seconds
 func _on_UltTimer_timeout():
 	ultimate_active()
+
+func disable_attack_collisions(is_disabled):
+	print("is_disabled = ", is_disabled)
+	$Attack_Collision/CollisionShape2D.call_deferred("set", "disabled", is_disabled)
