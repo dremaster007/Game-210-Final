@@ -64,8 +64,8 @@ func _process(delta):
 	planned_offset = calculate_center(camera_rect) # set our offset
 	planned_zoom = calculate_zoom(camera_rect, viewport_rect.size) # set our size
 	
-	$CameraTween.interpolate_property(self, "offset", offset, planned_offset, 0.03, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
-	$CameraTween.interpolate_property(self, "zoom", zoom, planned_zoom, 0.03, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
+	$CameraTween.interpolate_property(self, "offset", offset, planned_offset, 0.4, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
+	$CameraTween.interpolate_property(self, "zoom", zoom, planned_zoom, 0.4, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 	$CameraTween.start()
 	
 	if debug_mode:

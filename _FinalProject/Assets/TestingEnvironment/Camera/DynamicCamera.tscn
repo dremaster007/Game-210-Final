@@ -33,4 +33,3 @@ margin_right = 961.0
 margin_bottom = 541.0
 
 [node name="CameraTween" type="Tween" parent="."]
-
