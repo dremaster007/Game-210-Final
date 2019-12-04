@@ -1,7 +1,7 @@
 [gd_resource type="Animation" format=2]
 
 [resource]
-resource_name = "left_falling"
+resource_name = "right_fast_falling"
 length = 0.02
 tracks/0/type = "value"
 tracks/0/path = NodePath("splatter_boi_lowerbody:position")
@@ -61,7 +61,7 @@ tracks/4/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ 7.2158 ]
+"values": [ 14.5495 ]
 }
 tracks/5/type = "value"
 tracks/5/path = NodePath("splatter_boi_lowerbody/splatter_boi_upperbody:z_index")
@@ -133,7 +133,7 @@ tracks/10/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ -23.0 ]
+"values": [ -35.6817 ]
 }
 tracks/11/type = "value"
 tracks/11/path = NodePath("splatter_boi_lowerbody/splatter_boi_upperbody/splatter_boi_rightupperarm:z_index")
@@ -169,7 +169,7 @@ tracks/13/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ 15.7238 ]
+"values": [ 43.9971 ]
 }
 tracks/14/type = "value"
 tracks/14/path = NodePath("splatter_boi_lowerbody/splatter_boi_upperbody/splatter_boi_rightupperarm/splatter_boi_rightlowerarm:z_index")
@@ -205,7 +205,7 @@ tracks/16/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ 17.2318 ]
+"values": [ 28.5874 ]
 }
 tracks/17/type = "value"
 tracks/17/path = NodePath("splatter_boi_lowerbody/splatter_boi_upperbody/splatter_boi_leftupperarm:z_index")
@@ -241,7 +241,7 @@ tracks/19/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ -32.0605 ]
+"values": [ -60.9741 ]
 }
 tracks/20/type = "value"
 tracks/20/path = NodePath("splatter_boi_lowerbody/splatter_boi_upperbody/splatter_boi_leftupperarm/splatter_boi_leftlowerarm:z_index")
@@ -277,7 +277,7 @@ tracks/22/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ -9.95106 ]
+"values": [ -34.1865 ]
 }
 tracks/23/type = "value"
 tracks/23/path = NodePath("splatter_boi_lowerbody/splatter_boi_rightupperleg:z_index")
@@ -313,7 +313,7 @@ tracks/25/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ 30.8833 ]
+"values": [ 59.8277 ]
 }
 tracks/26/type = "value"
 tracks/26/path = NodePath("splatter_boi_lowerbody/splatter_boi_rightupperleg/splatter_boi_rightlowerleg:z_index")
@@ -349,7 +349,7 @@ tracks/28/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ -38.4306 ]
+"values": [ -58.0831 ]
 }
 tracks/29/type = "value"
 tracks/29/path = NodePath("splatter_boi_lowerbody/splatter_boi_leftupperleg:z_index")
@@ -385,7 +385,7 @@ tracks/31/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ 23.0821 ]
+"values": [ 77.8043 ]
 }
 tracks/32/type = "value"
 tracks/32/path = NodePath("splatter_boi_lowerbody/splatter_boi_leftupperleg/splatter_boi_leftlowerleg:z_index")
@@ -409,7 +409,7 @@ tracks/33/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( -0.1, 0.1 ) ]
+"values": [ Vector2( 0.1, 0.1 ) ]
 }
 tracks/34/type = "value"
 tracks/34/path = NodePath("AnimationPlayer:playback_speed")
