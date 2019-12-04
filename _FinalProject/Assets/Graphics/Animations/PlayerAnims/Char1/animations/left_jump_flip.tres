@@ -424,7 +424,7 @@ tracks/34/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ 1.25 ]
+"values": [ 1.5 ]
 }
 tracks/35/type = "value"
 tracks/35/path = NodePath(".:scale")

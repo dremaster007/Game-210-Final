@@ -541,6 +541,5 @@ tracks/44/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ 1.5 ]
+"values": [ 2.0 ]
 }
-
