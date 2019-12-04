@@ -352,9 +352,9 @@ func set_velocity(type):
 				1:
 					velocity.x = lerp(velocity.x, 0, 0.01)
 					if facing_dir == "left":
-						velocity.x = -15
+						velocity.x = -30
 					elif facing_dir == "right":
-						velocity.x = 15
+						velocity.x = 30
 		"leg_sweep":
 			match character:
 				0:
@@ -367,9 +367,9 @@ func set_velocity(type):
 				1:
 					if is_on_floor():
 						if facing_dir == "left":
-							velocity.x = -50
+							velocity.x = -150
 						elif facing_dir == "right":
-							velocity.x = 50
+							velocity.x = 150
 						velocity.x = lerp(velocity.x, 0, 0.1)
 		"neutral_kick":
 			match character:

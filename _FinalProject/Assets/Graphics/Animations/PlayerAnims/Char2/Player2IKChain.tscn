@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=2]
+[gd_scene load_steps=49 format=2]
 
 [ext_resource path="res://Assets/Graphics/Animations/PlayerAnims/Char2/Player2IKChain.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Graphics/Sprites/CharacterPieces/Char2Pieces/splatter_girl_lower_body.png" type="Texture" id=2]
@@ -19,15 +19,18 @@
 [ext_resource path="res://Assets/Graphics/Animations/PlayerAnims/Char2/Animations/left_jump_flip.tres" type="Animation" id=17]
 [ext_resource path="res://Assets/Graphics/Animations/PlayerAnims/Char2/Animations/left_leg_sweep.tres" type="Animation" id=18]
 [ext_resource path="res://Assets/Graphics/Animations/PlayerAnims/Char2/Animations/left_neutral_kick.tres" type="Animation" id=19]
-[ext_resource path="res://Assets/Graphics/Animations/PlayerAnims/Char2/Animations/left_walking.tres" type="Animation" id=20]
-[ext_resource path="res://Assets/Graphics/Animations/PlayerAnims/Char2/Animations/right_idle.tres" type="Animation" id=21]
-[ext_resource path="res://Assets/Graphics/Animations/PlayerAnims/Char2/Animations/right_jump.tres" type="Animation" id=22]
-[ext_resource path="res://Assets/Graphics/Animations/PlayerAnims/Char2/Animations/right_jump_flip.tres" type="Animation" id=23]
-[ext_resource path="res://Assets/Graphics/Animations/PlayerAnims/Char2/Animations/right_leg_sweep.tres" type="Animation" id=24]
-[ext_resource path="res://Assets/Graphics/Animations/PlayerAnims/Char2/Animations/right_neutral_kick.tres" type="Animation" id=25]
-[ext_resource path="res://Assets/Graphics/Animations/PlayerAnims/Char2/Animations/right_side_kick.tres" type="Animation" id=26]
-[ext_resource path="res://Assets/Graphics/Animations/PlayerAnims/Char2/Animations/right_walking.tres" type="Animation" id=27]
-[ext_resource path="res://Assets/Graphics/Sprites/firecracker.png" type="Texture" id=28]
+[ext_resource path="res://Assets/Graphics/Animations/PlayerAnims/Char2/Animations/left_side_kick.tres" type="Animation" id=20]
+[ext_resource path="res://Assets/Graphics/Animations/PlayerAnims/Char2/Animations/left_walking.tres" type="Animation" id=21]
+[ext_resource path="res://Assets/Graphics/Animations/PlayerAnims/Char2/Animations/right_idle.tres" type="Animation" id=22]
+[ext_resource path="res://Assets/Graphics/Animations/PlayerAnims/Char2/Animations/right_jump.tres" type="Animation" id=23]
+[ext_resource path="res://Assets/Graphics/Animations/PlayerAnims/Char2/Animations/right_jump_flip.tres" type="Animation" id=24]
+[ext_resource path="res://Assets/Graphics/Animations/PlayerAnims/Char2/Animations/right_leg_sweep.tres" type="Animation" id=25]
+[ext_resource path="res://Assets/Graphics/Animations/PlayerAnims/Char2/Animations/right_neutral_kick.tres" type="Animation" id=26]
+[ext_resource path="res://Assets/Graphics/Animations/PlayerAnims/Char2/Animations/right_side_kick.tres" type="Animation" id=27]
+[ext_resource path="res://Assets/Graphics/Animations/PlayerAnims/Char2/Animations/right_walking.tres" type="Animation" id=28]
+[ext_resource path="res://Assets/Graphics/Sprites/firecracker.png" type="Texture" id=29]
+[ext_resource path="res://Assets/Graphics/Sprites/CharacterItemSprites/char2_mortar.png" type="Texture" id=30]
+[ext_resource path="res://Assets/Graphics/Sprites/CharacterItemSprites/char2_rocket.png" type="Texture" id=31]
 
 [sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0, 0.414815, 0.896296 )
@@ -107,6 +110,31 @@ orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 scale = 250.0
 
+[sub_resource type="Gradient" id=16]
+offsets = PoolRealArray( 0.0666667, 0.333333, 1 )
+colors = PoolColorArray( 1, 0.996094, 0.996094, 1, 1, 0, 0, 1, 0.599106, 0.328125, 1, 1 )
+
+[sub_resource type="GradientTexture" id=17]
+gradient = SubResource( 16 )
+
+[sub_resource type="Curve" id=18]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.5011 ), -1.71728, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=19]
+curve = SubResource( 18 )
+
+[sub_resource type="ParticlesMaterial" id=20]
+flag_disable_z = true
+spread = 180.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 1000.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 50.0
+scale_random = 0.37
+scale_curve = SubResource( 19 )
+color_ramp = SubResource( 17 )
+
 [node name="Player2IKChain" type="Node2D"]
 rotation = -0.0318394
 scale = Vector2( 0.1, 0.1 )
@@ -163,7 +191,7 @@ __meta__ = {
 [node name="splatter_boi_rightlowerarm" type="Sprite" parent="splatter_boi_lowerbody/splatter_boi_upperbody/splatter_boi_rightupperarm"]
 editor/display_folded = true
 position = Vector2( 48.0532, 101.204 )
-rotation = -0.189825
+rotation = 6.10865
 z_index = -9
 texture = ExtResource( 6 )
 offset = Vector2( -0.745546, 98.4968 )
@@ -217,7 +245,6 @@ __meta__ = {
 }
 
 [node name="splatter_boi_rightlowerleg" type="Sprite" parent="splatter_boi_lowerbody/splatter_boi_rightupperleg"]
-editor/display_folded = true
 position = Vector2( 8.12758, 136.254 )
 rotation = 0.031396
 z_index = -1
@@ -229,7 +256,7 @@ __meta__ = {
 
 [node name="End" type="Position2D" parent="splatter_boi_lowerbody/splatter_boi_rightupperleg/splatter_boi_rightlowerleg"]
 position = Vector2( 10.4111, 106.969 )
-rotation = -0.0213633
+rotation = 0.122008
 __meta__ = {
 "_edit_bone_": true
 }
@@ -291,20 +318,21 @@ scale = Vector2( 7.72486, 9.66765 )
 texture = ExtResource( 14 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-playback_speed = 2.5
+playback_speed = 1.75
 anims/left_idle = ExtResource( 15 )
 anims/left_jump = ExtResource( 16 )
 anims/left_jump_flip = ExtResource( 17 )
 anims/left_leg_sweep = ExtResource( 18 )
 anims/left_neutral_kick = ExtResource( 19 )
-anims/left_walking = ExtResource( 20 )
-anims/right_idle = ExtResource( 21 )
-anims/right_jump = ExtResource( 22 )
-anims/right_jump_flip = ExtResource( 23 )
-anims/right_leg_sweep = ExtResource( 24 )
-anims/right_neutral_kick = ExtResource( 25 )
-anims/right_side_kick = ExtResource( 26 )
-anims/right_walking = ExtResource( 27 )
+anims/left_side_kick = ExtResource( 20 )
+anims/left_walking = ExtResource( 21 )
+anims/right_idle = ExtResource( 22 )
+anims/right_jump = ExtResource( 23 )
+anims/right_jump_flip = ExtResource( 24 )
+anims/right_leg_sweep = ExtResource( 25 )
+anims/right_neutral_kick = ExtResource( 26 )
+anims/right_side_kick = ExtResource( 27 )
+anims/right_walking = ExtResource( 28 )
 
 [node name="neutral_kick" type="Node2D" parent="."]
 editor/display_folded = true
@@ -313,7 +341,7 @@ visible = false
 [node name="Sprite" type="Sprite" parent="neutral_kick"]
 position = Vector2( 180.311, -271.959 )
 rotation = -0.0647681
-texture = ExtResource( 28 )
+texture = ExtResource( 29 )
 
 [node name="Particles2D2" type="Particles2D" parent="neutral_kick/Sprite"]
 position = Vector2( 0.3302, -65.0933 )
@@ -326,7 +354,7 @@ process_material = SubResource( 11 )
 [node name="Sprite2" type="Sprite" parent="neutral_kick"]
 position = Vector2( -34.2524, -316.05 )
 rotation = 0.30112
-texture = ExtResource( 28 )
+texture = ExtResource( 29 )
 
 [node name="Particles2D3" type="Particles2D" parent="neutral_kick/Sprite2"]
 position = Vector2( 0.3302, -65.0933 )
@@ -337,6 +365,7 @@ lifetime = 0.6
 process_material = SubResource( 11 )
 
 [node name="leg_sweep" type="Node2D" parent="."]
+editor/display_folded = true
 visible = false
 
 [node name="firecrackerHolder" type="Node2D" parent="leg_sweep"]
@@ -346,13 +375,13 @@ position = Vector2( 243.707, 74.5536 )
 position = Vector2( 385.991, 212.376 )
 rotation = -1.21379
 scale = Vector2( 3, 1.5 )
-texture = ExtResource( 28 )
+texture = ExtResource( 29 )
 
 [node name="Sprite2" type="Sprite" parent="leg_sweep/firecrackerHolder"]
 position = Vector2( 138.819, 244.375 )
 rotation = 1.53372
 scale = Vector2( 3, 1.5 )
-texture = ExtResource( 28 )
+texture = ExtResource( 29 )
 
 [node name="firecrackerExplosion" type="Particles2D" parent="leg_sweep"]
 position = Vector2( 357.539, 253.811 )
@@ -361,3 +390,27 @@ amount = 6
 lifetime = 0.3
 explosiveness = 0.6
 process_material = SubResource( 15 )
+
+[node name="Particles2D2" type="Particles2D" parent="."]
+position = Vector2( 1021.73, -20.9575 )
+emitting = false
+amount = 100
+lifetime = 0.3
+one_shot = true
+explosiveness = 0.66
+process_material = SubResource( 20 )
+
+[node name="side_kick" type="Node2D" parent="."]
+visible = false
+
+[node name="mortar" type="Sprite" parent="side_kick"]
+visible = false
+position = Vector2( 380.527, -32.4919 )
+rotation = -0.155319
+texture = ExtResource( 30 )
+
+[node name="rocket" type="Sprite" parent="side_kick"]
+visible = false
+position = Vector2( 997.433, -26.8807 )
+rotation = 0.0721276
+texture = ExtResource( 31 )
