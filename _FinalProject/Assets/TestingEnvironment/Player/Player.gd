@@ -5,7 +5,7 @@ const ACCELERATION = 100
 const MAX_SPEED = 450
 const JUMP_HEIGHT = -700
 
-#onready var Paint_Can_Bomb = 'res://Assets/TestingEnvironment/SplatterPlacement/PaintCanGrenade.tscn'
+export (PackedScene) var PaintBomb
 
 # This is a dictionary that holds our debug states
 var debug_mode = {"show_state_prints": false, "show_collision_shapes": false}
@@ -431,6 +431,7 @@ func take_damage():
 		$HitSound.pitch_scale = 0.5
 	$HitSound.play()
 	change_state(STUNNED)
+	ultimate_charge(2)
 #	print("hit %s" % player_number)
 
 #sets knockback directions for when the player gets hit
@@ -509,8 +510,12 @@ func activate_ultimate():
 			$UltDuration.start()
 			$UltTimer.wait_time = 5
 			$UltTimer.start()
-			#var pcb = Paint_Can_Bomb.instance()
-			#add_child(pcb)
+			
+			#Adds a rigidbody PaintBomb instance to the scene 
+			var pcb = PaintBomb.instance()
+			pcb.global_transform = global_transform
+			var dl = get_parent().get_parent()
+			dl.add_child(pcb)
 			print("2")
 			# Paint Can Bomb that leaves a large splat of paint where it explodes. 
 			# Create a Paint Can scene with a large Area2D around it. 

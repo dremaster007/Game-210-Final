@@ -51,6 +51,8 @@ func kill_sprite_parts(area, sprite_num):
 func _on_TLCheck_area_shape_entered(area_id, area, area_shape, self_shape):
 	if area.get_parent().is_in_group("player"):
 		return
+	if area.get_parent().is_in_group("PaintBomb"):
+		return
 	if area.get_parent().is_placed:
 		if area_shape == 0:
 			if is_sprite_null(area, "1"):
