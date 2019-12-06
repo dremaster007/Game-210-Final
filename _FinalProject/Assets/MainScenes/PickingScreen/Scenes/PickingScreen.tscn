@@ -178,7 +178,6 @@ PickingScreenPlayer = ExtResource( 2 )
 transform = Transform( 0.977546, 0.00350192, 0.210694, -0.00939055, 0.999593, 0.0269547, -0.210514, -0.028328, 0.97718, 2.22114, 4.11687, 5.86481 )
 
 [node name="Ground" type="Spatial" parent="."]
-editor/display_folded = true
 
 [node name="Floor" type="MeshInstance" parent="Ground"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.0321813, -1 )
@@ -347,6 +346,7 @@ material/0 = SubResource( 9 )
 [node name="MainBuilding" type="Spatial" parent="."]
 
 [node name="GrafittiHolder" type="Spatial" parent="MainBuilding"]
+editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.44393, -0.301732 )
 
 [node name="Tony" type="MeshInstance" parent="MainBuilding/GrafittiHolder"]
@@ -399,6 +399,7 @@ mesh = SubResource( 23 )
 material/0 = SubResource( 24 )
 
 [node name="CharacterHolder" type="Spatial" parent="MainBuilding"]
+editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.669021 )
 
 [node name="Character1" type="MeshInstance" parent="MainBuilding/CharacterHolder"]
@@ -476,4 +477,3 @@ texture = ExtResource( 25 )
 editor/display_folded = true
 
 [node name="Tween" type="Tween" parent="SelectionSpriteTweens"]
-

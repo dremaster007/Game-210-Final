@@ -5,15 +5,15 @@ onready var countdown_sprites = ["res://Assets/Graphics/Sprites/CountdownArt/cou
 								"res://Assets/Graphics/Sprites/CountdownArt/countdown_1.png",
 								"res://Assets/Graphics/Sprites/CountdownArt/countdown_fight.png"]
 
-onready var ultimate_bars = {"red": $BottomLeft/UltimateProgress/RedUltProgress,
-							"blue": $BottomLeft/UltimateProgress/BlueUltProgress,
-							"green": $BottomLeft/UltimateProgress/GreenUltProgress,
-							"yellow": $BottomLeft/UltimateProgress/YellowUltProgress}
+onready var ultimate_bars = {"red": $Bars/UltimateProgress/RedUltProgress,
+							"blue": $Bars/UltimateProgress/BlueUltProgress,
+							"green": $Bars/UltimateProgress/GreenUltProgress,
+							"yellow": $Bars/UltimateProgress/YellowUltProgress}
 
-onready var painted_bars = {"red": $BottomLeft/AmountPaintedBars/RedProgress,
-							"blue": $BottomLeft/AmountPaintedBars/BlueProgress,
-							"green": $BottomLeft/AmountPaintedBars/GreenProgress,
-							"yellow": $BottomLeft/AmountPaintedBars/YellowProgress}
+onready var painted_bars = {"red": $Bars/AmountPaintedBars/RedProgress,
+							"blue": $Bars/AmountPaintedBars/BlueProgress,
+							"green": $Bars/AmountPaintedBars/GreenProgress,
+							"yellow": $Bars/AmountPaintedBars/YellowProgress}
 
 onready var timer_sprites = ["res://Assets/Graphics/Sprites/UIArt/TimerNumbers/number_0.png",
 							"res://Assets/Graphics/Sprites/UIArt/TimerNumbers/number_1.png",

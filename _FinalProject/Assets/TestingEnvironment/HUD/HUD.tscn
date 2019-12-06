@@ -26,6 +26,7 @@ script = ExtResource( 1 )
 position = Vector2( 960, 360 )
 
 [node name="TimerSprites" type="Control" parent="."]
+editor/display_folded = true
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = 40.0
@@ -61,23 +62,28 @@ texture = ExtResource( 4 )
 
 [node name="PlayTimer" type="Timer" parent="."]
 
-[node name="BottomLeft" type="Control" parent="."]
-margin_top = 870.0
-margin_right = 40.0
-margin_bottom = 910.0
+[node name="Bars" type="Control" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = 60.0
+margin_top = -90.0
+margin_right = 100.0
+margin_bottom = -50.0
 
-[node name="AmountPaintedBars" type="Control" parent="BottomLeft"]
+[node name="AmountPaintedBars" type="Control" parent="Bars"]
 margin_top = -100.0
 margin_right = 40.0
 margin_bottom = -60.0
 
-[node name="RedProgress" type="TextureProgress" parent="BottomLeft/AmountPaintedBars"]
+[node name="RedProgress" type="TextureProgress" parent="Bars/AmountPaintedBars"]
 anchor_top = 1.0
 anchor_bottom = 1.0
-margin_left = 70.0
-margin_top = -150.0
-margin_right = 550.0
-margin_bottom = 50.0
+margin_left = -640.0
+margin_top = 20.0
+margin_right = -160.0
+margin_bottom = 220.0
 grow_horizontal = 2
 grow_vertical = 2
 rect_scale = Vector2( 0.5, 0.5 )
@@ -86,13 +92,13 @@ texture_under = ExtResource( 5 )
 texture_progress = ExtResource( 6 )
 tint_progress = Color( 1, 0, 0, 1 )
 
-[node name="BlueProgress" type="TextureProgress" parent="BottomLeft/AmountPaintedBars"]
+[node name="BlueProgress" type="TextureProgress" parent="Bars/AmountPaintedBars"]
 anchor_top = 1.0
 anchor_bottom = 1.0
-margin_left = 70.0
-margin_top = -50.0
-margin_right = 550.0
-margin_bottom = 150.0
+margin_left = -316.0
+margin_top = 20.0
+margin_right = 164.0
+margin_bottom = 220.0
 grow_horizontal = 2
 grow_vertical = 2
 rect_scale = Vector2( 0.5, 0.5 )
@@ -100,13 +106,13 @@ value = 100.0
 texture_under = ExtResource( 5 )
 texture_progress = ExtResource( 7 )
 
-[node name="GreenProgress" type="TextureProgress" parent="BottomLeft/AmountPaintedBars"]
+[node name="GreenProgress" type="TextureProgress" parent="Bars/AmountPaintedBars"]
 anchor_top = 1.0
 anchor_bottom = 1.0
-margin_left = 70.0
-margin_top = 50.0
-margin_right = 550.0
-margin_bottom = 250.0
+margin_left = 14.0
+margin_top = 20.0
+margin_right = 494.0
+margin_bottom = 220.0
 grow_horizontal = 2
 grow_vertical = 2
 rect_scale = Vector2( 0.5, 0.5 )
@@ -114,13 +120,13 @@ value = 100.0
 texture_under = ExtResource( 5 )
 texture_progress = ExtResource( 8 )
 
-[node name="YellowProgress" type="TextureProgress" parent="BottomLeft/AmountPaintedBars"]
+[node name="YellowProgress" type="TextureProgress" parent="Bars/AmountPaintedBars"]
 anchor_top = 1.0
 anchor_bottom = 1.0
-margin_left = 70.0
-margin_top = 150.0
-margin_right = 550.0
-margin_bottom = 350.0
+margin_left = 354.0
+margin_top = 20.0
+margin_right = 834.0
+margin_bottom = 220.0
 grow_horizontal = 2
 grow_vertical = 2
 rect_scale = Vector2( 0.5, 0.5 )
@@ -128,27 +134,27 @@ value = 100.0
 texture_under = ExtResource( 5 )
 texture_progress = ExtResource( 9 )
 
-[node name="UltimateProgress" type="Control" parent="BottomLeft"]
-editor/display_folded = true
+[node name="UltimateProgress" type="Control" parent="Bars"]
 margin_top = -100.0
 margin_right = 40.0
 margin_bottom = -60.0
 
-[node name="RedUltProgress" type="TextureProgress" parent="BottomLeft/UltimateProgress"]
-margin_left = 16.0
-margin_top = -100.0
-margin_right = 154.0
-margin_bottom = 176.0
+[node name="RedUltProgress" type="TextureProgress" parent="Bars/UltimateProgress"]
+margin_left = -700.0
+margin_top = 69.0
+margin_right = -562.0
+margin_bottom = 345.0
 rect_scale = Vector2( 0.25, 0.25 )
 value = 100.0
 texture_under = ExtResource( 10 )
 texture_over = ExtResource( 11 )
 texture_progress = ExtResource( 12 )
 
-[node name="BlueUltProgress" type="TextureProgress" parent="BottomLeft/UltimateProgress"]
-margin_left = 16.0
-margin_right = 154.0
-margin_bottom = 276.0
+[node name="BlueUltProgress" type="TextureProgress" parent="Bars/UltimateProgress"]
+margin_left = -370.0
+margin_top = 70.0
+margin_right = -232.0
+margin_bottom = 346.0
 rect_scale = Vector2( 0.25, 0.25 )
 value = 100.0
 texture_under = ExtResource( 10 )
@@ -156,11 +162,11 @@ texture_over = ExtResource( 13 )
 texture_progress = ExtResource( 14 )
 fill_mode = 4
 
-[node name="GreenUltProgress" type="TextureProgress" parent="BottomLeft/UltimateProgress"]
-margin_left = 16.0
-margin_top = 100.0
-margin_right = 154.0
-margin_bottom = 376.0
+[node name="GreenUltProgress" type="TextureProgress" parent="Bars/UltimateProgress"]
+margin_left = -40.0
+margin_top = 70.0
+margin_right = 98.0
+margin_bottom = 346.0
 rect_scale = Vector2( 0.25, 0.25 )
 value = 100.0
 texture_under = ExtResource( 10 )
@@ -168,17 +174,16 @@ texture_over = ExtResource( 15 )
 texture_progress = ExtResource( 16 )
 fill_mode = 4
 
-[node name="YellowUltProgress" type="TextureProgress" parent="BottomLeft/UltimateProgress"]
-margin_left = 16.0
-margin_top = 200.0
-margin_right = 154.0
-margin_bottom = 476.0
+[node name="YellowUltProgress" type="TextureProgress" parent="Bars/UltimateProgress"]
+margin_left = 300.0
+margin_top = 70.0
+margin_right = 438.0
+margin_bottom = 346.0
 rect_scale = Vector2( 0.25, 0.25 )
 value = 100.0
 texture_under = ExtResource( 10 )
 texture_over = ExtResource( 17 )
 texture_progress = ExtResource( 18 )
 fill_mode = 4
-
 [connection signal="timeout" from="SecondTimer" to="." method="_on_SecondTimer_timeout"]
 [connection signal="timeout" from="PlayTimer" to="." method="_on_PlayTimer_timeout"]
