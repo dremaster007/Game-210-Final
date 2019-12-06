@@ -122,6 +122,10 @@ func _physics_process(delta):
 		if velocity.x < EPSILON and velocity.x > -EPSILON:
 			#player_anim.play("%s_idle" % facing_dir)
 			velocity.x = 0
+			
+			# might be causing players to be unable to move at certain points
+			change_state(IDLE)
+			
 		current_jumps = 0
 	
 	if slowing_velocity == false:
@@ -435,32 +439,62 @@ func take_damage():
 #	print("hit %s" % player_number)
 
 #sets knockback directions for when the player gets hit
-func knockback(type, other_fac_dir):
+func knockback(type, other_fac_dir, other_character):
 	match type:
 		"side_kick":
-			if other_fac_dir == "left":
-				velocity.x = -1000
-				velocity.y = -300
-			elif other_fac_dir == "right":
-				velocity.x = 1000
-				velocity.y = -300
-			slow_percent = 0.08
+			match other_character:
+				0:
+					if other_fac_dir == "left":
+						velocity.x = -1000
+						velocity.y = -300
+					elif other_fac_dir == "right":
+						velocity.x = 1000
+						velocity.y = -300
+					slow_percent = 0.08
+				1: 
+					if other_fac_dir == "left":
+						velocity.x = -1000
+						velocity.y = -300
+					elif other_fac_dir == "right":
+						velocity.x = 1000
+						velocity.y = -300
+					slow_percent = 0.08
 		"leg_sweep":
-			if other_fac_dir == "left":
-				velocity.x = -800
-				velocity.y = -900
-			elif other_fac_dir == "right":
-				velocity.x = 800
-				velocity.y = -900
-			slow_percent = 0.08
+			match other_character:
+				0:
+					if other_fac_dir == "left":
+						velocity.x = -800
+						velocity.y = -1000
+					elif other_fac_dir == "right":
+						velocity.x = 800
+						velocity.y = -1000
+					slow_percent = 0.08
+				1:
+					if other_fac_dir == "left":
+						velocity.x = 500
+						velocity.y = -900
+					elif other_fac_dir == "right":
+						velocity.x = -500
+						velocity.y = -900
+					slow_percent = 0.08
 		"neutral_kick":
-			if other_fac_dir == "left":
-				velocity.x = -400
-				velocity.y = -900
-			elif other_fac_dir == "right":
-				velocity.x = 400
-				velocity.y = -900
-			slow_percent = 0.08
+			match other_character:
+				0:
+					if other_fac_dir == "left":
+						velocity.x = -400
+						velocity.y = -900
+					elif other_fac_dir == "right":
+						velocity.x = 400
+						velocity.y = -900
+					slow_percent = 0.08
+				1:
+					if other_fac_dir == "left":
+						velocity.x = -400
+						velocity.y = -900
+					elif other_fac_dir == "right":
+						velocity.x = 400
+						velocity.y = -900
+					slow_percent = 0.08
 	slowing_velocity = true
 
 func slow_velocity(percent):
@@ -477,7 +511,7 @@ func _on_Attack_Collision_area_entered(area):
 			if player_area.player_number != player_number:
 				find_parent("DragonLevel").place_paint(player_color, player_area.position)
 				player_area.take_damage()
-				player_area.knockback(next_velocity, facing_dir)
+				player_area.knockback(next_velocity, facing_dir, character)
 				ultimate_charge(10)
 
 func ultimate_charge(charge_amount):
@@ -512,10 +546,10 @@ func activate_ultimate():
 			$UltTimer.start()
 			
 			#Adds a rigidbody PaintBomb instance to the scene 
-			var pcb = PaintBomb.instance()
-			pcb.global_transform = global_transform
-			var dl = get_parent().get_parent()
-			dl.add_child(pcb)
+#			var pcb = PaintBomb.instance()
+#			pcb.global_transform = global_transform
+#			var dl = get_parent().get_parent()
+#			dl.add_child(pcb)
 			print("2")
 			# Paint Can Bomb that leaves a large splat of paint where it explodes. 
 			# Create a Paint Can scene with a large Area2D around it. 

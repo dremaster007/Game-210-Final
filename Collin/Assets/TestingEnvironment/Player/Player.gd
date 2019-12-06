@@ -120,6 +120,7 @@ func _physics_process(delta):
 	# If we are standing still...
 	if is_on_floor():
 		if velocity.x < EPSILON and velocity.x > -EPSILON:
+			change_state(IDLE)
 			#player_anim.play("%s_idle" % facing_dir)
 			velocity.x = 0
 		current_jumps = 0
@@ -313,24 +314,21 @@ func change_state(new_state):
 					if att_direction != "left" and att_direction != "right":
 						att_direction = "down"
 			
+			print("Attack Direction: ", att_direction)
 			# Prioritize down attacks first, then neutral/up attacks,
 			# then left/right attacks.
 			if att_direction == "down":
-				if velocity.y > EPSILON:
+				if !is_on_floor():
 					hitbox_anim.play(str(character) + "_%s_air_attack" % att_direction)
-					#hitbox_anim.play("%s_air_attack" % att_direction)
 				else:
 					hitbox_anim.play(str(character) + "_down_ground_%s_attack" % facing_dir)
-					#hitbox_anim.play("down_ground_%s_attack" % facing_dir)
 				player_anim.play("%s_leg_sweep" % facing_dir)
 			elif att_direction == "neutral":
 				hitbox_anim.play(str(character) + "_%s_attack" % att_direction)
-				#hitbox_anim.play("%s_attack" % att_direction)
 				player_anim.play("%s_neutral_kick" % facing_dir)
 			elif Input.is_action_pressed("left_%s" % player_number) or Input.is_action_pressed("right_%s" % player_number):
 				player_anim.play("%s_side_kick" % facing_dir)
 				hitbox_anim.play(str(character) + "_%s_attack" % att_direction)
-				#hitbox_anim.play("%s_attack" % att_direction)
 			
 			if debug_mode["show_state_prints"] == true:
 				print("Attack")
@@ -362,9 +360,9 @@ func set_velocity(type):
 				1:
 					velocity.x = lerp(velocity.x, 0, 0.01)
 					if facing_dir == "left":
-						velocity.x = -30
+						velocity.x = 0
 					elif facing_dir == "right":
-						velocity.x = 30
+						velocity.x = 0
 		"leg_sweep":
 			match character:
 				0:
@@ -377,9 +375,9 @@ func set_velocity(type):
 				1:
 					if is_on_floor():
 						if facing_dir == "left":
-							velocity.x = -150
+							velocity.x = 200
 						elif facing_dir == "right":
-							velocity.x = 150
+							velocity.x = -200
 						velocity.x = lerp(velocity.x, 0, 0.1)
 		"neutral_kick":
 			match character:
@@ -435,32 +433,62 @@ func take_damage():
 #	print("hit %s" % player_number)
 
 #sets knockback directions for when the player gets hit
-func knockback(type, other_fac_dir):
+func knockback(type, other_fac_dir, other_character):
 	match type:
 		"side_kick":
-			if other_fac_dir == "left":
-				velocity.x = -1000
-				velocity.y = -300
-			elif other_fac_dir == "right":
-				velocity.x = 1000
-				velocity.y = -300
-			slow_percent = 0.08
+			match other_character:
+				0:
+					if other_fac_dir == "left":
+						velocity.x = -1000
+						velocity.y = -300
+					elif other_fac_dir == "right":
+						velocity.x = 1000
+						velocity.y = -300
+					slow_percent = 0.08
+				1: 
+					if other_fac_dir == "left":
+						velocity.x = -1000
+						velocity.y = -300
+					elif other_fac_dir == "right":
+						velocity.x = 1000
+						velocity.y = -300
+					slow_percent = 0.08
 		"leg_sweep":
-			if other_fac_dir == "left":
-				velocity.x = -800
-				velocity.y = -900
-			elif other_fac_dir == "right":
-				velocity.x = 800
-				velocity.y = -900
-			slow_percent = 0.08
+			match other_character:
+				0:
+					if other_fac_dir == "left":
+						velocity.x = -800
+						velocity.y = -1000
+					elif other_fac_dir == "right":
+						velocity.x = 800
+						velocity.y = -1000
+					slow_percent = 0.08
+				1:
+					if other_fac_dir == "left":
+						velocity.x = 500
+						velocity.y = -900
+					elif other_fac_dir == "right":
+						velocity.x = -500
+						velocity.y = -900
+					slow_percent = 0.08
 		"neutral_kick":
-			if other_fac_dir == "left":
-				velocity.x = -400
-				velocity.y = -900
-			elif other_fac_dir == "right":
-				velocity.x = 400
-				velocity.y = -900
-			slow_percent = 0.08
+			match other_character:
+				0:
+					if other_fac_dir == "left":
+						velocity.x = -400
+						velocity.y = -900
+					elif other_fac_dir == "right":
+						velocity.x = 400
+						velocity.y = -900
+					slow_percent = 0.08
+				1:
+					if other_fac_dir == "left":
+						velocity.x = -400
+						velocity.y = -900
+					elif other_fac_dir == "right":
+						velocity.x = 400
+						velocity.y = -900
+					slow_percent = 0.08
 	slowing_velocity = true
 
 func slow_velocity(percent):
@@ -477,7 +505,7 @@ func _on_Attack_Collision_area_entered(area):
 			if player_area.player_number != player_number:
 				find_parent("DragonLevel").place_paint(player_color, player_area.position)
 				player_area.take_damage()
-				player_area.knockback(next_velocity, facing_dir)
+				player_area.knockback(next_velocity, facing_dir, character)
 				ultimate_charge(10)
 
 func ultimate_charge(charge_amount):
