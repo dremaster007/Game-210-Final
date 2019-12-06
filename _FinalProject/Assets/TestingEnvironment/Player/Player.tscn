@@ -330,16 +330,16 @@ tracks/4/path = NodePath("..")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
-tracks/4/enabled = false
+tracks/4/enabled = true
 tracks/4/keys = {
 "times": PoolRealArray( 0, 0.1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "values": [ {
 "args": [ false ],
-"method": "disable_attack_collisions"
+"method": "set_attack_collisions"
 }, {
 "args": [ true ],
-"method": "disable_attack_collisions"
+"method": "set_attack_collisions"
 } ]
 }
 tracks/5/type = "value"
@@ -418,6 +418,65 @@ tracks/4/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ 0.0 ]
+}
+tracks/5/type = "method"
+tracks/5/path = NodePath("..")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6, 0.65, 0.7, 0.75 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"values": [ {
+"args": [ false ],
+"method": "set_attack_collisions"
+}, {
+"args": [ true ],
+"method": "set_attack_collisions"
+}, {
+"args": [ false ],
+"method": "set_attack_collisions"
+}, {
+"args": [ true ],
+"method": "set_attack_collisions"
+}, {
+"args": [ false ],
+"method": "set_attack_collisions"
+}, {
+"args": [ true ],
+"method": "set_attack_collisions"
+}, {
+"args": [ false ],
+"method": "set_attack_collisions"
+}, {
+"args": [ true ],
+"method": "set_attack_collisions"
+}, {
+"args": [ false ],
+"method": "set_attack_collisions"
+}, {
+"args": [ true ],
+"method": "set_attack_collisions"
+}, {
+"args": [ false ],
+"method": "set_attack_collisions"
+}, {
+"args": [ true ],
+"method": "set_attack_collisions"
+}, {
+"args": [ false ],
+"method": "set_attack_collisions"
+}, {
+"args": [ true ],
+"method": "set_attack_collisions"
+}, {
+"args": [ false ],
+"method": "set_attack_collisions"
+}, {
+"args": [ true ],
+"method": "set_attack_collisions"
+} ]
 }
 
 [sub_resource type="Animation" id=10]

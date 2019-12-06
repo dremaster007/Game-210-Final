@@ -12,6 +12,8 @@ var score_value = 4 # how much score this sprite node holds
 
 # set all of the textures
 func _ready():
+	for i in $Check.get_children():
+		i.set_deferred("disabled", false)
 	$SpriteHolder/Sprite1.texture = splatter_textures[randi() % 4]
 	$SpriteHolder/Sprite2.texture = splatter_textures[randi() % 4]
 	$SpriteHolder/Sprite3.texture = splatter_textures[randi() % 4]
