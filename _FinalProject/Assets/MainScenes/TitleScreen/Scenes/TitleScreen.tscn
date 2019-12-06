@@ -464,7 +464,12 @@ anims/null = SubResource( 1 )
 [node name="PlayButtonSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )
 volume_db = 2.0
+
+[node name="PlaySoundWaitTimer" type="Timer" parent="."]
+one_shot = true
+
 [connection signal="pressed" from="PlayButton" to="." method="_on_PlayButton_pressed"]
 [connection signal="transition_finished" from="TitleTransition" to="." method="_on_TitleTransition_transition_finished"]
+[connection signal="timeout" from="PlaySoundWaitTimer" to="." method="_on_PlaySoundWaitTimer_timeout"]
 
 [editable path="TitleTransition"]

@@ -539,6 +539,7 @@ func activate_ultimate():
 			# - leave paint splatter on or around the players current position for a limited time. 
 			# End ultimate once timer runs out of time.
 		1:
+			Global.play_sound("BombFuseSFX")
 			bomb_pos = position
 			$UltDuration.wait_time = 5
 			$UltDuration.start()

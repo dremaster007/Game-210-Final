@@ -55,35 +55,29 @@ func place_paint(color, pos):
 	var color_vals
 	match color:
 		"red":
-			print("ERROR before 58")
 			var p = Paint.instance()
-			print("ERROR at 59")
 			color_vals = Color(1,0,0,1)
-			print("ERROR at 61")
 			p.start(color_vals, "red")
-			print("ERROR at 63")
 			p.position = pos
-			print("ERROR at 65")
-			find_node("PaintContainer").add_child(p)
-			print("ERROR at 67")
+			find_node("PaintContainer").call_deferred("add_child", p)
 		"blue":
 			color_vals = Color(0,0,1,1)
 			var p = Paint.instance()
 			p.start(color_vals, "blue")
 			p.position = pos
-			find_node("PaintContainer").set_deferred("add_child", p)
+			find_node("PaintContainer").call_deferred("add_child", p)
 		"green":
 			color_vals = Color(0,1,0,1)
 			var p = Paint.instance()
 			p.start(color_vals, "green")
 			p.position = pos
-			find_node("PaintContainer").set_deferred("add_child", p)
+			find_node("PaintContainer").call_deferred("add_child", p)
 		"yellow":
 			color_vals = Color(0,1,1,1)
 			var p = Paint.instance()
 			p.start(color_vals, "yellow")
 			p.position = pos
-			find_node("PaintContainer").set_deferred("add_child", p)
+			find_node("PaintContainer").call_deferred("add_child", p)
 	count_score()
 
 func update_ult(color, value):

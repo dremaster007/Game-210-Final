@@ -19,7 +19,9 @@ func change_scene(new_scene):
 func _on_PlayButton_pressed():
 	$PlayButtonSound.play() # Play the spray can noise
 	$PlayButton.disabled = true # Disabled the button
-	yield(get_tree().create_timer(1), "timeout")
+	$PlaySoundWaitTimer.start()
+
+func _on_PlaySoundWaitTimer_timeout():
 	play_animation("to_picking_scene")
 
 func _on_TitleTransition_transition_finished():

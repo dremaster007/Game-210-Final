@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Firecracker Pop.wav-b5ce31025561e1c3552574bc604cb65f.sample"
+
+[deps]
+
+source_file="res://Assets/Audio/SFX/Firecracker Pop.wav"
+dest_files=[ "res://.import/Firecracker Pop.wav-b5ce31025561e1c3552574bc604cb65f.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

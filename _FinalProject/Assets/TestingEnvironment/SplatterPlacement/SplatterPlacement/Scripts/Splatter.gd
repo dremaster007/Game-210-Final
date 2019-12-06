@@ -12,8 +12,6 @@ var score_value = 4 # how much score this sprite node holds
 
 # set all of the textures
 func _ready():
-	for i in $Check.get_children():
-		i.set_deferred("disabled", false)
 	$SpriteHolder/Sprite1.texture = splatter_textures[randi() % 4]
 	$SpriteHolder/Sprite2.texture = splatter_textures[randi() % 4]
 	$SpriteHolder/Sprite3.texture = splatter_textures[randi() % 4]
@@ -61,25 +59,25 @@ func _on_TLCheck_area_shape_entered(area_id, area, area_shape, self_shape):
 				return
 			area.get_parent().decrease_score_value(1)
 			area.get_parent().get_node("SpriteHolder/Sprite1").queue_free()
-			area.get_parent().get_node("Check/Col1").queue_free()
+			area.get_parent().get_node("Check/Col1").call_deferred("queue_free")
 		if area_shape == 1:
 			if is_sprite_null(area, "2"):
 				return
 			area.get_parent().decrease_score_value(1)
 			area.get_parent().get_node("SpriteHolder/Sprite2").queue_free()
-			area.get_parent().get_node("Check/Col2").queue_free()
+			area.get_parent().get_node("Check/Col2").call_deferred("queue_free")
 		if area_shape == 2:
 			if is_sprite_null(area, "3"):
 				return
 			area.get_parent().decrease_score_value(1)
 			area.get_parent().get_node("SpriteHolder/Sprite3").queue_free()
-			area.get_parent().get_node("Check/Col3").queue_free()
+			area.get_parent().get_node("Check/Col3").call_deferred("queue_free")
 		if area_shape == 3:
 			if is_sprite_null(area, "4"):
 				return
 			area.get_parent().decrease_score_value(1)
 			area.get_parent().get_node("SpriteHolder/Sprite4").queue_free()
-			area.get_parent().get_node("Check/Col4").queue_free()
+			area.get_parent().get_node("Check/Col4").call_deferred("queue_free")
 
 func _on_PlaceTimer_timeout():
 	set_placed()
