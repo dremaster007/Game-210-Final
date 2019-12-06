@@ -1,8 +1,10 @@
 extends Node2D
 
 # textures of the splatter
-var splatter_textures = [load("res://SpriteTesting/SpriteAssets/splatter_1.png"), load("res://SpriteTesting/SpriteAssets/splatter_2.png"), 
-		load("res://SpriteTesting/SpriteAssets/splatter_3.png"), load("res://SpriteTesting/SpriteAssets/splatter_4.png")]
+var splatter_textures = [load("res://Assets/Graphics/Sprites/Background/splatter_1.png"),
+						load("res://Assets/Graphics/Sprites/Background/splatter_2.png"), 
+						load("res://Assets/Graphics/Sprites/Background/splatter_3.png"),
+						load("res://Assets/Graphics/Sprites/Background/splatter_4.png")]
 
 var is_placed = false # are the sprite officially on the wall?
 var type # color of sprite
@@ -47,6 +49,10 @@ func kill_sprite_parts(area, sprite_num):
 	pass
 
 func _on_TLCheck_area_shape_entered(area_id, area, area_shape, self_shape):
+	if area.get_parent().is_in_group("player"):
+		return
+	if area.get_parent().is_in_group("PaintBomb"):
+		return
 	if area.get_parent().is_placed:
 		if area_shape == 0:
 			if is_sprite_null(area, "1"):

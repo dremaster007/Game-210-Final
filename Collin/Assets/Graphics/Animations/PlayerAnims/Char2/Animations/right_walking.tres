@@ -4,6 +4,7 @@
 resource_name = "right_walking"
 length = 0.8
 loop = true
+step = 0.01
 tracks/0/type = "value"
 tracks/0/path = NodePath("splatter_boi_lowerbody/splatter_boi_upperbody:rotation_degrees")
 tracks/0/interp = 1
@@ -110,7 +111,7 @@ tracks/8/keys = {
 "times": PoolRealArray( 0, 0.2, 0.4, 0.4, 0.6, 0.6, 0.8 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 0, 0, 0, 0, 0, 0, 0 ]
+"values": [ 1, 1, 0, 1, 0, 1, 1 ]
 }
 tracks/9/type = "value"
 tracks/9/path = NodePath("splatter_boi_lowerbody/splatter_boi_upperbody/splatter_boi_rightupperarm:position")
@@ -436,4 +437,3 @@ tracks/35/keys = {
 "update": 1,
 "values": [ true ]
 }
-

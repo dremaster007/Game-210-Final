@@ -5,6 +5,8 @@ const ACCELERATION = 100
 const MAX_SPEED = 450
 const JUMP_HEIGHT = -700
 
+export (PackedScene) var PaintBomb
+
 # This is a dictionary that holds our debug states
 var debug_mode = {"show_state_prints": false, "show_collision_shapes": false}
 
@@ -19,11 +21,22 @@ var slow_percent = 0
 var attacking = false
 
 # Variables that hold our animations players. This is for ease of access.
-onready var player_anim = $Player1IKChain/AnimationPlayer
+var player_anim = null
 onready var hitbox_anim = $Attack_Collision/AnimationPlayer
+
+export (PackedScene) var IK_chain_0
+export (PackedScene) var IK_chain_1
+export (PackedScene) var IK_chain_2
+export (PackedScene) var IK_chain_3
+export (PackedScene) var IK_chain_4
+export (PackedScene) var IK_chain_5
+export (PackedScene) var IK_chain_6
+export (PackedScene) var IK_chain_7
 
 # This allows us to track each player by an ID
 export (int) var player_number
+var character = 0
+var player_color = ""
 
 var velocity = Vector2()
 
@@ -49,29 +62,59 @@ var state
 var att_direction = ""
 # This is which direction we are facing
 var facing_dir = "right"
-# ????
-var platform_fall_count = 0
 
 var ultimate_fill = 0
 var ultimate_max = 100
 var can_ultimate = false
 
+var bomb_pos = Vector2()
+
 var Global = null
+var Level = null
 
 func _ready():
-	change_state(IDLE)
 	Global = find_parent("Global")
+	Level = find_parent("DragonLevel")
+	hitbox_anim.play("null")
 
-func load_textures():
+func load_textures(character_num):
+	print("Player%s " % player_number, "picked character ", character_num)
+	var i = null
+	character = character_num
+	match character_num:
+		0:
+			i = IK_chain_0.instance()
+		1:
+			i = IK_chain_1.instance()
+		2:
+			i = IK_chain_2.instance()
+		3:
+			i = IK_chain_3.instance()
+		4:
+			i = IK_chain_4.instance()
+		5:
+			i = IK_chain_5.instance()
+		6:
+			i = IK_chain_6.instance()
+		7:
+			i = IK_chain_7.instance()
+	
+	player_anim = i.find_node("AnimationPlayer")
+	player_anim.connect("animation_started", self, "_on_AnimationPlayer_animation_started")
+	player_anim.connect("animation_finished", self, "_on_AnimationPlayer_animation_finished")
+	add_child(i)
+	player_anim.play("%s_idle" % facing_dir)
+	
 	match player_number:
 		1:
-			$PlayerIndicator.texture = load("res://Assets/Graphics/Sprites/SelectionBoxes/SelectionBoxesP1.png")
+			$PlayerIndicator.texture = load("res://Assets/Graphics/Sprites/UIArt/Indicators/red_ind.png")
 		2:
-			$PlayerIndicator.texture = load("res://Assets/Graphics/Sprites/SelectionBoxes/SelectionBoxesP2.png")
+			$PlayerIndicator.texture = load("res://Assets/Graphics/Sprites/UIArt/Indicators/blue_ind.png")
 		3:
-			$PlayerIndicator.texture = load("res://Assets/Graphics/Sprites/SelectionBoxes/SelectionBoxesP3.png")
+			$PlayerIndicator.texture = load("res://Assets/Graphics/Sprites/UIArt/Indicators/green_ind.png")
 		4:
-			$PlayerIndicator.texture = load("res://Assets/Graphics/Sprites/SelectionBoxes/SelectionBoxesP4.png")
+			$PlayerIndicator.texture = load("res://Assets/Graphics/Sprites/UIArt/Indicators/yellow_ind.png")
+	#change_state(IDLE)
 
 func _physics_process(delta):
 	# If we are standing still...
@@ -173,6 +216,7 @@ func get_input():
 	
 	# If we hold down...
 	if down:
+		set_collision_mask_bit(2, false)
 #		if state == JUMP or state == FALLING or state == FAST_FALLING:
 #			att_direction = "down"
 		if state != FAST_FALLING:
@@ -185,16 +229,16 @@ func get_input():
 	
 	# If we jsut press down...
 	if down_just_pressed:
-		platform_fall_count += 1
-		$Platform_Fall_Timer.start()
 		# Fall through the platform if it is a one way platform
-		if current_platform != null and platform_fall_count >= 2:
+		if current_platform != null:
 			if current_platform.is_in_group("one_way_platform"):
+				yield(get_tree().create_timer(0.1),"timeout")
 				current_platform = null
 				position.y += 1
 	
 	# If we just release down...
 	if down_released:
+		set_collision_mask_bit(2, true)
 		att_direction = "neutral"
 		platform_fall = false
 		if !is_on_floor():
@@ -211,7 +255,8 @@ func get_input():
 		change_state(ATTACK)
 	
 	if ultimate:
-		activate_ultimate()
+		if can_ultimate:
+			activate_ultimate()
 
 # This function allows us to change states
 func change_state(new_state):
@@ -222,6 +267,8 @@ func change_state(new_state):
 			platform_fall = false
 			att_direction = "neutral"
 			hitbox_anim.play("null")
+			# WE NEED THIS COMMENT LATER
+			#Global.player_picks("Player_%s" % player_number)
 			player_anim.play("%s_idle" % facing_dir)
 			if debug_mode["show_state_prints"] == true:
 				print("idle")
@@ -244,6 +291,7 @@ func change_state(new_state):
 			if debug_mode["show_state_prints"] == true:
 				print("jump")
 		FALLING:
+			player_anim.play("%s_falling" % facing_dir)
 			if velocity.x > EPSILON:
 				att_direction = "right"
 			elif velocity.x < EPSILON:
@@ -253,8 +301,8 @@ func change_state(new_state):
 			if debug_mode["show_state_prints"] == true:
 				print("Falling")
 		FAST_FALLING:
-			if platform_fall_count >= 2:
-				platform_fall = true
+			player_anim.play("%s_falling" % facing_dir)
+			platform_fall = true
 			att_direction = "down"
 			if debug_mode["show_state_prints"] == true:
 				print("Fast Falling")
@@ -269,16 +317,20 @@ func change_state(new_state):
 			# then left/right attacks.
 			if att_direction == "down":
 				if velocity.y > EPSILON:
-					hitbox_anim.play("%s_air_attack" % att_direction)
+					hitbox_anim.play(str(character) + "_%s_air_attack" % att_direction)
+					#hitbox_anim.play("%s_air_attack" % att_direction)
 				else:
-					hitbox_anim.play("down_ground_%s_attack" % facing_dir)
+					hitbox_anim.play(str(character) + "_down_ground_%s_attack" % facing_dir)
+					#hitbox_anim.play("down_ground_%s_attack" % facing_dir)
 				player_anim.play("%s_leg_sweep" % facing_dir)
 			elif att_direction == "neutral":
-				hitbox_anim.play("%s_attack" % att_direction)
+				hitbox_anim.play(str(character) + "_%s_attack" % att_direction)
+				#hitbox_anim.play("%s_attack" % att_direction)
 				player_anim.play("%s_neutral_kick" % facing_dir)
 			elif Input.is_action_pressed("left_%s" % player_number) or Input.is_action_pressed("right_%s" % player_number):
 				player_anim.play("%s_side_kick" % facing_dir)
-				hitbox_anim.play("%s_attack" % att_direction)
+				hitbox_anim.play(str(character) + "_%s_attack" % att_direction)
+				#hitbox_anim.play("%s_attack" % att_direction)
 			
 			if debug_mode["show_state_prints"] == true:
 				print("Attack")
@@ -289,7 +341,6 @@ func change_state(new_state):
 			can_input = true
 			slowing_velocity = false
 			
-			# Mostly unused for right now
 			att_direction = "neutral"
 			if debug_mode["show_state_prints"] == true:
 				print("Stunned")
@@ -301,20 +352,41 @@ func set_velocity(type):
 		return
 	match type:
 		"side_kick":
-			velocity.x = lerp(velocity.x, 0, 0.01)
-			if facing_dir == "left":
-				velocity.x = -300
-			elif facing_dir == "right":
-				velocity.x = 300
+			match character:
+				0:
+					velocity.x = lerp(velocity.x, 0, 0.01)
+					if facing_dir == "left":
+						velocity.x = -200
+					elif facing_dir == "right":
+						velocity.x = 200
+				1:
+					velocity.x = lerp(velocity.x, 0, 0.01)
+					if facing_dir == "left":
+						velocity.x = -30
+					elif facing_dir == "right":
+						velocity.x = 30
 		"leg_sweep":
-			if is_on_floor():
-				if facing_dir == "left":
-					velocity.x = -400
-				elif facing_dir == "right":
-					velocity.x = 400
-			velocity.x = lerp(velocity.x, 0, 0.1)
+			match character:
+				0:
+					if is_on_floor():
+						if facing_dir == "left":
+							velocity.x = -400
+						elif facing_dir == "right":
+							velocity.x = 400
+						velocity.x = lerp(velocity.x, 0, 0.1)
+				1:
+					if is_on_floor():
+						if facing_dir == "left":
+							velocity.x = -150
+						elif facing_dir == "right":
+							velocity.x = 150
+						velocity.x = lerp(velocity.x, 0, 0.1)
 		"neutral_kick":
-			velocity.x = lerp(velocity.x, 0, 0.2)
+			match character:
+				0:
+					velocity.x = lerp(velocity.x, 0, 0.2)
+				1:
+					velocity.x = lerp(velocity.x, 0, 0.2)
 
 func _on_PlatformCollisionArea_body_entered(body):
 	current_platform = body
@@ -351,9 +423,6 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 		if att_direction != "down":
 			att_direction = "neutral"
 
-func _on_Platform_Fall_Timer_timeout():
-	platform_fall_count = 0
-
 #player's state changes to STUNNED when hit and will handle player damage
 func take_damage():
 	if player_number == 1:
@@ -362,6 +431,7 @@ func take_damage():
 		$HitSound.pitch_scale = 0.5
 	$HitSound.play()
 	change_state(STUNNED)
+	ultimate_charge(2)
 #	print("hit %s" % player_number)
 
 #sets knockback directions for when the player gets hit
@@ -405,19 +475,27 @@ func _on_Attack_Collision_area_entered(area):
 		if area.is_in_group("player_hit_box"):
 			var player_area = area.get_parent()
 			if player_area.player_number != player_number:
+				find_parent("DragonLevel").place_paint(player_color, player_area.position)
 				player_area.take_damage()
 				player_area.knockback(next_velocity, facing_dir)
 				ultimate_charge(10)
 
 func ultimate_charge(charge_amount):
 	ultimate_fill += charge_amount
+	Level.update_ult(player_color, ultimate_fill)
 	if ultimate_fill >= ultimate_max:
 		can_ultimate = true
 
 func activate_ultimate():
+	can_ultimate = false
+	ultimate_fill = 0
+	ultimate_charge(0)
 	match Global.player_picks["player_%s" % player_number]:
 		0:
-			print("1")
+			$UltDuration.wait_time = 5
+			$UltDuration.start()
+			$UltTimer.wait_time = 0.2
+			$UltTimer.start()
 			# Leave paint where the player walks for a limited amount of time.
 			# create a bool that is false by default called paint_trail.
 			# set it to true when ultimate is used.
@@ -425,8 +503,19 @@ func activate_ultimate():
 			# Start timer once ultimate is in use.
 			# When in use call a function in process/physics process that will - 
 			# - leave paint splatter on or around the players current position for a limited time. 
-			# End ultimate once timer runs out of time. 
+			# End ultimate once timer runs out of time.
 		1:
+			bomb_pos = position
+			$UltDuration.wait_time = 5
+			$UltDuration.start()
+			$UltTimer.wait_time = 5
+			$UltTimer.start()
+			
+			#Adds a rigidbody PaintBomb instance to the scene 
+			var pcb = PaintBomb.instance()
+			pcb.global_transform = global_transform
+			var dl = get_parent().get_parent()
+			dl.add_child(pcb)
 			print("2")
 			# Paint Can Bomb that leaves a large splat of paint where it explodes. 
 			# Create a Paint Can scene with a large Area2D around it. 
@@ -439,3 +528,22 @@ func activate_ultimate():
 		2:
 			print("3")
 
+func ultimate_active():
+	match Global.player_picks["player_%s" % player_number]:
+		0:
+			Level.place_paint(player_color, Vector2(position.x, position.y))
+		1:
+			for i in 50:
+				Level.place_paint(player_color, Vector2(bomb_pos.x + rand_range(-200, 200), bomb_pos.y + rand_range(-200, 200)))
+
+# This is for ults that last a set amount of time
+func _on_UltDuration_timeout():
+	$UltTimer.stop()
+
+# This is for ults that have to be checked every x seconds
+func _on_UltTimer_timeout():
+	ultimate_active()
+
+func disable_attack_collisions(is_disabled):
+	print("is_disabled = ", is_disabled)
+	$Attack_Collision/CollisionShape2D.call_deferred("set", "disabled", is_disabled)

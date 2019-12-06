@@ -1,25 +1,30 @@
-[gd_scene load_steps=54 format=2]
+[gd_scene load_steps=61 format=2]
 
 [ext_resource path="res://Assets/MainScenes/PickingScreen/Scripts/PickingScreen.gd" type="Script" id=1]
 [ext_resource path="res://Assets/MainScenes/PickingScreen/Scenes/PickingScreenPlayer.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Assets/Graphics/Models/BoomBox.dae" type="PackedScene" id=3]
-[ext_resource path="res://Assets/Graphics/Models/Dumpster.dae" type="PackedScene" id=4]
-[ext_resource path="res://Assets/Graphics/Models/SprayPaint.dae" type="PackedScene" id=5]
-[ext_resource path="res://Assets/Graphics/Sprites/DevNames/graf_tony.png" type="Texture" id=6]
-[ext_resource path="res://Assets/Graphics/Sprites/Background/splatter_3.png" type="Texture" id=7]
-[ext_resource path="res://Assets/Graphics/Sprites/DevNames/graf_zach.png" type="Texture" id=8]
-[ext_resource path="res://Assets/Graphics/Sprites/Background/splatter_2.png" type="Texture" id=9]
-[ext_resource path="res://Assets/Graphics/Sprites/DevNames/graf_colin.png" type="Texture" id=10]
-[ext_resource path="res://Assets/Graphics/Sprites/DevNames/graf_wakim.png" type="Texture" id=11]
-[ext_resource path="res://Assets/Graphics/Sprites/Background/splatter_4.png" type="Texture" id=12]
-[ext_resource path="res://Assets/Graphics/Sprites/Background/graf_pow1.png" type="Texture" id=13]
-[ext_resource path="res://Assets/Graphics/Sprites/Background/splatter_1.png" type="Texture" id=14]
-[ext_resource path="res://icon.png" type="Texture" id=15]
-[ext_resource path="res://Assets/MainScenes/PickingScreen/Scenes/PickingScreenTransition.tscn" type="PackedScene" id=16]
-[ext_resource path="res://Assets/Graphics/Sprites/SelectionBoxes/SelectionBoxesP1.png" type="Texture" id=17]
-[ext_resource path="res://Assets/Graphics/Sprites/SelectionBoxes/SelectionBoxesP2.png" type="Texture" id=18]
-[ext_resource path="res://Assets/Graphics/Sprites/SelectionBoxes/SelectionBoxesP3.png" type="Texture" id=19]
-[ext_resource path="res://Assets/Graphics/Sprites/SelectionBoxes/SelectionBoxesP4.png" type="Texture" id=20]
+[ext_resource path="res://Assets/Graphics/Sprites/Background/SidewalkTexture.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Graphics/Models/BoomBox.dae" type="PackedScene" id=4]
+[ext_resource path="res://Assets/Graphics/Models/Dumpster.dae" type="PackedScene" id=5]
+[ext_resource path="res://Assets/Graphics/Models/SprayPaint.dae" type="PackedScene" id=6]
+[ext_resource path="res://Assets/Graphics/Models/Trashcan2.dae" type="PackedScene" id=7]
+[ext_resource path="res://Assets/Graphics/Sprites/DevNames/graf_tony.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Graphics/Sprites/Background/splatter_3.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Graphics/Sprites/DevNames/graf_zach.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Graphics/Sprites/Background/splatter_2.png" type="Texture" id=11]
+[ext_resource path="res://Assets/Graphics/Sprites/DevNames/graf_colin.png" type="Texture" id=12]
+[ext_resource path="res://Assets/Graphics/Sprites/DevNames/graf_wakim.png" type="Texture" id=13]
+[ext_resource path="res://Assets/Graphics/Sprites/Background/splatter_4.png" type="Texture" id=14]
+[ext_resource path="res://Assets/Graphics/Sprites/Background/graf_pow1.png" type="Texture" id=15]
+[ext_resource path="res://Assets/Graphics/Sprites/Background/splatter_1.png" type="Texture" id=16]
+[ext_resource path="res://Assets/Graphics/Sprites/SelectionBoxes/SplatterBoiHead.png" type="Texture" id=17]
+[ext_resource path="res://Assets/Graphics/Sprites/SelectionBoxes/SplatterGirlHead.png" type="Texture" id=18]
+[ext_resource path="res://Assets/Graphics/Sprites/SelectionBoxes/UnknownChar.png" type="Texture" id=19]
+[ext_resource path="res://Assets/Graphics/Sprites/LevelArt/BrickSmall.png" type="Texture" id=20]
+[ext_resource path="res://Assets/MainScenes/PickingScreen/Scenes/PickingScreenTransition.tscn" type="PackedScene" id=21]
+[ext_resource path="res://Assets/Graphics/Sprites/SelectionBoxes/SelectionBoxesP1.png" type="Texture" id=22]
+[ext_resource path="res://Assets/Graphics/Sprites/SelectionBoxes/SelectionBoxesP2.png" type="Texture" id=23]
+[ext_resource path="res://Assets/Graphics/Sprites/SelectionBoxes/SelectionBoxesP3.png" type="Texture" id=24]
+[ext_resource path="res://Assets/Graphics/Sprites/SelectionBoxes/SelectionBoxesP4.png" type="Texture" id=25]
 
 [sub_resource type="CubeMesh" id=1]
 size = Vector3( 20, 0.1, 20 )
@@ -28,54 +33,48 @@ size = Vector3( 20, 0.1, 20 )
 albedo_color = Color( 0.54902, 0.54902, 0.54902, 1 )
 
 [sub_resource type="CubeMesh" id=3]
-size = Vector3( 20, 0.1, 20 )
+size = Vector3( 5, 0.1, 5 )
 
 [sub_resource type="SpatialMaterial" id=4]
-albedo_color = Color( 0.196078, 0.196078, 0.196078, 1 )
+albedo_texture = ExtResource( 3 )
 
 [sub_resource type="CubeMesh" id=5]
-size = Vector3( 10, 20, 0.1 )
+size = Vector3( 20, 0.1, 20 )
 
 [sub_resource type="SpatialMaterial" id=6]
+albedo_color = Color( 0.196078, 0.196078, 0.196078, 1 )
+
+[sub_resource type="CubeMesh" id=7]
+size = Vector3( 10, 20, 0.1 )
+
+[sub_resource type="SpatialMaterial" id=8]
 albedo_color = Color( 0.784314, 0.784314, 0.784314, 1 )
 
-[sub_resource type="SpatialMaterial" id=7]
+[sub_resource type="SpatialMaterial" id=9]
 albedo_color = Color( 0.666667, 0.666667, 0.666667, 1 )
 
-[sub_resource type="CubeMesh" id=8]
+[sub_resource type="CubeMesh" id=10]
 size = Vector3( 10, 17, 0.1 )
 
-[sub_resource type="SpatialMaterial" id=9]
+[sub_resource type="SpatialMaterial" id=11]
 albedo_color = Color( 0.392157, 0.392157, 0.392157, 1 )
 
-[sub_resource type="QuadMesh" id=10]
+[sub_resource type="QuadMesh" id=12]
 size = Vector2( 2, 2 )
 
-[sub_resource type="SpatialMaterial" id=11]
-render_priority = 9
-flags_transparent = true
-flags_unshaded = true
-albedo_texture = ExtResource( 6 )
-
-[sub_resource type="QuadMesh" id=12]
-size = Vector2( 4, 4 )
-
 [sub_resource type="SpatialMaterial" id=13]
-flags_transparent = true
-flags_unshaded = true
-albedo_color = Color( 0.498039, 0, 1, 1 )
-albedo_texture = ExtResource( 7 )
-
-[sub_resource type="SpatialMaterial" id=14]
-render_priority = 10
+render_priority = 9
 flags_transparent = true
 flags_unshaded = true
 albedo_texture = ExtResource( 8 )
 
+[sub_resource type="QuadMesh" id=14]
+size = Vector2( 4, 4 )
+
 [sub_resource type="SpatialMaterial" id=15]
 flags_transparent = true
 flags_unshaded = true
-albedo_color = Color( 1, 1, 0, 1 )
+albedo_color = Color( 0.498039, 0, 1, 1 )
 albedo_texture = ExtResource( 9 )
 
 [sub_resource type="SpatialMaterial" id=16]
@@ -87,68 +86,89 @@ albedo_texture = ExtResource( 10 )
 [sub_resource type="SpatialMaterial" id=17]
 flags_transparent = true
 flags_unshaded = true
-albedo_color = Color( 0, 1, 0, 1 )
-albedo_texture = ExtResource( 9 )
+albedo_color = Color( 1, 1, 0, 1 )
+albedo_texture = ExtResource( 11 )
 
 [sub_resource type="SpatialMaterial" id=18]
 render_priority = 10
 flags_transparent = true
 flags_unshaded = true
-albedo_texture = ExtResource( 11 )
+albedo_texture = ExtResource( 12 )
 
 [sub_resource type="SpatialMaterial" id=19]
 flags_transparent = true
 flags_unshaded = true
-albedo_color = Color( 1, 0.498039, 0, 1 )
-albedo_texture = ExtResource( 12 )
+albedo_color = Color( 0, 1, 0, 1 )
+albedo_texture = ExtResource( 11 )
 
 [sub_resource type="SpatialMaterial" id=20]
-render_priority = 8
+render_priority = 10
 flags_transparent = true
 flags_unshaded = true
 albedo_texture = ExtResource( 13 )
 
-[sub_resource type="QuadMesh" id=21]
-size = Vector2( 3, 3 )
+[sub_resource type="SpatialMaterial" id=21]
+flags_transparent = true
+flags_unshaded = true
+albedo_color = Color( 1, 0.498039, 0, 1 )
+albedo_texture = ExtResource( 14 )
 
 [sub_resource type="SpatialMaterial" id=22]
+render_priority = 8
+flags_transparent = true
+flags_unshaded = true
+albedo_texture = ExtResource( 15 )
+
+[sub_resource type="QuadMesh" id=23]
+size = Vector2( 3, 3 )
+
+[sub_resource type="SpatialMaterial" id=24]
 flags_transparent = true
 flags_unshaded = true
 albedo_color = Color( 0, 0, 1, 1 )
-albedo_texture = ExtResource( 14 )
+albedo_texture = ExtResource( 16 )
 
-[sub_resource type="QuadMesh" id=23]
+[sub_resource type="QuadMesh" id=25]
 size = Vector2( 1.25, 1.25 )
 
-[sub_resource type="SpatialMaterial" id=24]
-albedo_texture = ExtResource( 15 )
-
-[sub_resource type="SpatialMaterial" id=25]
-albedo_texture = ExtResource( 15 )
-
 [sub_resource type="SpatialMaterial" id=26]
-albedo_texture = ExtResource( 15 )
+flags_unshaded = true
+albedo_texture = ExtResource( 17 )
 
 [sub_resource type="SpatialMaterial" id=27]
-albedo_texture = ExtResource( 15 )
+flags_unshaded = true
+albedo_texture = ExtResource( 18 )
 
 [sub_resource type="SpatialMaterial" id=28]
-albedo_texture = ExtResource( 15 )
+flags_unshaded = true
+albedo_texture = ExtResource( 19 )
 
 [sub_resource type="SpatialMaterial" id=29]
-albedo_texture = ExtResource( 15 )
+flags_unshaded = true
+albedo_texture = ExtResource( 19 )
 
 [sub_resource type="SpatialMaterial" id=30]
-albedo_texture = ExtResource( 15 )
+flags_unshaded = true
+albedo_texture = ExtResource( 19 )
 
 [sub_resource type="SpatialMaterial" id=31]
-albedo_texture = ExtResource( 15 )
+flags_unshaded = true
+albedo_texture = ExtResource( 19 )
 
-[sub_resource type="CubeMesh" id=32]
-size = Vector3( 10, 10, 0.1 )
+[sub_resource type="SpatialMaterial" id=32]
+flags_unshaded = true
+albedo_texture = ExtResource( 19 )
 
 [sub_resource type="SpatialMaterial" id=33]
-albedo_color = Color( 1, 0.494118, 0.494118, 1 )
+flags_unshaded = true
+albedo_texture = ExtResource( 19 )
+
+[sub_resource type="CubeMesh" id=34]
+size = Vector3( 10, 10, 0.1 )
+
+[sub_resource type="SpatialMaterial" id=35]
+flags_unshaded = true
+albedo_texture = ExtResource( 20 )
 
 [node name="PickingScreen" type="Spatial"]
 script = ExtResource( 1 )
@@ -158,87 +178,171 @@ PickingScreenPlayer = ExtResource( 2 )
 transform = Transform( 0.977546, 0.00350192, 0.210694, -0.00939055, 0.999593, 0.0269547, -0.210514, -0.028328, 0.97718, 2.22114, 4.11687, 5.86481 )
 
 [node name="Ground" type="Spatial" parent="."]
+editor/display_folded = true
 
 [node name="Floor" type="MeshInstance" parent="Ground"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.0321813, -1 )
+visible = false
 mesh = SubResource( 1 )
 material/0 = SubResource( 2 )
 
-[node name="Road" type="MeshInstance" parent="Ground"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 0, -1 )
+[node name="Floor2" type="MeshInstance" parent="Ground"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, 0, 6.5 )
 mesh = SubResource( 3 )
 material/0 = SubResource( 4 )
 
-[node name="Models" type="Spatial" parent="Ground"]
-editor/display_folded = true
+[node name="Floor5" type="MeshInstance" parent="Ground"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, 0, 1.5 )
+mesh = SubResource( 3 )
+material/0 = SubResource( 4 )
 
-[node name="BoomBox" parent="Ground/Models" instance=ExtResource( 3 )]
+[node name="Floor8" type="MeshInstance" parent="Ground"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, 0, -3.5 )
+mesh = SubResource( 3 )
+material/0 = SubResource( 4 )
+
+[node name="Floor13" type="MeshInstance" parent="Ground"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, 0, -8.5 )
+mesh = SubResource( 3 )
+material/0 = SubResource( 4 )
+
+[node name="Floor3" type="MeshInstance" parent="Ground"]
+transform = Transform( -4.37114e-008, 0, -1, 0, 1, 0, 1, 0, -4.37114e-008, -0.5, 0, 6.5 )
+mesh = SubResource( 3 )
+material/0 = SubResource( 4 )
+
+[node name="Floor6" type="MeshInstance" parent="Ground"]
+transform = Transform( -4.37114e-008, 0, -1, 0, 1, 0, 1, 0, -4.37114e-008, -0.5, 0, 1.5 )
+mesh = SubResource( 3 )
+material/0 = SubResource( 4 )
+
+[node name="Floor9" type="MeshInstance" parent="Ground"]
+transform = Transform( -4.37114e-008, 0, -1, 0, 1, 0, 1, 0, -4.37114e-008, -0.5, 0, -3.5 )
+mesh = SubResource( 3 )
+material/0 = SubResource( 4 )
+
+[node name="Floor11" type="MeshInstance" parent="Ground"]
+transform = Transform( -4.37114e-008, 0, -1, 0, 1, 0, 1, 0, -4.37114e-008, -0.5, 0, -8.5 )
+mesh = SubResource( 3 )
+material/0 = SubResource( 4 )
+
+[node name="Floor4" type="MeshInstance" parent="Ground"]
+transform = Transform( -4.37114e-008, 0, 1, 0, 1, 0, -1, 0, -4.37114e-008, 4.5, 0, 6.5 )
+mesh = SubResource( 3 )
+material/0 = SubResource( 4 )
+
+[node name="Floor15" type="MeshInstance" parent="Ground"]
+transform = Transform( 1.31134e-007, 0, -1, 0, 1, 0, 1, 0, 1.31134e-007, 9.5, 0, -8.5 )
+mesh = SubResource( 3 )
+material/0 = SubResource( 4 )
+
+[node name="Floor7" type="MeshInstance" parent="Ground"]
+transform = Transform( -4.37114e-008, 0, 1, 0, 1, 0, -1, 0, -4.37114e-008, 4.5, 0, 1.5 )
+mesh = SubResource( 3 )
+material/0 = SubResource( 4 )
+
+[node name="Floor16" type="MeshInstance" parent="Ground"]
+transform = Transform( 1.31134e-007, 0, -1, 0, 1, 0, 1, 0, 1.31134e-007, 9.5, 0, -3.5 )
+mesh = SubResource( 3 )
+material/0 = SubResource( 4 )
+
+[node name="Floor10" type="MeshInstance" parent="Ground"]
+transform = Transform( -4.37114e-008, 0, 1, 0, 1, 0, -1, 0, -4.37114e-008, 4.5, 0, -3.5 )
+mesh = SubResource( 3 )
+material/0 = SubResource( 4 )
+
+[node name="Floor17" type="MeshInstance" parent="Ground"]
+transform = Transform( 1.31134e-007, 0, -1, 0, 1, 0, 1, 0, 1.31134e-007, 9.5, 0, 1.5 )
+mesh = SubResource( 3 )
+material/0 = SubResource( 4 )
+
+[node name="Floor12" type="MeshInstance" parent="Ground"]
+transform = Transform( -4.37114e-008, 0, 1, 0, 1, 0, -1, 0, -4.37114e-008, 4.5, 0, -8.5 )
+mesh = SubResource( 3 )
+material/0 = SubResource( 4 )
+
+[node name="Floor14" type="MeshInstance" parent="Ground"]
+transform = Transform( 1.31134e-007, 0, -1, 0, 1, 0, 1, 0, 1.31134e-007, 9.5, 0, 6.5 )
+mesh = SubResource( 3 )
+material/0 = SubResource( 4 )
+
+[node name="Road" type="MeshInstance" parent="Ground"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 0, -1 )
+mesh = SubResource( 5 )
+material/0 = SubResource( 6 )
+
+[node name="Models" type="Spatial" parent="Ground"]
+
+[node name="BoomBox" parent="Ground/Models" instance=ExtResource( 4 )]
 transform = Transform( 0.322499, 0, 0.382092, 0, 0.5, 0, -0.382092, 0, 0.322499, -4.43816, 0.676638, 0.0919843 )
 
-[node name="Dumpster" parent="Ground/Models" instance=ExtResource( 4 )]
+[node name="Dumpster" parent="Ground/Models" instance=ExtResource( 5 )]
 transform = Transform( -4.37114e-008, 0, -1, 0, 1, 0, 1, 0, -4.37114e-008, 8.01596, 1.08218, -5.60328 )
 
-[node name="SprayPaint" parent="Ground/Models" instance=ExtResource( 5 )]
+[node name="SprayPaint" parent="Ground/Models" instance=ExtResource( 6 )]
 transform = Transform( -8.74228e-009, 0, -0.2, 0, 0.35, 0, 0.2, 0, -8.74228e-009, -0.690532, 0.426515, -0.759602 )
 
-[node name="SprayPaint11" parent="Ground/Models" instance=ExtResource( 5 )]
+[node name="SprayPaint11" parent="Ground/Models" instance=ExtResource( 6 )]
 transform = Transform( -8.74228e-009, 0, -0.2, 0, 0.35, 0, 0.2, 0, -8.74228e-009, -5.79584, 0.426515, 1.14784 )
 
-[node name="SprayPaint12" parent="Ground/Models" instance=ExtResource( 5 )]
+[node name="SprayPaint12" parent="Ground/Models" instance=ExtResource( 6 )]
 transform = Transform( -8.74228e-009, 0, -0.2, 0, 0.35, 0, 0.2, 0, -8.74228e-009, -5.37921, 0.426515, 1.28863 )
 
-[node name="SprayPaint2" parent="Ground/Models" instance=ExtResource( 5 )]
+[node name="SprayPaint2" parent="Ground/Models" instance=ExtResource( 6 )]
 transform = Transform( 0.143149, 0.244427, -1.23625e-008, -8.74228e-009, -1.5299e-008, -0.2, -0.139672, 0.250511, -1.51972e-010, -1.15501, 0.210994, -0.666439 )
 
-[node name="SprayPaint3" parent="Ground/Models" instance=ExtResource( 5 )]
+[node name="SprayPaint3" parent="Ground/Models" instance=ExtResource( 6 )]
 transform = Transform( -0.199872, 0, 0.0071439, 0, 0.35, 0, -0.0071439, 0, -0.199872, -0.243065, 0.426515, -0.657122 )
 
-[node name="SprayPaint4" parent="Ground/Models" instance=ExtResource( 5 )]
+[node name="SprayPaint4" parent="Ground/Models" instance=ExtResource( 6 )]
 transform = Transform( -0.199872, 0, 0.0071439, 0, 0.35, 0, -0.0071439, 0, -0.199872, 3.62939, 0.426515, -0.657122 )
 
-[node name="SprayPaint6" parent="Ground/Models" instance=ExtResource( 5 )]
+[node name="SprayPaint6" parent="Ground/Models" instance=ExtResource( 6 )]
 transform = Transform( -0.199872, 0, 0.0071439, 0, 0.35, 0, -0.0071439, 0, -0.199872, 8.68155, 0.426515, -2.5784 )
 
-[node name="SprayPaint10" parent="Ground/Models" instance=ExtResource( 5 )]
+[node name="SprayPaint10" parent="Ground/Models" instance=ExtResource( 6 )]
 transform = Transform( -0.149824, 0.231514, 0.00714391, 0.127217, 0.256669, -0.0480032, -0.0369915, -0.0549782, -0.194022, 7.80264, 0.34224, -2.61443 )
 
-[node name="SprayPaint7" parent="Ground/Models" instance=ExtResource( 5 )]
+[node name="SprayPaint7" parent="Ground/Models" instance=ExtResource( 6 )]
 transform = Transform( -0.133517, 0, 0.148906, 0, 0.35, 0, -0.148906, 0, -0.133517, 8.80019, 0.426515, -2.14983 )
 
-[node name="SprayPaint8" parent="Ground/Models" instance=ExtResource( 5 )]
+[node name="SprayPaint8" parent="Ground/Models" instance=ExtResource( 6 )]
 transform = Transform( -0.0789529, -0.284211, 0.0859689, -0.148901, 0.00299815, -0.133512, 0.10768, -0.204243, -0.121588, 8.60533, 0.231165, -1.85476 )
 
-[node name="SprayPaint9" parent="Ground/Models" instance=ExtResource( 5 )]
+[node name="SprayPaint9" parent="Ground/Models" instance=ExtResource( 6 )]
 transform = Transform( 0.117301, -0.0119982, -0.161844, -0.131169, 0.198158, -0.0998649, 0.0950541, 0.288252, 0.0619153, 8.34073, 0.230755, -2.74284 )
 
-[node name="SprayPaint5" parent="Ground/Models" instance=ExtResource( 5 )]
+[node name="SprayPaint5" parent="Ground/Models" instance=ExtResource( 6 )]
 transform = Transform( -0.0660075, 0, -0.188794, 0, 0.35, 0, 0.188794, 0, -0.0660075, -5.29322, 1.51126, 0.698521 )
+
+[node name="Trashcan" parent="Ground/Models" instance=ExtResource( 7 )]
+transform = Transform( 0.75, 0, 0, 0, 1, 0, 0, 0, 0.75, 9.75007, 1.05, -0.150323 )
 
 [node name="LeftBuilding" type="Spatial" parent="."]
 editor/display_folded = true
 
 [node name="Front" type="MeshInstance" parent="LeftBuilding"]
 transform = Transform( -4.37114e-008, 0, 1, 0, 1, 0, -1, 0, -4.37114e-008, -15, 10, -6 )
-mesh = SubResource( 5 )
-material/0 = SubResource( 6 )
+mesh = SubResource( 7 )
+material/0 = SubResource( 8 )
 
 [node name="Side" type="MeshInstance" parent="LeftBuilding"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 10, -1 )
-mesh = SubResource( 5 )
-material/0 = SubResource( 7 )
+mesh = SubResource( 7 )
+material/0 = SubResource( 9 )
 
 [node name="RightBuilding" type="Spatial" parent="."]
 editor/display_folded = true
 
 [node name="Back" type="MeshInstance" parent="RightBuilding"]
 transform = Transform( -4.37114e-008, 0, 1, 0, 1, 0, -1, 0, -4.37114e-008, 9, 7, -6 )
-mesh = SubResource( 8 )
-material/0 = SubResource( 9 )
+mesh = SubResource( 10 )
+material/0 = SubResource( 11 )
 
 [node name="Side" type="MeshInstance" parent="RightBuilding"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 10, -1 )
-mesh = SubResource( 5 )
-material/0 = SubResource( 7 )
+mesh = SubResource( 7 )
+material/0 = SubResource( 9 )
 
 [node name="MainBuilding" type="Spatial" parent="."]
 
@@ -247,126 +351,124 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.44393, -0.301732 )
 
 [node name="Tony" type="MeshInstance" parent="MainBuilding/GrafittiHolder"]
 transform = Transform( 1.73828, -0.202172, 0, 0.202172, 1.73828, 0, 0, 0, 1, -1.0975, 3.71212, -0.64 )
-mesh = SubResource( 10 )
-material/0 = SubResource( 11 )
-
-[node name="Splat" type="MeshInstance" parent="MainBuilding/GrafittiHolder/Tony"]
-transform = Transform( 0.766049, -0.642782, 0, 0.642782, 0.766049, 0, 0, 0, 1, 0, 0, 0 )
 mesh = SubResource( 12 )
 material/0 = SubResource( 13 )
 
+[node name="Splat" type="MeshInstance" parent="MainBuilding/GrafittiHolder/Tony"]
+transform = Transform( 0.766049, -0.642782, 0, 0.642782, 0.766049, 0, 0, 0, 1, 0, 0, 0 )
+mesh = SubResource( 14 )
+material/0 = SubResource( 15 )
+
 [node name="Zach" type="MeshInstance" parent="MainBuilding/GrafittiHolder"]
 transform = Transform( 1.75, 0, 0, 0, 1.75, 0, 0, 0, 1, 2.17923, 3.1689, -0.64 )
-mesh = SubResource( 10 )
-material/0 = SubResource( 14 )
+mesh = SubResource( 12 )
+material/0 = SubResource( 16 )
 
 [node name="Splat" type="MeshInstance" parent="MainBuilding/GrafittiHolder/Zach"]
 transform = Transform( -0.465531, -0.885031, 0, 0.885031, -0.465531, 0, 0, 0, 1, 0.0292192, 0.0915384, 0 )
-mesh = SubResource( 12 )
-material/0 = SubResource( 15 )
+mesh = SubResource( 14 )
+material/0 = SubResource( 17 )
 
 [node name="Collin" type="MeshInstance" parent="MainBuilding/GrafittiHolder"]
 transform = Transform( 1.90665, 0.603894, 0, -0.603894, 1.90665, 0, 0, 0, 1, -2.17323, 0.328947, -0.64 )
-mesh = SubResource( 10 )
-material/0 = SubResource( 16 )
+mesh = SubResource( 12 )
+material/0 = SubResource( 18 )
 
 [node name="Splat" type="MeshInstance" parent="MainBuilding/GrafittiHolder/Collin"]
-mesh = SubResource( 12 )
-material/0 = SubResource( 17 )
+mesh = SubResource( 14 )
+material/0 = SubResource( 19 )
 
 [node name="Wakim" type="MeshInstance" parent="MainBuilding/GrafittiHolder"]
 transform = Transform( 1.97974, -0.283987, 0, 0.283987, 1.97974, 0, 0, 0, 1, 1.67192, 0.617779, -0.64 )
-mesh = SubResource( 10 )
-material/0 = SubResource( 18 )
+mesh = SubResource( 12 )
+material/0 = SubResource( 20 )
 
 [node name="Splat" type="MeshInstance" parent="MainBuilding/GrafittiHolder/Wakim"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0434815, -0.24818, 0 )
-mesh = SubResource( 12 )
-material/0 = SubResource( 19 )
+mesh = SubResource( 14 )
+material/0 = SubResource( 21 )
 
 [node name="Pow" type="MeshInstance" parent="MainBuilding/GrafittiHolder"]
 transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 1, -2.83852, 6.214, -0.64 )
-mesh = SubResource( 10 )
-material/0 = SubResource( 20 )
+mesh = SubResource( 12 )
+material/0 = SubResource( 22 )
 
 [node name="Splat" type="MeshInstance" parent="MainBuilding/GrafittiHolder/Pow"]
 transform = Transform( 1.25, 0, 0, 0, 1.25, 0, 0, 0, 1, -0.0855365, 0, 0 )
-mesh = SubResource( 21 )
-material/0 = SubResource( 22 )
+mesh = SubResource( 23 )
+material/0 = SubResource( 24 )
 
 [node name="CharacterHolder" type="Spatial" parent="MainBuilding"]
-editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.669021 )
 
 [node name="Character1" type="MeshInstance" parent="MainBuilding/CharacterHolder"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 4, 0 )
-mesh = SubResource( 23 )
-material/0 = SubResource( 24 )
+mesh = SubResource( 25 )
+material/0 = SubResource( 26 )
 
 [node name="Character2" type="MeshInstance" parent="MainBuilding/CharacterHolder"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 4, 0 )
-mesh = SubResource( 23 )
-material/0 = SubResource( 25 )
+mesh = SubResource( 25 )
+material/0 = SubResource( 27 )
 
 [node name="Character3" type="MeshInstance" parent="MainBuilding/CharacterHolder"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 4, 0 )
-mesh = SubResource( 23 )
-material/0 = SubResource( 26 )
+mesh = SubResource( 25 )
+material/0 = SubResource( 28 )
 
 [node name="Character4" type="MeshInstance" parent="MainBuilding/CharacterHolder"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 4, 0 )
-mesh = SubResource( 23 )
-material/0 = SubResource( 27 )
+mesh = SubResource( 25 )
+material/0 = SubResource( 29 )
 
 [node name="Character5" type="MeshInstance" parent="MainBuilding/CharacterHolder"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 2, 0 )
-mesh = SubResource( 23 )
-material/0 = SubResource( 28 )
+mesh = SubResource( 25 )
+material/0 = SubResource( 30 )
 
 [node name="Character6" type="MeshInstance" parent="MainBuilding/CharacterHolder"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 2, 0 )
-mesh = SubResource( 23 )
-material/0 = SubResource( 29 )
+mesh = SubResource( 25 )
+material/0 = SubResource( 31 )
 
 [node name="Character7" type="MeshInstance" parent="MainBuilding/CharacterHolder"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 2, 0 )
-mesh = SubResource( 23 )
-material/0 = SubResource( 30 )
+mesh = SubResource( 25 )
+material/0 = SubResource( 32 )
 
 [node name="Character8" type="MeshInstance" parent="MainBuilding/CharacterHolder"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 2, 0 )
-mesh = SubResource( 23 )
-material/0 = SubResource( 31 )
+mesh = SubResource( 25 )
+material/0 = SubResource( 33 )
 
 [node name="BuldingFace" type="MeshInstance" parent="MainBuilding"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, -1 )
-mesh = SubResource( 32 )
-material/0 = SubResource( 33 )
+mesh = SubResource( 34 )
+material/0 = SubResource( 35 )
 
-[node name="PickingScreenTransition" parent="." instance=ExtResource( 16 )]
+[node name="PickingScreenTransition" parent="." instance=ExtResource( 21 )]
 
 [node name="SelectionSprites" type="Node" parent="."]
-editor/display_folded = true
 
 [node name="Player1" type="Sprite3D" parent="SelectionSprites"]
 transform = Transform( 0.4, 0, 0, 0, 0.4, 0, 0, 0, 1, -3, 4, -0.65 )
 double_sided = false
-texture = ExtResource( 17 )
+texture = ExtResource( 22 )
 
 [node name="Player2" type="Sprite3D" parent="SelectionSprites"]
 transform = Transform( 0.4, 0, 0, 0, 0.4, 0, 0, 0, 1, -3, 4, -0.65 )
 double_sided = false
-texture = ExtResource( 18 )
+texture = ExtResource( 23 )
 
 [node name="Player3" type="Sprite3D" parent="SelectionSprites"]
 transform = Transform( 0.4, 0, 0, 0, 0.4, 0, 0, 0, 1, -3, 4, -0.65 )
 double_sided = false
-texture = ExtResource( 19 )
+texture = ExtResource( 24 )
 
 [node name="Player4" type="Sprite3D" parent="SelectionSprites"]
 transform = Transform( 0.4, 0, 0, 0, 0.4, 0, 0, 0, 1, -3, 4, -0.65 )
 double_sided = false
-texture = ExtResource( 20 )
+texture = ExtResource( 25 )
 
 [node name="PlayerCounter" type="Node" parent="."]
 

@@ -4,7 +4,7 @@ extends Camera2D
 # scene needs to have a container called "Player_Container" with all of the players in it
 
 export (float) var zoom_offset = 0.4 # this is the leeway that the zoom will take place
-export (bool) var debug_mode = false # will draw a visual helper to see whats happening
+export (bool) var debug_mode = true # will draw a visual helper to see whats happening
 
 var camera_rect = Rect2() # the cameras rectangle
 var viewport_rect = Rect2() # the viewports rectangle
@@ -50,6 +50,8 @@ func cam_start():
 	set_process(true) # set process true
 
 func _process(delta):
+	var planned_offset
+	var planned_zoom
 	camera_rect = Rect2(player_array[0].global_position, Vector2()) # set the camera rect to first player
 	var counter = 0 # loop helper
 	for index in player_array: # loop over the player array objects
@@ -59,8 +61,12 @@ func _process(delta):
 		camera_rect = camera_rect.expand(player_array[counter].global_position) # add another character to the extents
 		counter += 1 # increase counter
 	
-	offset = calculate_center(camera_rect) # set our offset
-	zoom = calculate_zoom(camera_rect, viewport_rect.size) # set our size
+	planned_offset = calculate_center(camera_rect) # set our offset
+	planned_zoom = calculate_zoom(camera_rect, viewport_rect.size) # set our size
+	
+	$CameraTween.interpolate_property(self, "offset", offset, planned_offset, 0.4, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
+	$CameraTween.interpolate_property(self, "zoom", zoom, planned_zoom, 0.4, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
+	$CameraTween.start()
 	
 	if debug_mode:
 		update()

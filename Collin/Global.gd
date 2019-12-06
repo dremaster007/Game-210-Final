@@ -3,10 +3,15 @@ extends Node
 export (PackedScene) var Title_Screen
 export (PackedScene) var Picking_Screen
 export (PackedScene) var Play_Screen
+export (PackedScene) var Game_Over_Screen
+
+export (int) var game_time
 
 var number_of_players = 1
 
 var player_picks = {"player_1": 0, "player_2": 0, "player_3": 0, "player_4": 0}
+
+var player_score = {"player_1": 0, "player_2": 0, "player_3": 0, "player_4": 0}
 
 func _ready():
 	OS.window_fullscreen = true
@@ -19,12 +24,12 @@ func _joy_connection_changed(device_id, is_connected):
 	#print("Device ", device_id, " connected_status = ", is_connected)
 
 func get_joypads():
+	# This is where we can set amount of players by default!
 	number_of_players = 1
 	var joypads = Input.get_connected_joypads()
 	if joypads != []:
 		for item in joypads:
 			number_of_players += 1
-	print(find_node("Scenes").get_child(0))
 	
 	if find_node("Scenes").find_node("PickingScreen") != null:
 		find_node("PickingScreen").get_players()
@@ -52,6 +57,14 @@ func change_scene(next_scene):
 			next_scene = Picking_Screen
 		"game_screen":
 			next_scene = Play_Screen
+		"game_over_screen":
+			next_scene = Game_Over_Screen
 	
 	var i = next_scene.instance()
 	$Scenes.add_child(i)
+
+func play_sound(next_sound):
+	if next_sound == "StartTimerSFX":
+		$CountdownTimerSFX.play(1.9)
+	else:
+		get_node(next_sound).play()
