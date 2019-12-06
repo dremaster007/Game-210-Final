@@ -29,4 +29,3 @@ volume_db = -3.0
 [node name="FightSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )
 volume_db = -3.0
-

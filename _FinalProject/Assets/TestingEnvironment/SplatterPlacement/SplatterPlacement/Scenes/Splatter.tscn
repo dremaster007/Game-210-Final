@@ -74,6 +74,5 @@ shape = SubResource( 1 )
 wait_time = 0.05
 one_shot = true
 autostart = true
-
 [connection signal="area_shape_entered" from="Check" to="." method="_on_TLCheck_area_shape_entered"]
 [connection signal="timeout" from="PlaceTimer" to="." method="_on_PlaceTimer_timeout"]

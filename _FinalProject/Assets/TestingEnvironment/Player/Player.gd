@@ -578,6 +578,6 @@ func _on_UltDuration_timeout():
 func _on_UltTimer_timeout():
 	ultimate_active()
 
-func disable_attack_collisions(is_disabled):
+func set_attack_collisions(is_disabled):
 	print("is_disabled = ", is_disabled)
-	$Attack_Collision/CollisionShape2D.call_deferred("set", "disabled", is_disabled)
+	$Attack_Collision/CollisionShape2D.set_deferred("disabled", is_disabled)

@@ -7,7 +7,7 @@ export (PackedScene) var Game_Over_Screen
 
 export (int) var game_time
 
-var number_of_players = 1
+var number_of_players = 2
 
 var player_picks = {"player_1": 0, "player_2": 0, "player_3": 0, "player_4": 0}
 
@@ -25,7 +25,7 @@ func _joy_connection_changed(device_id, is_connected):
 
 func get_joypads():
 	# This is where we can set amount of players by default!
-	number_of_players = 1
+	#number_of_players = 1
 	var joypads = Input.get_connected_joypads()
 	if joypads != []:
 		for item in joypads:
