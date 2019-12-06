@@ -5,6 +5,8 @@ export (PackedScene) var Picking_Screen
 export (PackedScene) var Play_Screen
 export (PackedScene) var Game_Over_Screen
 
+export (int) var game_time
+
 var number_of_players = 1
 
 var player_picks = {"player_1": 0, "player_2": 0, "player_3": 0, "player_4": 0}
@@ -60,3 +62,9 @@ func change_scene(next_scene):
 	
 	var i = next_scene.instance()
 	$Scenes.add_child(i)
+
+func play_sound(next_sound):
+	if next_sound == "StartTimerSFX":
+		$CountdownTimerSFX.play(1.9)
+	else:
+		get_node(next_sound).play()
